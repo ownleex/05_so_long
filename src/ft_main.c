@@ -3,12 +3,13 @@
 /*                                                        :::      ::::::::   */
 /*   ft_main.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bdellaro <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: ayarmaya <ayarmaya@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/12 16:53:07 by bdellaro          #+#    #+#             */
-/*   Updated: 2024/01/12 16:53:11 by bdellaro         ###   ########.fr       */
+/*   Created: 2024/01/23 18:56:56 by ayarmaya          #+#    #+#             */
+/*   Updated: 2024/01/23 18:56:59 by ayarmaya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 #include "../include/fractol.h"
 
 int	main(int argc, char **argv)

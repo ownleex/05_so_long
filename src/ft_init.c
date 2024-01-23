@@ -3,12 +3,13 @@
 /*                                                        :::      ::::::::   */
 /*   ft_init.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bdellaro <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: ayarmaya <ayarmaya@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/12 16:30:37 by bdellaro          #+#    #+#             */
-/*   Updated: 2024/01/12 17:12:08 by bdellaro         ###   ########.fr       */
+/*   Created: 2024/01/23 18:56:35 by ayarmaya          #+#    #+#             */
+/*   Updated: 2024/01/23 18:56:37 by ayarmaya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 #include "../include/fractol.h"
 
 int	ft_init(char *fract)
