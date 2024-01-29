@@ -6,7 +6,7 @@
 #    By: ayarmaya <ayarmaya@student.42nice.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/18 17:27:18 by ayarmaya          #+#    #+#              #
-#    Updated: 2024/01/18 23:48:59 by ayarmaya         ###   ########.fr        #
+#    Updated: 2024/01/29 17:59:17 by ayarmaya         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,7 +15,11 @@ CFLAGS	:= -Wextra -Wall -Werror -Wunreachable-code -Ofast
 LIBMLX	:= MLX42
 
 HEADERS	:= -I ./include -I $(LIBMLX)/include
-LIBS	:= $(LIBMLX)/build/libmlx42.a -ldl -lglfw -pthread -lm
+LIBS	:= libft/libft.a $(LIBMLX)/build/libmlx42.a -ldl -lglfw -pthread -lm
+
+CC	:= gcc
+RM	:= rm -rf
+
 SRCS	:= $(shell find ./src -iname "*.c")
 OBJS	:= ${SRCS:.c=.o}
 
@@ -23,19 +27,22 @@ all: libmlx $(NAME)
 
 libmlx:
 	cmake $(LIBMLX) -B $(LIBMLX)/build && make -C $(LIBMLX)/build -j4
+	cd libft;make
 
 %.o: %.c
 	$(CC) $(CFLAGS) -o $@ -c $< $(HEADERS) && printf "Compiling: $(notdir $<)"
 
 $(NAME): $(OBJS)
-	$(CC) $(OBJS) $(LIBS) $(HEADERS) -o $(NAME)
+	$(CC) $(OBJS) $(LIBS) -o $(NAME)
 
 clean:
-	rm -rf $(OBJS)
-	rm -rf $(LIBMLX)/build
+	$(RM) $(OBJS)
+	$(RM) $(LIBMLX)/build
+	cd libft;make clean
 
 fclean: clean
-	rm -rf $(NAME)
+	$(RM) $(NAME)
+	cd libft;make fclean
 
 re: clean all
 

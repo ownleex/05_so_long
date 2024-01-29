@@ -6,7 +6,7 @@
 #    By: ayarmaya <ayarmaya@student.42nice.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/18 17:27:18 by ayarmaya          #+#    #+#              #
-#    Updated: 2024/01/23 18:40:47 by ayarmaya         ###   ########.fr        #
+#    Updated: 2024/01/29 17:56:39 by ayarmaya         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -47,4 +47,4 @@ fclean: clean
 
 re: fclean all
 
-.PHONY: all, clean, fclean, re, libmlx
+.PHONY: all, clean, fclean, re, libftmlx
