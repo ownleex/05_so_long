@@ -6,14 +6,14 @@
 #    By: ayarmaya <ayarmaya@student.42nice.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/18 17:27:18 by ayarmaya          #+#    #+#              #
-#    Updated: 2024/01/29 17:56:39 by ayarmaya         ###   ########.fr        #
+#    Updated: 2024/01/30 01:09:27 by ayarmaya         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME	:= Game
 CFLAGS	:= -Wall -Wextra -Werror
 
-HEADERS	:= -I/usr/include -Imlx_linux -I./include -Ilibftprintf/include
+HEADERS	:= -I/usr/include -Imlx_linux -I./include -Ilibft/include
 LIBS	:= libft/libft.a -Lmlx_linux -lmlx_Linux -L/usr/lib -Imlx_linux -lXext -lX11 -lm -lz
 
 CC	:= gcc
