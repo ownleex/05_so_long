@@ -1,29 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_utils.c                                         :+:      :+:    :+:   */
+/*   so_long.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ayarmaya <ayarmaya@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/23 18:57:11 by ayarmaya          #+#    #+#             */
-/*   Updated: 2024/01/23 18:57:25 by ayarmaya         ###   ########.fr       */
+/*   Created: 2024/02/05 16:50:50 by ayarmaya          #+#    #+#             */
+/*   Updated: 2024/02/05 17:36:01 by ayarmaya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fractol.h"
+#ifndef SO_LONG_H
+# define SO_LONG_H
 
-int	ft_mlx_error(void *mlx_ptr, void *win_ptr)
-{
-	mlx_destroy_display(mlx_ptr);
-	free(win_ptr);
-	free(mlx_ptr);
-	ft_printf("Error : no window created\n");
-	return (MLX_ERROR);
-}
+# include "../libft/include/ft_printf.h"
+# include "../libft/include/get_next_line.h"
+# include "../libft/include/libft.h"
+# include "../mlx_linux/mlx.h"
 
-void	ft_mlx_free(void *mlx_ptr, void *win_ptr)
-{
-	mlx_destroy_window(mlx_ptr, win_ptr);
-	mlx_destroy_display(mlx_ptr);
-	free(mlx_ptr);
-}
+typedef struct	s_data {
+	void	*img;
+	char	*addr;
+	int		bits_per_pixel;
+	int		line_length;
+	int		endian;
+}				t_data;
+
+#endif

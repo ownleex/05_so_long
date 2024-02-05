@@ -6,7 +6,7 @@
 /*   By: ayarmaya <ayarmaya@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/08 16:48:54 by ayarmaya          #+#    #+#             */
-/*   Updated: 2024/01/18 05:07:56 by ayarmaya         ###   ########.fr       */
+/*   Updated: 2024/02/05 17:10:46 by ayarmaya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,9 +22,9 @@
 #  define BUFFER_SIZE 42
 # endif
 
-size_t	ft_strlen(char *str);
+size_t	gnl_strlen(char *str);
 char	*ft_strndup(char *str, size_t len);
-char	*ft_strjoin(char *s1, char *s2);
+char	*gnl_strjoin(char *s1, char *s2);
 char	*get_next_line(int fd);
 
 #endif

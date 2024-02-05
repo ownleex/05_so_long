@@ -6,7 +6,7 @@
 /*   By: ayarmaya <ayarmaya@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/08 16:48:47 by ayarmaya          #+#    #+#             */
-/*   Updated: 2024/01/18 05:07:45 by ayarmaya         ###   ########.fr       */
+/*   Updated: 2024/02/05 17:10:09 by ayarmaya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ char	*ft_strndup(char *str, size_t len)
 	return (result);
 }
 
-char	*ft_strjoin(char *str, char *buffer)
+char	*gnl_strjoin(char *str, char *buffer)
 {
 	size_t	i;
 	size_t	len;
@@ -38,10 +38,10 @@ char	*ft_strjoin(char *str, char *buffer)
 
 	if (!buffer)
 		return (NULL);
-	len = ft_strlen(buffer);
+	len = gnl_strlen(buffer);
 	if (!str)
 		return (ft_strndup(buffer, len));
-	len = len + ft_strlen(str);
+	len = len + gnl_strlen(str);
 	result = (char *)malloc(sizeof(char) * (len + 1));
 	if (!result)
 		return (NULL);
@@ -58,7 +58,7 @@ char	*ft_strjoin(char *str, char *buffer)
 	return (result);
 }
 
-size_t	ft_strlen(char *str)
+size_t	gnl_strlen(char *str)
 {
 	size_t	i;
 

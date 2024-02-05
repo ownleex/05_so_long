@@ -6,7 +6,7 @@
 /*   By: ayarmaya <ayarmaya@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/08 16:48:01 by ayarmaya          #+#    #+#             */
-/*   Updated: 2024/01/18 05:07:49 by ayarmaya         ###   ########.fr       */
+/*   Updated: 2024/02/05 17:10:06 by ayarmaya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ char	*ft_print_line(char **str)
 	if (temp_str[back_n] == '\n')
 		back_n++;
 	line = ft_strndup(temp_str, back_n);
-	*str = ft_strndup(temp_str + back_n, ft_strlen(temp_str + back_n));
+	*str = ft_strndup(temp_str + back_n, gnl_strlen(temp_str + back_n));
 	free(temp_str);
 	temp_str = NULL;
 	return (line);
@@ -81,7 +81,7 @@ char	*get_next_line(int fd)
 			if (n_read < 0)
 				return (ft_cleanup(&str, &buffer));
 			buffer[n_read] = '\0';
-			str = ft_strjoin(str, buffer);
+			str = gnl_strjoin(str, buffer);
 			if (ft_next(str))
 				break ;
 		}
