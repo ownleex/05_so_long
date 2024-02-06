@@ -6,7 +6,7 @@
 /*   By: ayarmaya <ayarmaya@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/18 17:38:48 by ayarmaya          #+#    #+#             */
-/*   Updated: 2024/02/05 16:21:17 by ayarmaya         ###   ########.fr       */
+/*   Updated: 2024/02/06 16:03:45 by ayarmaya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,12 +37,13 @@ static void ft_hook(void* param)
 int32_t	main(void)
 {
 
-	// MLX allows you to define its core behaviour before startup.
-	mlx_set_setting(MLX_MAXIMIZED, true);
+	
 	mlx_t* mlx = mlx_init(WIDTH, HEIGHT, "42Balls", true);
 	if (!mlx)
 		ft_error();
 
+	// MLX allows you to define its core behaviour before startup.
+	mlx_set_setting(MLX_MAXIMIZED, true);
 	/* Do stuff */
 
 	// Create and display the image.
