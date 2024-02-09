@@ -6,66 +6,54 @@
 /*   By: ayarmaya <ayarmaya@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/23 18:56:56 by ayarmaya          #+#    #+#             */
-/*   Updated: 2024/02/06 17:38:33 by ayarmaya         ###   ########.fr       */
+/*   Updated: 2024/02/09 03:18:23 by ayarmaya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/so_long.h"
 
-#include <mlx.h>
-#include <stdlib.h>
-
-int main(void)
+int	main(void)
 {
-    void    *mlx_ptr;
-    void    *win_ptr;
-    void    *img_bg_ptr; // Pointeur vers l'image de fond
-    void    *img_fg_ptr; // Pointeur vers l'image de premier plan
-    void    *img_fg_ptr2;
-    int     bg_width, bg_height;
-    int     fg_width, fg_height;
-    int     fg2_width, fg2_height;
+	void	*mlx_ptr;
+	void	*win_ptr;
+	void	*img_green_ptr;
+	void	*img_fire_ptr;
+	void	*img_water_ptr;
+	int		green_width, green_height;
+	int		fire_width, fire_height;
+	int		water_width, water_height;
 
-    // Initialisation de MiniLibX
-    mlx_ptr = mlx_init();
+	mlx_ptr = mlx_init();
+	win_ptr = mlx_new_window(mlx_ptr, 1500, 1000, "So Long");
+	img_green_ptr = mlx_xpm_file_to_image(mlx_ptr, "sprites/green.xpm", &green_width, &green_height);
+	img_fire_ptr = mlx_xpm_file_to_image(mlx_ptr, "sprites/fire.xpm", &fire_width, &fire_height);
+	img_water_ptr = mlx_xpm_file_to_image(mlx_ptr, "sprites/water.xpm", &water_width, &water_height);
+	int green_x = 0;
+	int green_y = 0;
+	while (green_y <= 1000)
+	{
+		while (green_x <= 1500)
+		{
+			if (img_green_ptr != NULL)
+			{
+				mlx_put_image_to_window(mlx_ptr, win_ptr, img_green_ptr, green_x, green_y);
+				green_x += 100;
+			}
+		}
+		green_y += 100;
+		green_x = 0;
+	}
+	if (img_fire_ptr != NULL)
+	{
+		mlx_put_image_to_window(mlx_ptr, win_ptr, img_fire_ptr, 800, 400);
+	}
+	if (img_water_ptr != NULL)
+	{
+		mlx_put_image_to_window(mlx_ptr, win_ptr, img_water_ptr, 1000, 700);
+	}
+	mlx_loop(mlx_ptr);
 
-    // Création de la fenêtre
-    win_ptr = mlx_new_window(mlx_ptr, 1500, 1003, "So Long");
-
-    // Chargement de l'image de fond
-    img_bg_ptr = mlx_xpm_file_to_image(mlx_ptr, "sprites/background.xpm", &bg_width, &bg_height);
-    
-    // Chargement de l'image de premier plan
-    img_fg_ptr = mlx_xpm_file_to_image(mlx_ptr, "sprites/crystal.xpm", &fg_width, &fg_height);
-
-   // Chargement de l'image 2 de premier plan
-    img_fg_ptr2 = mlx_xpm_file_to_image(mlx_ptr, "sprites/tree1.xpm", &fg2_width, &fg2_height);
-
-    // Affichage de l'image de fond
-    if (img_bg_ptr != NULL) {
-        mlx_put_image_to_window(mlx_ptr, win_ptr, img_bg_ptr, 0, 0);
-    }
-
-    // Affichage de l'image de premier plan à une position spécifique
-    if (img_fg_ptr != NULL) {
-        // Positionnez l'image de premier plan où vous le souhaitez
-        int fg_x = 200; // Position X pour l'image de premier plan
-        int fg_y = 150; // Position Y pour l'image de premier plan
-        mlx_put_image_to_window(mlx_ptr, win_ptr, img_fg_ptr, fg_x, fg_y);
-    }
-
-    // Affichage de l'image de premier plan à une position spécifique
-    if (img_fg_ptr2 != NULL) {
-        // Positionnez l'image de premier plan où vous le souhaitez
-        int fg2_x = 600; // Position X pour l'image de premier plan
-        int fg2_y = 150; // Position Y pour l'image de premier plan
-        mlx_put_image_to_window(mlx_ptr, win_ptr, img_fg_ptr2, fg2_x, fg2_y);
-    }
-
-    // Entrer dans la boucle d'événements
-    mlx_loop(mlx_ptr);
-
-    return (EXIT_SUCCESS);
+	return (EXIT_SUCCESS);
 }
 
 /*
