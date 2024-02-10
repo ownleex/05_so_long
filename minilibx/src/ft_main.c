@@ -6,7 +6,7 @@
 /*   By: ayarmaya <ayarmaya@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/23 18:56:56 by ayarmaya          #+#    #+#             */
-/*   Updated: 2024/02/09 03:18:23 by ayarmaya         ###   ########.fr       */
+/*   Updated: 2024/02/10 03:18:43 by ayarmaya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,17 +19,52 @@ int	main(void)
 	void	*img_green_ptr;
 	void	*img_fire_ptr;
 	void	*img_water_ptr;
+	void	*img_tree_ptr;
+	void	*img_exit_ptr;
 	int		green_width, green_height;
 	int		fire_width, fire_height;
 	int		water_width, water_height;
+	int		tree_width, tree_height;
+	int		exit_width, exit_height;
+	int		fd;
+	char	*line;
 
+	ft_printf("\nChargement de la carte du niveau");
+	usleep(1000000);
+	ft_printf(".");
+	usleep(1000000);
+	ft_printf(".");
+	usleep(1000000);
+	ft_printf(".\n\n");
+	usleep(1000000);
+	// Ouverture du fichier en lecture seule
+	fd = open("maps/exemple.ber", O_RDONLY);
+	if (fd == -1)
+	{
+		perror("Erreur lors de l'ouverture du fichier");
+		return 1;
+	}
+
+	// Lecture et affichage de chaque ligne du fichier
+	while ((line = get_next_line(fd)) != NULL)
+	{
+		ft_printf("%s", line);
+		free(line);
+	}
+	usleep(1000000);
+	ft_printf("\n\nChargement réussi !!!\n\n");
+	// Fermeture du fichier
+	close(fd);
 	mlx_ptr = mlx_init();
-	win_ptr = mlx_new_window(mlx_ptr, 1500, 1000, "So Long");
+	win_ptr = mlx_new_window(mlx_ptr, 1500, 1000, "O----------FireWater----------O");
 	img_green_ptr = mlx_xpm_file_to_image(mlx_ptr, "sprites/green.xpm", &green_width, &green_height);
 	img_fire_ptr = mlx_xpm_file_to_image(mlx_ptr, "sprites/fire.xpm", &fire_width, &fire_height);
 	img_water_ptr = mlx_xpm_file_to_image(mlx_ptr, "sprites/water.xpm", &water_width, &water_height);
-	int green_x = 0;
-	int green_y = 0;
+	img_tree_ptr = mlx_xpm_file_to_image(mlx_ptr, "sprites/tree.xpm", &tree_width, &tree_height);
+	img_exit_ptr = mlx_xpm_file_to_image(mlx_ptr, "sprites/exit.xpm", &exit_width, &exit_height);
+
+	int		green_x = 0;
+	int		green_y = 0;
 	while (green_y <= 1000)
 	{
 		while (green_x <= 1500)
@@ -43,19 +78,77 @@ int	main(void)
 		green_y += 100;
 		green_x = 0;
 	}
+	int		tree_x = 0;
+	int		tree_y = 0;
+	while (tree_x <= 1500)
+	{
+		if (img_tree_ptr != NULL)
+		{
+			mlx_put_image_to_window(mlx_ptr, win_ptr, img_tree_ptr, tree_x, tree_y);
+			mlx_put_image_to_window(mlx_ptr, win_ptr, img_tree_ptr, tree_x, tree_y + 900);
+			tree_x += 100;
+		}
+	}
+	tree_x = 0;
+	tree_y = 100;
+	while (tree_y <= 900)
+	{
+		if (img_tree_ptr != NULL)
+		{
+			mlx_put_image_to_window(mlx_ptr, win_ptr, img_tree_ptr, tree_x, tree_y);
+			mlx_put_image_to_window(mlx_ptr, win_ptr, img_tree_ptr, tree_x + 1400, tree_y);
+			tree_y += 100;
+		}
+	}
 	if (img_fire_ptr != NULL)
 	{
 		mlx_put_image_to_window(mlx_ptr, win_ptr, img_fire_ptr, 800, 400);
+		mlx_put_image_to_window(mlx_ptr, win_ptr, img_fire_ptr, 500, 800);
+		mlx_put_image_to_window(mlx_ptr, win_ptr, img_fire_ptr, 200, 200);
 	}
 	if (img_water_ptr != NULL)
 	{
 		mlx_put_image_to_window(mlx_ptr, win_ptr, img_water_ptr, 1000, 700);
 	}
+	if (img_exit_ptr != NULL)
+	{
+		mlx_put_image_to_window(mlx_ptr, win_ptr, img_exit_ptr, 300, 300);
+	}
+	usleep(1000000);
+	ft_printf("+----------------------------------------------------------------------------------------------+\n");
+	ft_printf("|                                                                                              |\n");
+	ft_printf("|   Vous êtes une goutte d'eau, vous devez éteindre les feux avant de rejoindre la piscine !   |\n");
+	ft_printf("|                                                                                              |\n");
+	ft_printf("+----------------------------------------------------------------------------------------------+\n");
 	mlx_loop(mlx_ptr);
-
 	return (EXIT_SUCCESS);
 }
+/*
+int	main()
+{
+	int		fd;
+	char	*line;
 
+	// Ouverture du fichier en lecture seule
+	fd = open("maps/exemple", O_RDONLY);
+	if (fd == -1)
+	{
+		perror("Erreur lors de l'ouverture du fichier");
+		return 1;
+	}
+
+	// Lecture et affichage de chaque ligne du fichier
+	while ((line = get_next_line(fd)) != NULL)
+	{
+		ft_printf("%s", line);
+		free(line);
+	}
+
+	// Fermeture du fichier
+	close(fd);
+	return 0;
+}
+*/
 /*
 int	main(void)
 {
