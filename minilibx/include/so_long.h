@@ -6,7 +6,7 @@
 /*   By: ayarmaya <ayarmaya@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/05 16:50:50 by ayarmaya          #+#    #+#             */
-/*   Updated: 2024/02/10 02:16:35 by ayarmaya         ###   ########.fr       */
+/*   Updated: 2024/02/11 02:56:36 by ayarmaya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,23 @@ typedef struct	s_data {
 	int		line_length;
 	int		endian;
 }				t_data;
+
+typedef struct	s_vars {
+	void	*mlx;
+	void	*win;
+	void	*mlx_ptr;
+	void	*win_ptr;
+	void	*img_green_ptr;
+	void	*img_fire_ptr;
+	void	*img_water_ptr;
+	void	*img_tree_ptr;
+	void	*img_exit_ptr;
+	int		green_width, green_height;
+	int		fire_width, fire_height;
+	int		water_width, water_height;
+	int		tree_width, tree_height;
+	int		exit_width, exit_height;
+}				t_vars;
 
 void	my_mlx_pixel_put(t_data *data, int x, int y, int color);
 

@@ -6,7 +6,7 @@
 /*   By: ayarmaya <ayarmaya@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/23 18:56:56 by ayarmaya          #+#    #+#             */
-/*   Updated: 2024/02/10 03:18:43 by ayarmaya         ###   ########.fr       */
+/*   Updated: 2024/02/10 19:13:47 by ayarmaya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,15 +30,15 @@ int	main(void)
 	char	*line;
 
 	ft_printf("\nChargement de la carte du niveau");
-	usleep(1000000);
+	usleep(1500000);
 	ft_printf(".");
-	usleep(1000000);
+	usleep(1500000);
 	ft_printf(".");
-	usleep(1000000);
+	usleep(1500000);
 	ft_printf(".\n\n");
-	usleep(1000000);
+	usleep(1500000);
 	// Ouverture du fichier en lecture seule
-	fd = open("maps/exemple.ber", O_RDONLY);
+	fd = open("maps/big.ber", O_RDONLY);
 	if (fd == -1)
 	{
 		perror("Erreur lors de l'ouverture du fichier");
@@ -114,41 +114,14 @@ int	main(void)
 	{
 		mlx_put_image_to_window(mlx_ptr, win_ptr, img_exit_ptr, 300, 300);
 	}
-	usleep(1000000);
-	ft_printf("+----------------------------------------------------------------------------------------------+\n");
-	ft_printf("|                                                                                              |\n");
-	ft_printf("|   Vous êtes une goutte d'eau, vous devez éteindre les feux avant de rejoindre la piscine !   |\n");
-	ft_printf("|                                                                                              |\n");
-	ft_printf("+----------------------------------------------------------------------------------------------+\n");
+	ft_printf("+------------------------------------------------------------------------------------------------+\n");
+	ft_printf("|                                                                                                |\n");
+	ft_printf("|   Vous êtes une goutte d'eau , vous devez éteindre les feux avant de rejoindre la piscine !    |\n");
+	ft_printf("|                                                                                                |\n");
+	ft_printf("+------------------------------------------------------------------------------------------------+\n");
 	mlx_loop(mlx_ptr);
 	return (EXIT_SUCCESS);
 }
-/*
-int	main()
-{
-	int		fd;
-	char	*line;
-
-	// Ouverture du fichier en lecture seule
-	fd = open("maps/exemple", O_RDONLY);
-	if (fd == -1)
-	{
-		perror("Erreur lors de l'ouverture du fichier");
-		return 1;
-	}
-
-	// Lecture et affichage de chaque ligne du fichier
-	while ((line = get_next_line(fd)) != NULL)
-	{
-		ft_printf("%s", line);
-		free(line);
-	}
-
-	// Fermeture du fichier
-	close(fd);
-	return 0;
-}
-*/
 /*
 int	main(void)
 {
