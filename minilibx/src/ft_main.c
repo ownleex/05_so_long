@@ -6,7 +6,7 @@
 /*   By: ayarmaya <ayarmaya@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/23 18:56:56 by ayarmaya          #+#    #+#             */
-/*   Updated: 2024/02/10 19:13:47 by ayarmaya         ###   ########.fr       */
+/*   Updated: 2024/02/12 18:00:30 by ayarmaya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,29 +14,18 @@
 
 int	main(void)
 {
-	void	*mlx_ptr;
-	void	*win_ptr;
-	void	*img_green_ptr;
-	void	*img_fire_ptr;
-	void	*img_water_ptr;
-	void	*img_tree_ptr;
-	void	*img_exit_ptr;
-	int		green_width, green_height;
-	int		fire_width, fire_height;
-	int		water_width, water_height;
-	int		tree_width, tree_height;
-	int		exit_width, exit_height;
+	t_vars	game;
 	int		fd;
 	char	*line;
 
 	ft_printf("\nChargement de la carte du niveau");
-	usleep(1500000);
+	//usleep(1500000);
 	ft_printf(".");
-	usleep(1500000);
+	//usleep(1500000);
 	ft_printf(".");
-	usleep(1500000);
+	//usleep(1500000);
 	ft_printf(".\n\n");
-	usleep(1500000);
+	//usleep(1500000);
 	// Ouverture du fichier en lecture seule
 	fd = open("maps/big.ber", O_RDONLY);
 	if (fd == -1)
@@ -51,17 +40,17 @@ int	main(void)
 		ft_printf("%s", line);
 		free(line);
 	}
-	usleep(1000000);
+	//usleep(1000000);
 	ft_printf("\n\nChargement réussi !!!\n\n");
 	// Fermeture du fichier
 	close(fd);
-	mlx_ptr = mlx_init();
-	win_ptr = mlx_new_window(mlx_ptr, 1500, 1000, "O----------FireWater----------O");
-	img_green_ptr = mlx_xpm_file_to_image(mlx_ptr, "sprites/green.xpm", &green_width, &green_height);
-	img_fire_ptr = mlx_xpm_file_to_image(mlx_ptr, "sprites/fire.xpm", &fire_width, &fire_height);
-	img_water_ptr = mlx_xpm_file_to_image(mlx_ptr, "sprites/water.xpm", &water_width, &water_height);
-	img_tree_ptr = mlx_xpm_file_to_image(mlx_ptr, "sprites/tree.xpm", &tree_width, &tree_height);
-	img_exit_ptr = mlx_xpm_file_to_image(mlx_ptr, "sprites/exit.xpm", &exit_width, &exit_height);
+	game.mlx_ptr = mlx_init();
+	game.win_ptr = mlx_new_window(game.mlx_ptr, 1500, 1000, "O----------FireWater----------O");
+	game.img_green_ptr = mlx_xpm_file_to_image(game.mlx_ptr, "sprites/green.xpm", &game.green_width, &game.green_height);
+	game.img_fire_ptr = mlx_xpm_file_to_image(game.mlx_ptr, "sprites/fire.xpm", &game.fire_width, &game.fire_height);
+	game.img_water_ptr = mlx_xpm_file_to_image(game.mlx_ptr, "sprites/water.xpm", &game.water_width, &game.water_height);
+	game.img_tree_ptr = mlx_xpm_file_to_image(game.mlx_ptr, "sprites/tree.xpm", &game.tree_width, &game.tree_height);
+	game.img_exit_ptr = mlx_xpm_file_to_image(game.mlx_ptr, "sprites/exit.xpm", &game.exit_width, &game.exit_height);
 
 	int		green_x = 0;
 	int		green_y = 0;
@@ -69,9 +58,9 @@ int	main(void)
 	{
 		while (green_x <= 1500)
 		{
-			if (img_green_ptr != NULL)
+			if (game.img_green_ptr != NULL)
 			{
-				mlx_put_image_to_window(mlx_ptr, win_ptr, img_green_ptr, green_x, green_y);
+				mlx_put_image_to_window(game.mlx_ptr, game.win_ptr, game.img_green_ptr, green_x, green_y);
 				green_x += 100;
 			}
 		}
@@ -82,10 +71,10 @@ int	main(void)
 	int		tree_y = 0;
 	while (tree_x <= 1500)
 	{
-		if (img_tree_ptr != NULL)
+		if (game.img_tree_ptr != NULL)
 		{
-			mlx_put_image_to_window(mlx_ptr, win_ptr, img_tree_ptr, tree_x, tree_y);
-			mlx_put_image_to_window(mlx_ptr, win_ptr, img_tree_ptr, tree_x, tree_y + 900);
+			mlx_put_image_to_window(game.mlx_ptr, game.win_ptr, game.img_tree_ptr, tree_x, tree_y);
+			mlx_put_image_to_window(game.mlx_ptr, game.win_ptr, game.img_tree_ptr, tree_x, tree_y + 900);
 			tree_x += 100;
 		}
 	}
@@ -93,33 +82,33 @@ int	main(void)
 	tree_y = 100;
 	while (tree_y <= 900)
 	{
-		if (img_tree_ptr != NULL)
+		if (game.img_tree_ptr != NULL)
 		{
-			mlx_put_image_to_window(mlx_ptr, win_ptr, img_tree_ptr, tree_x, tree_y);
-			mlx_put_image_to_window(mlx_ptr, win_ptr, img_tree_ptr, tree_x + 1400, tree_y);
+			mlx_put_image_to_window(game.mlx_ptr, game.win_ptr, game.img_tree_ptr, tree_x, tree_y);
+			mlx_put_image_to_window(game.mlx_ptr, game.win_ptr, game.img_tree_ptr, tree_x + 1400, tree_y);
 			tree_y += 100;
 		}
 	}
-	if (img_fire_ptr != NULL)
+	if (game.img_fire_ptr != NULL)
 	{
-		mlx_put_image_to_window(mlx_ptr, win_ptr, img_fire_ptr, 800, 400);
-		mlx_put_image_to_window(mlx_ptr, win_ptr, img_fire_ptr, 500, 800);
-		mlx_put_image_to_window(mlx_ptr, win_ptr, img_fire_ptr, 200, 200);
+		mlx_put_image_to_window(game.mlx_ptr, game.win_ptr, game.img_fire_ptr, 800, 400);
+		mlx_put_image_to_window(game.mlx_ptr, game.win_ptr, game.img_fire_ptr, 500, 800);
+		mlx_put_image_to_window(game.mlx_ptr, game.win_ptr, game.img_fire_ptr, 200, 200);
 	}
-	if (img_water_ptr != NULL)
+	if (game.img_water_ptr != NULL)
 	{
-		mlx_put_image_to_window(mlx_ptr, win_ptr, img_water_ptr, 1000, 700);
+		mlx_put_image_to_window(game.mlx_ptr, game.win_ptr, game.img_water_ptr, 1000, 700);
 	}
-	if (img_exit_ptr != NULL)
+	if (game.img_exit_ptr != NULL)
 	{
-		mlx_put_image_to_window(mlx_ptr, win_ptr, img_exit_ptr, 300, 300);
+		mlx_put_image_to_window(game.mlx_ptr, game.win_ptr, game.img_exit_ptr, 300, 300);
 	}
 	ft_printf("+------------------------------------------------------------------------------------------------+\n");
 	ft_printf("|                                                                                                |\n");
 	ft_printf("|   Vous êtes une goutte d'eau , vous devez éteindre les feux avant de rejoindre la piscine !    |\n");
 	ft_printf("|                                                                                                |\n");
 	ft_printf("+------------------------------------------------------------------------------------------------+\n");
-	mlx_loop(mlx_ptr);
+	mlx_loop(game.mlx_ptr);
 	return (EXIT_SUCCESS);
 }
 /*
