@@ -6,7 +6,7 @@
 /*   By: ayarmaya <ayarmaya@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/10 02:49:37 by ayarmaya          #+#    #+#             */
-/*   Updated: 2024/02/13 23:41:34 by ayarmaya         ###   ########.fr       */
+/*   Updated: 2024/02/13 23:52:59 by ayarmaya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int	handle_input(int keysym, t_vars *game)
 {
-	if(keysym == XK_Escape)
+	if(keysym)
 	{
 		ft_printf("The %d key (ESC) has been pressed\n\n", keysym);
 		mlx_destroy_window(game->mlx_ptr, game->win_ptr);
