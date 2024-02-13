@@ -6,7 +6,7 @@
 /*   By: ayarmaya <ayarmaya@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/05 16:50:50 by ayarmaya          #+#    #+#             */
-/*   Updated: 2024/02/11 02:56:36 by ayarmaya         ###   ########.fr       */
+/*   Updated: 2024/02/13 23:19:00 by ayarmaya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,17 +19,15 @@
 # include "../mlx_linux/mlx.h"
 # include <unistd.h>
 
-typedef struct	s_data {
-	void	*img;
-	char	*addr;
-	int		bits_per_pixel;
-	int		line_length;
-	int		endian;
-}				t_data;
+//typedef struct	s_data {
+//	void	*img;
+//	char	*addr;
+//	int		bits_per_pixel;
+//	int		line_length;
+//	int		endian;
+//}				t_data;
 
 typedef struct	s_vars {
-	void	*mlx;
-	void	*win;
 	void	*mlx_ptr;
 	void	*win_ptr;
 	void	*img_green_ptr;
@@ -44,6 +42,7 @@ typedef struct	s_vars {
 	int		exit_width, exit_height;
 }				t_vars;
 
-void	my_mlx_pixel_put(t_data *data, int x, int y, int color);
+int		handle_input(int keysym, t_vars *game);
+//void	my_mlx_pixel_put(t_data *data, int x, int y, int color);
 
 #endif
