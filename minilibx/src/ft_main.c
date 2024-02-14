@@ -6,7 +6,7 @@
 /*   By: ayarmaya <ayarmaya@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/23 18:56:56 by ayarmaya          #+#    #+#             */
-/*   Updated: 2024/02/13 23:18:37 by ayarmaya         ###   ########.fr       */
+/*   Updated: 2024/02/14 14:29:46 by ayarmaya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -107,8 +107,9 @@ int	main(void)
 	ft_printf("|                                                                                                |\n");
 	ft_printf("|   Vous êtes une goutte d'eau , vous devez éteindre les feux avant de rejoindre la piscine !    |\n");
 	ft_printf("|                                                                                                |\n");
-	ft_printf("+------------------------------------------------------------------------------------------------+\n");
-	mlx_key_hook(game.win_ptr, handle_input, &game);
+	ft_printf("+------------------------------------------------------------------------------------------------+\n\n");
+//	mlx_key_hook(game.win_ptr, handle_input, &game);
+	mlx_hook(game.win_ptr, KeyRelease, KeyReleaseMask, handle_input, &game);
 	mlx_loop(game.mlx_ptr);
 	return (EXIT_SUCCESS);
 }
