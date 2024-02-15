@@ -6,7 +6,7 @@
 /*   By: ayarmaya <ayarmaya@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/23 18:56:56 by ayarmaya          #+#    #+#             */
-/*   Updated: 2024/02/14 14:29:46 by ayarmaya         ###   ########.fr       */
+/*   Updated: 2024/02/15 00:47:37 by ayarmaya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ int	main(void)
 	// Fermeture du fichier
 	close(fd);
 	game.mlx_ptr = mlx_init();
-	game.win_ptr = mlx_new_window(game.mlx_ptr, 1500, 1000, "O----------FireWater----------O");
+	game.win_ptr = mlx_new_window(game.mlx_ptr, 1500, 1000, "---> FireWater <---");
 	game.img_green_ptr = mlx_xpm_file_to_image(game.mlx_ptr, "sprites/green.xpm", &game.green_width, &game.green_height);
 	game.img_fire_ptr = mlx_xpm_file_to_image(game.mlx_ptr, "sprites/fire.xpm", &game.fire_width, &game.fire_height);
 	game.img_water_ptr = mlx_xpm_file_to_image(game.mlx_ptr, "sprites/water.xpm", &game.water_width, &game.water_height);

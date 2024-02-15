@@ -6,7 +6,7 @@
 /*   By: ayarmaya <ayarmaya@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/10 02:49:37 by ayarmaya          #+#    #+#             */
-/*   Updated: 2024/02/14 14:08:50 by ayarmaya         ###   ########.fr       */
+/*   Updated: 2024/02/15 00:39:19 by ayarmaya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,32 @@
 
 int	handle_input(int keysym, t_vars *game)
 {
-	if(keysym)
+	static int		count = 0;
+
+	if (keysym == 65307)
 	{
-		ft_printf("The %d key (ESC) has been pressed\n\n", keysym);
+		ft_printf("[ESC] Partie abandonnée !\n\n");
 		mlx_destroy_window(game->mlx_ptr, game->win_ptr);
 		mlx_destroy_display(game->mlx_ptr);
 		free(game->mlx_ptr);
 		exit(1);
 	}
-	ft_printf("The %d key has been pressed\n\n", keysym);
-	return(0);
+	else if (keysym == 65361)
+	{
+		count++;
+		ft_printf("Touche gauche - mouvement [%d]\n\n", count);
+	}
+	else if (keysym == 65362)
+	{
+		count++;
+		ft_printf("Touche haut - mouvement [%d]\n\n", count);	}
+	else if (keysym == 65363)
+	{
+		count++;
+		ft_printf("Touche droite - mouvement [%d]\n\n", count);	}
+	else if (keysym == 65364)
+	{
+		count++;
+		ft_printf("Touche bas - mouvement [%d]\n\n", count);	}
+	return (0);
 }

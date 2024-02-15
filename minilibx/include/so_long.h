@@ -6,7 +6,7 @@
 /*   By: ayarmaya <ayarmaya@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/05 16:50:50 by ayarmaya          #+#    #+#             */
-/*   Updated: 2024/02/14 14:14:14 by ayarmaya         ###   ########.fr       */
+/*   Updated: 2024/02/14 21:53:22 by ayarmaya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 # include "../libft/include/libft.h"
 # include "../mlx_linux/mlx.h"
 # include "../mlx_linux/mlx_int.h"
-# include <unistd.h>
+//# include <unistd.h>
 
 //typedef struct	s_data {
 //	void	*img;
@@ -36,11 +36,16 @@ typedef struct	s_vars {
 	void	*img_water_ptr;
 	void	*img_tree_ptr;
 	void	*img_exit_ptr;
-	int		green_width, green_height;
-	int		fire_width, fire_height;
-	int		water_width, water_height;
-	int		tree_width, tree_height;
-	int		exit_width, exit_height;
+	int		green_width;
+	int		green_height;
+	int		fire_width;
+	int		fire_height;
+	int		water_width;
+	int		water_height;
+	int		tree_width;
+	int		tree_height;
+	int		exit_width;
+	int		exit_height;
 }				t_vars;
 
 int		handle_input(int keysym, t_vars *game);
