@@ -6,7 +6,7 @@
 /*   By: ayarmaya <ayarmaya@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/23 18:56:56 by ayarmaya          #+#    #+#             */
-/*   Updated: 2024/02/15 00:47:37 by ayarmaya         ###   ########.fr       */
+/*   Updated: 2024/02/19 16:36:11 by ayarmaya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@ int	main(void)
 	t_vars	game;
 	int		fd;
 	char	*line;
+//	char	**map;
 
 	ft_printf("\nChargement de la carte du niveau");
 	//usleep(1500000);

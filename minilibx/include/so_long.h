@@ -6,7 +6,7 @@
 /*   By: ayarmaya <ayarmaya@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/05 16:50:50 by ayarmaya          #+#    #+#             */
-/*   Updated: 2024/02/14 21:53:22 by ayarmaya         ###   ########.fr       */
+/*   Updated: 2024/02/17 16:37:43 by ayarmaya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,7 @@ typedef struct	s_vars {
 }				t_vars;
 
 int		handle_input(int keysym, t_vars *game);
+int		check_ber(char *map);
 //void	my_mlx_pixel_put(t_data *data, int x, int y, int color);
 
 #endif
