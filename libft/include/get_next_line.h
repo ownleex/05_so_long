@@ -1,25 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_utils.c                                         :+:      :+:    :+:   */
+/*   get_next_line.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ayarmaya <ayarmaya@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/05 19:06:49 by ayarmaya          #+#    #+#             */
-/*   Updated: 2024/02/22 04:37:02 by ayarmaya         ###   ########.fr       */
+/*   Created: 2023/12/08 16:48:54 by ayarmaya          #+#    #+#             */
+/*   Updated: 2024/02/21 02:16:51 by ayarmaya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/so_long.h"
+#ifndef GET_NEXT_LINE_H
+# define GET_NEXT_LINE_H
 
-void	exit_with_message(char *message)
-{
-	ft_printf("%s", message);
-	exit(EXIT_FAILURE);
-}
+# include <unistd.h>
+# include <stdlib.h>
+# include <stdio.h>
+# include <fcntl.h>
 
-void	exit_with_perror(char *message)
-{
-	perror(message);
-	exit(EXIT_FAILURE);
-}
+# ifndef BUFFER_SIZE
+#  define BUFFER_SIZE 42
+# endif
+
+size_t	gnl_strlen(char *str);
+char	*ft_strndup(char *str, size_t len);
+char	*gnl_strjoin(char *s1, char *s2);
+char	*get_next_line(int fd);
+
+#endif
