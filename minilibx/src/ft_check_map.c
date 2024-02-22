@@ -6,19 +6,19 @@
 /*   By: ayarmaya <ayarmaya@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/19 01:56:41 by ayarmaya          #+#    #+#             */
-/*   Updated: 2024/02/22 01:41:30 by ayarmaya         ###   ########.fr       */
+/*   Updated: 2024/02/22 03:50:16 by ayarmaya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/so_long.h"
 
-void verify_char(char c)
+void	verify_char(char c)
 {
 	if (c != '0' && c != '1' && c != 'C' && c != 'E' && c != 'P')
 		exit_with_message("\n\nError\nCaractère invalide dans la carte\n\n");
 }
 
-void increment_counters(char c, int *exit, int *items, int *start)
+void	increment_counters(char c, int *exit, int *items, int *start)
 {
 	*exit += (c == 'E');
 	*items += (c == 'C');
@@ -26,7 +26,7 @@ void increment_counters(char c, int *exit, int *items, int *start)
 	verify_char(c);
 }
 
-void count_items_and_verify_chars(char **map, size_t width, size_t height)
+void	count_items_and_verify_chars(char **map, size_t width, size_t height)
 {
 	size_t	x;
 	size_t	y;
@@ -34,7 +34,9 @@ void count_items_and_verify_chars(char **map, size_t width, size_t height)
 	int		items;
 	int		start;
 
-	exit = items = start = 0;
+	exit = 0;
+	items = 0;
+	start = 0;
 	y = 0;
 	while (y < height)
 	{

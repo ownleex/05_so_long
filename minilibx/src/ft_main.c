@@ -6,7 +6,7 @@
 /*   By: ayarmaya <ayarmaya@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/17 14:00:38 by ayarmaya          #+#    #+#             */
-/*   Updated: 2024/02/22 00:26:50 by ayarmaya         ###   ########.fr       */
+/*   Updated: 2024/02/22 03:51:38 by ayarmaya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,14 +25,13 @@ int	check_ber(char *map)
 
 int	main(int argc, char **argv)
 {
-	t_vars *game;
+	t_vars	*game;
 
 	if (argc != 2)
 	{
 		ft_printf("\nError\n2 paramètres sont attendus\n\n");
 		return (0);
 	}
-
 	else if (check_ber(argv[1]) == 0)
 	{
 		ft_printf("\nError\nLa carte n'est pas un .ber\n\n");
@@ -49,9 +48,6 @@ int	main(int argc, char **argv)
 		load_map(argv[1], game);
 		check_rectangular(game->map);
 		ft_init(game);
-		// Ici, vous pouvez continuer à travailler avec game comme nécessaire
 	}
-	// N'oubliez pas de libérer la mémoire allouée pour game et ses contenus à la fin de votre programme
 	return (1);
 }
-

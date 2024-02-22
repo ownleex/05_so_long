@@ -6,7 +6,7 @@
 /*   By: ayarmaya <ayarmaya@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/22 02:23:20 by ayarmaya          #+#    #+#             */
-/*   Updated: 2024/02/22 03:09:28 by ayarmaya         ###   ########.fr       */
+/*   Updated: 2024/02/22 03:49:24 by ayarmaya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,7 +74,7 @@ void	set_fire(t_vars *game)
 
 void	set_walls(t_vars *game)
 {
-	int 		x;
+	int		x;
 	int		y;
 
 	y = 0;
@@ -86,7 +86,7 @@ void	set_walls(t_vars *game)
 			if (game->map[y][x] == '1')
 				if (game->tree_ptr != NULL)
 					mlx_put_image_to_window(game->mlx_ptr, game->win_ptr, game->tree_ptr, x * 100, y * 100);
-		x++;
+			x++;
 		}
 		y++;
 	}
@@ -113,5 +113,3 @@ void	set_green(t_vars *game)
 		x = 0;
 	}
 }
-
-

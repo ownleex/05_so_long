@@ -6,7 +6,7 @@
 /*   By: ayarmaya <ayarmaya@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/21 23:35:21 by ayarmaya          #+#    #+#             */
-/*   Updated: 2024/02/22 03:08:00 by ayarmaya         ###   ########.fr       */
+/*   Updated: 2024/02/22 03:50:34 by ayarmaya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,16 +23,15 @@ void	calculate_win_x_y(t_vars *game)
 	x = 0;
 	while (game->map[0][x])
 		x++;
-	
 	game->win_y = y * 100;
 	game->win_x = x * 100;
 }
 
-int    ft_init(t_vars *game)
+int	ft_init(t_vars *game)
 {
-        game->mlx_ptr = mlx_init();
+	game->mlx_ptr = mlx_init();
 	calculate_win_x_y(game);
-        game->win_ptr = mlx_new_window(game->mlx_ptr, game->win_x, game->win_y, "---> FireWater <---");
+	game->win_ptr = mlx_new_window(game->mlx_ptr, game->win_x, game->win_y, "---> FireWater <---");
 	game->green_ptr = mlx_xpm_file_to_image(game->mlx_ptr, "sprites/green.xpm", &game->green_x, &game->green_y);
 	game->tree_ptr = mlx_xpm_file_to_image(game->mlx_ptr, "sprites/tree.xpm", &game->tree_x, &game->tree_y);
 	game->fire_ptr = mlx_xpm_file_to_image(game->mlx_ptr, "sprites/fire.xpm", &game->fire_x, &game->fire_y);
