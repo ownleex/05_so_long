@@ -6,15 +6,24 @@
 /*   By: ayarmaya <ayarmaya@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/10 02:49:37 by ayarmaya          #+#    #+#             */
-/*   Updated: 2024/02/22 17:17:23 by ayarmaya         ###   ########.fr       */
+/*   Updated: 2024/02/22 19:22:11 by ayarmaya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/so_long.h"
 
+int	exit_destroy_game(t_vars *game)
+{
+	ft_printf("\033[5m\033[31m\n\n[ESC] : Partie quittée !\n\n\033[0m");
+	mlx_destroy_window(game->mlx_ptr, game->win_ptr);
+	mlx_destroy_display(game->mlx_ptr);
+	free(game->mlx_ptr);
+	exit(EXIT_SUCCESS);
+}
+
 int	mousse_close_window(t_vars *game)
 {
-	ft_printf("\033[5m\033[31m\n\n[X Close] : Partie abandonnée !\n\n\033[0m");
+	ft_printf("\033[5m\033[31m\n\n[X Close] : Partie quittée !\n\n\033[0m");
 	mlx_destroy_window(game->mlx_ptr, game->win_ptr);
 	mlx_destroy_display(game->mlx_ptr);
 	free(game->mlx_ptr);
@@ -24,43 +33,21 @@ int	mousse_close_window(t_vars *game)
 
 int	handle_input(int keysym, t_vars *game)
 {
-	static int		count = 0;
-
+	game->nbr_moov++;
 	if (keysym == 65307)
-	{
-		ft_printf("\033[5m\033[31m\n\n[ESC] : Partie abandonnée !\n\n\033[0m");
-		mlx_destroy_window(game->mlx_ptr, game->win_ptr);
-		mlx_destroy_display(game->mlx_ptr);
-		free(game->mlx_ptr);
-		exit(EXIT_SUCCESS);
-	}
+		exit_destroy_game(game);
 	else if (keysym == 65361 || keysym == 97)
-	{
-		count++;
-		//ft_printf("\033[34mTouche gauche - mouvement [%d]\r\033[0m", count);
-		move_left(game, count);
-	}
+		move_left(game);
 	else if (keysym == 65362 || keysym == 119)
-	{
-		count++;
-		//ft_printf("\033[34mTouche haut   - mouvement [%d]\r\033[0m", count);
-		move_up(game, count);
-	}
+		move_up(game);
 	else if (keysym == 65363 || keysym == 100)
-	{
-		count++;
-		//ft_printf("\033[34mTouche droite - mouvement [%d]\r\033[0m", count);
-		move_right(game, count);
-	}
+		move_right(game);
 	else if (keysym == 65364 || keysym == 115)
-	{
-		count++;
-		//ft_printf("\033[34mTouche bas    - mouvement [%d]\r\033[0m", count);
-		move_down(game, count);
-	}
+		move_down(game);
 	else
 	{
 		ft_printf("\033[31mTouche invalide !              \r\033[0m");
+		game->nbr_moov--;
 	}
 	return (0);
 }

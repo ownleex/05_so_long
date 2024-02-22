@@ -6,7 +6,7 @@
 /*   By: ayarmaya <ayarmaya@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/05 16:50:50 by ayarmaya          #+#    #+#             */
-/*   Updated: 2024/02/22 17:48:57 by ayarmaya         ###   ########.fr       */
+/*   Updated: 2024/02/22 19:19:23 by ayarmaya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,7 @@ typedef struct	s_vars {
 	int		player_x;
 	int		player_y;
 	int		nbr_fire;
+	int		nbr_moov;
 }				t_vars;
 
 void	exit_with_message(char *message);
@@ -58,7 +59,7 @@ int	    ft_init(t_vars *game);
 void	calculate_win_x_y(t_vars *game);
 
 int		handle_input(int keysym, t_vars *game);
-int	mousse_close_window(t_vars *vars);
+int		mousse_close_window(t_vars *vars);
 
 void	set_green(t_vars *game);
 void	set_walls(t_vars *game);
@@ -66,9 +67,10 @@ void	set_fire(t_vars *game);
 void	set_water(t_vars *game);
 void	set_exit(t_vars *game);
 
-void	move_left(t_vars *game, int count);
-void	move_right(t_vars *game, int count);
-void	move_up(t_vars *game, int count);
-void	move_down(t_vars *game, int count);
+void	move_left(t_vars *game);
+void	move_right(t_vars *game);
+void	move_up(t_vars *game);
+void	move_down(t_vars *game);
+void	reset_map(t_vars *game);
 
 #endif
