@@ -6,7 +6,7 @@
 /*   By: ayarmaya <ayarmaya@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/05 16:50:50 by ayarmaya          #+#    #+#             */
-/*   Updated: 2024/02/22 16:48:42 by ayarmaya         ###   ########.fr       */
+/*   Updated: 2024/02/22 17:48:57 by ayarmaya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,6 @@
 # include "../mlx_linux/mlx.h"
 # include "../mlx_linux/mlx_int.h"
 # include <stdlib.h>
-//# include <X11/X.h>
 
 typedef struct	s_vars {
 	void	*mlx_ptr;
@@ -67,9 +66,9 @@ void	set_fire(t_vars *game);
 void	set_water(t_vars *game);
 void	set_exit(t_vars *game);
 
-void	move_left(t_vars *game);
-void	move_right(t_vars *game);
-void	move_up(t_vars *game);
-void	move_down(t_vars *game);
+void	move_left(t_vars *game, int count);
+void	move_right(t_vars *game, int count);
+void	move_up(t_vars *game, int count);
+void	move_down(t_vars *game, int count);
 
 #endif

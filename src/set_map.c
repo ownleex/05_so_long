@@ -6,7 +6,7 @@
 /*   By: ayarmaya <ayarmaya@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/22 02:23:20 by ayarmaya          #+#    #+#             */
-/*   Updated: 2024/02/22 16:36:24 by ayarmaya         ###   ########.fr       */
+/*   Updated: 2024/02/22 17:02:37 by ayarmaya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -105,19 +105,17 @@ void	set_green(t_vars *game)
 	int		x;
 	int		y;
 
-	x = 0;
 	y = 0;
-	while (y <= game->win_y)
+	while (y < game->win_y / 100)
 	{
-		while (x <= game->win_x)
-		{
-			if (game->green_ptr != NULL)
-			{
-				mlx_put_image_to_window(game->mlx_ptr, game->win_ptr, game->green_ptr, x, y);
-				x += 100;
-			}
-		}
-		y += 100;
 		x = 0;
+		while (x < game->win_x / 100)
+		{
+			if (game->map[y][x] == '0')
+				if (game->green_ptr != NULL)
+					mlx_put_image_to_window(game->mlx_ptr, game->win_ptr, game->green_ptr, x * 100, y * 100);
+			x++;
+		}
+		y++;
 	}
 }
