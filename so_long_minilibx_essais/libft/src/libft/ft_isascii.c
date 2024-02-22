@@ -1,42 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_main_test.c                                     :+:      :+:    :+:   */
+/*   ft_isascii.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ayarmaya <ayarmaya@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/17 14:00:38 by ayarmaya          #+#    #+#             */
-/*   Updated: 2024/02/19 17:01:47 by ayarmaya         ###   ########.fr       */
+/*   Created: 2023/11/10 01:53:53 by ayarmaya          #+#    #+#             */
+/*   Updated: 2024/01/18 05:08:27 by ayarmaya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/so_long.h"
+#include "../../include/libft.h"
 
-
-int	main2(int argc, char **argv)
+int	ft_isascii(int c)
 {
-	if (argc != 2)
-	{
-		ft_printf("Error\n2 paramètres sont attendus");
-		return (0);
-	}
-	else if (check_ber(argv[1]) == 0)
-	{
-		ft_printf("Error\nLa carte n'est pas un .ber");
-		return (0);
-	}
+	if (c >= 0 && c <= 127)
+		return (1);
 	else
-	{
-		load_map(argv[1])
-	}
-	return (1);
+		return (0);
 }
 
-
-void	ft_r(void)
+/*
+int	main(void)
 {
-	int	write_error;
+	int	c;
 
-	write_error = write(1, "\r", 1);
-	(void)write_error;
+	c = -1;
+	if (ft_isascii(c))
+		printf("Le caractere est dans la table ASCII\n");
+	else
+		printf("Le caractere n'est pas dans la table ASCII\n");
+	return (0);
 }
+*/

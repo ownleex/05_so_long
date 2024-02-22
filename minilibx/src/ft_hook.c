@@ -6,7 +6,7 @@
 /*   By: ayarmaya <ayarmaya@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/10 02:49:37 by ayarmaya          #+#    #+#             */
-/*   Updated: 2024/02/16 12:08:18 by ayarmaya         ###   ########.fr       */
+/*   Updated: 2024/02/22 01:26:03 by ayarmaya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,28 +18,36 @@ int	handle_input(int keysym, t_vars *game)
 
 	if (keysym == 65307)
 	{
-		ft_printf("[ESC] Partie abandonnée !\n\n");
+		ft_printf("\033[31m\n\n[ESC] Partie abandonnée !\n\n\033[0m");
 		mlx_destroy_window(game->mlx_ptr, game->win_ptr);
 		mlx_destroy_display(game->mlx_ptr);
 		free(game->mlx_ptr);
 		exit(1);
 	}
-	else if (keysym == 65361)
+	else if (keysym == 65361 || keysym == 97)
 	{
 		count++;
-		ft_printf("Touche gauche - mouvement [%d]\n\n", count);
+		ft_printf("\033[32mTouche gauche - mouvement [%d]\r\033[0m", count);
 	}
-	else if (keysym == 65362)
+	else if (keysym == 65362 || keysym == 119)
 	{
 		count++;
-		ft_printf("Touche haut   - mouvement [%d]\n\n", count);	}
-	else if (keysym == 65363)
+		ft_printf("\033[32mTouche haut   - mouvement [%d]\r\033[0m", count);
+	}
+	else if (keysym == 65363 || keysym == 100)
 	{
 		count++;
-		ft_printf("Touche droite - mouvement [%d]\n\n", count);	}
-	else if (keysym == 65364)
+		ft_printf("\033[32mTouche droite - mouvement [%d]\r\033[0m", count);
+	}
+	else if (keysym == 65364 || keysym == 115)
 	{
 		count++;
-		ft_printf("Touche bas    - mouvement [%d]\n\n", count);	}
+		ft_printf("\033[32mTouche bas    - mouvement [%d]\r\033[0m", count);
+	}
+	else
+	{
+		// Affiche le code de la touche tapée qui n'est pas gérée
+		ft_printf("\033[33mCode de touche non géré : [%d]\r\033[0m", keysym);
+	}
 	return (0);
 }
