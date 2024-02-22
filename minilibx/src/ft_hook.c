@@ -6,7 +6,7 @@
 /*   By: ayarmaya <ayarmaya@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/10 02:49:37 by ayarmaya          #+#    #+#             */
-/*   Updated: 2024/02/22 03:27:16 by ayarmaya         ###   ########.fr       */
+/*   Updated: 2024/02/22 03:35:32 by ayarmaya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int	mousse_close_window(t_vars *game)
 {
-	ft_printf("\033[31m\n\nPartie abandonnée !\n\n\033[0m");
+	ft_printf("\033[5m\033[31m\n\nPartie abandonnée !\n\n\033[0m");
 	mlx_destroy_window(game->mlx_ptr, game->win_ptr);
 	mlx_destroy_display(game->mlx_ptr);
 	free(game->mlx_ptr);
@@ -28,7 +28,7 @@ int	handle_input(int keysym, t_vars *game)
 
 	if (keysym == 65307)
 	{
-		ft_printf("\033[31m\n\n[ESC] Partie abandonnée !\n\n\033[0m");
+		ft_printf("\033[5m\033[31m\n\n[ESC] Partie abandonnée !\n\n\033[0m");
 		mlx_destroy_window(game->mlx_ptr, game->win_ptr);
 		mlx_destroy_display(game->mlx_ptr);
 		free(game->mlx_ptr);
