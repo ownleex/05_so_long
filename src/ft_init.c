@@ -6,7 +6,7 @@
 /*   By: ayarmaya <ayarmaya@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/21 23:35:21 by ayarmaya          #+#    #+#             */
-/*   Updated: 2024/02/22 19:03:24 by ayarmaya         ###   ########.fr       */
+/*   Updated: 2024/02/22 23:33:58 by ayarmaya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,19 +29,28 @@ void	calculate_win_x_y(t_vars *game)
 
 int	ft_init(t_vars *game)
 {
+	game->nbr_moov = 0;
 	game->mlx_ptr = mlx_init();
 	calculate_win_x_y(game);
-	game->win_ptr = mlx_new_window(game->mlx_ptr, game->win_x, game->win_y, "---> FireWater <---");
-	game->green_ptr = mlx_xpm_file_to_image(game->mlx_ptr, "sprites/green.xpm", &game->width, &game->height);
-	game->tree_ptr = mlx_xpm_file_to_image(game->mlx_ptr, "sprites/tree.xpm", &game->width, &game->height);
-	game->fire_ptr = mlx_xpm_file_to_image(game->mlx_ptr, "sprites/fire.xpm", &game->width, &game->height);
-	game->water_ptr = mlx_xpm_file_to_image(game->mlx_ptr, "sprites/water.xpm", &game->width, &game->height);
-	game->exit_ptr = mlx_xpm_file_to_image(game->mlx_ptr, "sprites/exit.xpm", &game->width, &game->height);
+	game->win_ptr = mlx_new_window(game->mlx_ptr, game->win_x, game->win_y, \
+	"---> FireWater <---");
+	game->green_ptr = mlx_xpm_file_to_image(game->mlx_ptr, \
+	"sprites/green.xpm", &game->width, &game->height);
+	game->tree_ptr = mlx_xpm_file_to_image(game->mlx_ptr, \
+	"sprites/tree.xpm", &game->width, &game->height);
+	game->fire_ptr = mlx_xpm_file_to_image(game->mlx_ptr, \
+	"sprites/fire.xpm", &game->width, &game->height);
+	game->water_ptr = mlx_xpm_file_to_image(game->mlx_ptr, \
+	"sprites/water.xpm", &game->width, &game->height);
+	game->exit_ptr = mlx_xpm_file_to_image(game->mlx_ptr, \
+	"sprites/exit.xpm", &game->width, &game->height);
 	set_green(game);
 	set_walls(game);
 	set_fire(game);
 	set_water(game);
 	set_exit(game);
+	game->str = "Ceci est test !";
+	//mlx_string_put(game->mlx_ptr, game->win_ptr, 10, 20, 0xFFFFFF, game->str);
 	mlx_hook(game->win_ptr, KeyRelease, KeyReleaseMask, handle_input, game);
 	mlx_hook(game->win_ptr, 17, 0, mousse_close_window, game);
 	mlx_loop(game->mlx_ptr);

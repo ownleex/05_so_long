@@ -6,7 +6,7 @@
 /*   By: ayarmaya <ayarmaya@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/19 01:56:41 by ayarmaya          #+#    #+#             */
-/*   Updated: 2024/02/22 19:03:06 by ayarmaya         ###   ########.fr       */
+/*   Updated: 2024/02/22 20:36:51 by ayarmaya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,13 +61,13 @@ void	check_walls(char **map, size_t width, size_t height)
 	while (x--)
 	{
 		if (map[0][x] != '1' || map[height - 1][x] != '1')
-			exit_with_message("\n\nError\nLa carte n'est pas entourée de murs\n\n");
+			exit_with_message("\n\nError\nMap pas entourée de murs\n\n");
 	}
 	y = height;
 	while (y--)
 	{
 		if (map[y][0] != '1' || map[y][width - 1] != '1')
-			exit_with_message("\n\nError\nLa carte n'est pas entourée de murs\n\n");
+			exit_with_message("\n\nError\nMap pas entourée de murs\n\n");
 	}
 	count_items_and_verify_chars(map, width, height);
 }
@@ -84,7 +84,7 @@ void	check_rectangular(char **map)
 	while (map[y])
 	{
 		if (ft_strlen(map[y]) != x)
-			exit_with_message("\n\nError\nLa carte n'est pas rectangulaire\n\n");
+			exit_with_message("\n\nError\nMap pas rectangulaire\n\n");
 		y++;
 	}
 	check_walls(map, x, y);

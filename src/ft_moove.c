@@ -6,7 +6,7 @@
 /*   By: ayarmaya <ayarmaya@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/22 16:30:48 by ayarmaya          #+#    #+#             */
-/*   Updated: 2024/02/22 19:58:02 by ayarmaya         ###   ########.fr       */
+/*   Updated: 2024/02/22 23:21:55 by ayarmaya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ void	move_down(t_vars *game)
 			game->nbr_fire--;
 		else if (game->map[y + 1][x] == 'E' && game->nbr_fire == 0)
 		{
-			ft_printf("\033[5m\033[32m\n\n[EXIT] : Vous avez gagné !\n\n\033[0m");
+			you_win(game);
 		}
 		if (game->map[y + 1][x] == '0' || game->map[y + 1][x] == 'C')
 		{
@@ -63,7 +63,7 @@ void	move_up(t_vars *game)
 			game->nbr_fire--;
 		else if (game->map[y - 1][x] == 'E' && game->nbr_fire == 0)
 		{
-			ft_printf("\033[5m\033[32m\n\n[EXIT] : Vous avez gagné !\n\n\033[0m");
+			you_win(game);
 		}
 		if (game->map[y - 1][x] == '0' || game->map[y - 1][x] == 'C')
 		{
@@ -94,7 +94,7 @@ void	move_right(t_vars *game)
 			game->nbr_fire--;
 		else if (game->map[y][x + 1] == 'E' && game->nbr_fire == 0)
 		{
-			ft_printf("\033[5m\033[32m\n\n[EXIT] : Vous avez gagné !\n\n\033[0m");
+			you_win(game);
 		}
 		if (game->map[y][x + 1] == '0' || game->map[y][x + 1] == 'C')
 		{
@@ -125,7 +125,7 @@ void	move_left(t_vars *game)
 			game->nbr_fire--;
 		else if (game->map[y][x - 1] == 'E' && game->nbr_fire == 0)
 		{
-			ft_printf("\033[5m\033[32m\n\n[EXIT] : Vous avez gagné !\n\n\033[0m");
+			you_win(game);
 		}
 		if (game->map[y][x - 1] == '0' || game->map[y][x - 1] == 'C')
 		{

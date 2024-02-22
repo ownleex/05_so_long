@@ -6,7 +6,7 @@
 /*   By: ayarmaya <ayarmaya@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/05 16:50:50 by ayarmaya          #+#    #+#             */
-/*   Updated: 2024/02/22 19:19:23 by ayarmaya         ###   ########.fr       */
+/*   Updated: 2024/02/22 23:21:06 by ayarmaya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,7 @@ typedef struct	s_vars {
 	int		player_y;
 	int		nbr_fire;
 	int		nbr_moov;
+	char	*str;
 }				t_vars;
 
 void	exit_with_message(char *message);
@@ -60,6 +61,7 @@ void	calculate_win_x_y(t_vars *game);
 
 int		handle_input(int keysym, t_vars *game);
 int		mousse_close_window(t_vars *vars);
+int		you_win(t_vars *game);
 
 void	set_green(t_vars *game);
 void	set_walls(t_vars *game);

@@ -6,7 +6,7 @@
 /*   By: ayarmaya <ayarmaya@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/22 02:23:20 by ayarmaya          #+#    #+#             */
-/*   Updated: 2024/02/22 19:02:47 by ayarmaya         ###   ########.fr       */
+/*   Updated: 2024/02/22 20:28:19 by ayarmaya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,8 @@ void	set_exit(t_vars *game)
 		{
 			if (game->map[y][x] == 'E')
 				if (game->exit_ptr != NULL)
-					mlx_put_image_to_window(game->mlx_ptr, game->win_ptr, game->exit_ptr, x * 100, y * 100);
+					mlx_put_image_to_window(game->mlx_ptr, \
+					game->win_ptr, game->exit_ptr, x * 100, y * 100);
 			x++;
 		}
 		y++;
@@ -44,16 +45,19 @@ void	set_water(t_vars *game)
 		while (x < game->win_x / 100)
 		{
 			if (game->map[y][x] == 'P')
+			{
 				if (game->water_ptr != NULL)
 				{
-					mlx_put_image_to_window(game->mlx_ptr, game->win_ptr, game->water_ptr, x * 100, y * 100);
+					mlx_put_image_to_window(game->mlx_ptr, \
+					game->win_ptr, game->water_ptr, x * 100, y * 100);
 					game->player_x = x;
 					game->player_y = y;
 				}
+			}
 			x++;
 		}
 		y++;
-	}	
+	}
 }
 
 void	set_fire(t_vars *game)
@@ -69,11 +73,14 @@ void	set_fire(t_vars *game)
 		while (x < game->win_x / 100)
 		{
 			if (game->map[y][x] == 'C')
+			{
 				if (game->fire_ptr != NULL)
 				{
-					mlx_put_image_to_window(game->mlx_ptr, game->win_ptr, game->fire_ptr, x * 100, y * 100);
+					mlx_put_image_to_window(game->mlx_ptr, \
+					game->win_ptr, game->fire_ptr, x * 100, y * 100);
 					game->nbr_fire = game->nbr_fire + 1;
 				}
+			}
 			x++;
 		}
 		y++;
@@ -93,7 +100,8 @@ void	set_walls(t_vars *game)
 		{
 			if (game->map[y][x] == '1')
 				if (game->tree_ptr != NULL)
-					mlx_put_image_to_window(game->mlx_ptr, game->win_ptr, game->tree_ptr, x * 100, y * 100);
+					mlx_put_image_to_window(game->mlx_ptr, \
+					game->win_ptr, game->tree_ptr, x * 100, y * 100);
 			x++;
 		}
 		y++;
@@ -113,7 +121,8 @@ void	set_green(t_vars *game)
 		{
 			if (game->map[y][x] == '0')
 				if (game->green_ptr != NULL)
-					mlx_put_image_to_window(game->mlx_ptr, game->win_ptr, game->green_ptr, x * 100, y * 100);
+					mlx_put_image_to_window(game->mlx_ptr, \
+					game->win_ptr, game->green_ptr, x * 100, y * 100);
 			x++;
 		}
 		y++;

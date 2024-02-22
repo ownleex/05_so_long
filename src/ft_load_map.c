@@ -6,7 +6,7 @@
 /*   By: ayarmaya <ayarmaya@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/17 16:36:17 by ayarmaya          #+#    #+#             */
-/*   Updated: 2024/02/22 19:02:19 by ayarmaya         ###   ########.fr       */
+/*   Updated: 2024/02/22 20:15:10 by ayarmaya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ void	load_map_struct(t_list *temp_map, int line_count, t_vars *game)
 	{
 		game->map[i] = ft_strdup((char *)temp_map->content);
 		if (!game->map[i])
-			exit_with_message("\nError\nProblème de duplication de la ligne\n\n");
+			exit_with_message("\nError\nProblème de copie de la ligne\n\n");
 		temp_map = temp_map->next;
 		i++;
 	}
