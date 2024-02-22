@@ -6,7 +6,7 @@
 /*   By: ayarmaya <ayarmaya@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/17 16:36:17 by ayarmaya          #+#    #+#             */
-/*   Updated: 2024/02/22 01:03:43 by ayarmaya         ###   ########.fr       */
+/*   Updated: 2024/02/22 01:44:15 by ayarmaya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,7 @@ void	load_map_struct(t_list *temp_map, int line_count, t_vars *game)
 		i++;
 	}
 	game->map[i] = NULL;
+	ft_printf("\n");
 }
 
 void	load_map(char *map_file, t_vars *game)

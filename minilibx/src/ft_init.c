@@ -6,7 +6,7 @@
 /*   By: ayarmaya <ayarmaya@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/21 23:35:21 by ayarmaya          #+#    #+#             */
-/*   Updated: 2024/02/22 01:00:35 by ayarmaya         ###   ########.fr       */
+/*   Updated: 2024/02/22 03:08:00 by ayarmaya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,47 +14,37 @@
 
 void	calculate_win_x_y(t_vars *game)
 {
-	int		x;
-	int		max_x; // Pour garder la trace de la longueur maximale de ligne
 	int		y;
+	int		x;
 
-	max_x = 0;
 	y = 0;
-	while (game->map[y]) // Parcourir chaque ligne jusqu'à la fin du tableau
-	{
-		x = 0;
-		while (game->map[y][x]) // Compter les colonnes dans la ligne actuelle
-			x++;
-		if (x > max_x) // Mettre à jour max_x si cette ligne est plus longue que les précédentes
-			max_x = x;
+	while (game->map[y])
 		y++;
-	}
-	game->win_x = max_x; // Utiliser la longueur maximale de ligne comme win_x
-	game->win_y = y; // Le nombre de lignes est win_y
+	x = 0;
+	while (game->map[0][x])
+		x++;
+	
+	game->win_y = y * 100;
+	game->win_x = x * 100;
 }
 
 int    ft_init(t_vars *game)
 {
         game->mlx_ptr = mlx_init();
 	calculate_win_x_y(game);
-        game->win_ptr = mlx_new_window(game->mlx_ptr, game->win_x * 100, game->win_y * 100, "---> FireWater <---");
+        game->win_ptr = mlx_new_window(game->mlx_ptr, game->win_x, game->win_y, "---> FireWater <---");
 	game->green_ptr = mlx_xpm_file_to_image(game->mlx_ptr, "sprites/green.xpm", &game->green_x, &game->green_y);
-	int		green_x = 0;
-	int		green_y = 0;
-	while (green_y <= 1000)
-	{
-		while (green_x <= 1500)
-		{
-			if (game->green_ptr != NULL)
-			{
-				mlx_put_image_to_window(game->mlx_ptr, game->win_ptr, game->green_ptr, green_x, green_y);
-				green_x += 100;
-			}
-		}
-		green_y += 100;
-		green_x = 0;
-	}
+	game->tree_ptr = mlx_xpm_file_to_image(game->mlx_ptr, "sprites/tree.xpm", &game->tree_x, &game->tree_y);
+	game->fire_ptr = mlx_xpm_file_to_image(game->mlx_ptr, "sprites/fire.xpm", &game->fire_x, &game->fire_y);
+	game->water_ptr = mlx_xpm_file_to_image(game->mlx_ptr, "sprites/water.xpm", &game->water_x, &game->water_y);
+	game->exit_ptr = mlx_xpm_file_to_image(game->mlx_ptr, "sprites/exit.xpm", &game->exit_x, &game->exit_y);
+	set_green(game);
+	set_walls(game);
+	set_fire(game);
+	set_water(game);
+	set_exit(game);
 	mlx_hook(game->win_ptr, KeyRelease, KeyReleaseMask, handle_input, game);
+	mlx_hook(game->win_ptr, 17, 0, mousse_close_window, game);
 	mlx_loop(game->mlx_ptr);
 	return (EXIT_SUCCESS);
 }

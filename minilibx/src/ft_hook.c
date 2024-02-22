@@ -6,11 +6,21 @@
 /*   By: ayarmaya <ayarmaya@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/10 02:49:37 by ayarmaya          #+#    #+#             */
-/*   Updated: 2024/02/22 01:26:03 by ayarmaya         ###   ########.fr       */
+/*   Updated: 2024/02/22 02:31:34 by ayarmaya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/so_long.h"
+
+int	mousse_close_window(t_vars *game)
+{
+	ft_printf("\033[31m\n\nPartie abandonnée !\n\n\033[0m");
+	mlx_destroy_window(game->mlx_ptr, game->win_ptr);
+	mlx_destroy_display(game->mlx_ptr);
+	free(game->mlx_ptr);
+	exit(EXIT_SUCCESS);
+	return (0);
+}
 
 int	handle_input(int keysym, t_vars *game)
 {
@@ -46,8 +56,7 @@ int	handle_input(int keysym, t_vars *game)
 	}
 	else
 	{
-		// Affiche le code de la touche tapée qui n'est pas gérée
-		ft_printf("\033[33mCode de touche non géré : [%d]\r\033[0m", keysym);
+		ft_printf("\033[31mTouche invalide !              \r\033[0m");
 	}
 	return (0);
 }
