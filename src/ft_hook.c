@@ -6,7 +6,7 @@
 /*   By: ayarmaya <ayarmaya@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/10 02:49:37 by ayarmaya          #+#    #+#             */
-/*   Updated: 2024/02/22 06:57:36 by ayarmaya         ###   ########.fr       */
+/*   Updated: 2024/02/22 16:48:54 by ayarmaya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,21 +38,25 @@ int	handle_input(int keysym, t_vars *game)
 	{
 		count++;
 		ft_printf("\033[34mTouche gauche - mouvement [%d]\r\033[0m", count);
+		move_left(game);
 	}
 	else if (keysym == 65362 || keysym == 119)
 	{
 		count++;
 		ft_printf("\033[34mTouche haut   - mouvement [%d]\r\033[0m", count);
+		move_up(game);
 	}
 	else if (keysym == 65363 || keysym == 100)
 	{
 		count++;
 		ft_printf("\033[34mTouche droite - mouvement [%d]\r\033[0m", count);
+		move_right(game);
 	}
 	else if (keysym == 65364 || keysym == 115)
 	{
 		count++;
 		ft_printf("\033[34mTouche bas    - mouvement [%d]\r\033[0m", count);
+		move_down(game);
 	}
 	else
 	{
