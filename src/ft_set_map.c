@@ -6,7 +6,7 @@
 /*   By: ayarmaya <ayarmaya@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/22 02:23:20 by ayarmaya          #+#    #+#             */
-/*   Updated: 2024/02/24 00:51:10 by ayarmaya         ###   ########.fr       */
+/*   Updated: 2024/02/24 04:29:16 by ayarmaya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ void	set_fire(t_vars *game)
 				{
 					mlx_put_image_to_window(game->mlx_ptr, \
 					game->win_ptr, game->fire_ptr, x * 100, y * 100);
-					game->nbr_fire = game->nbr_fire + 1;
+					game->nbr_fire++;
 				}
 			}
 			x++;

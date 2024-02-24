@@ -6,7 +6,7 @@
 /*   By: ayarmaya <ayarmaya@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/22 16:30:48 by ayarmaya          #+#    #+#             */
-/*   Updated: 2024/02/24 00:53:32 by ayarmaya         ###   ########.fr       */
+/*   Updated: 2024/02/24 02:54:34 by ayarmaya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ void	move_down(t_vars *game)
 			game->map[y][x] = '0';
 			game->player_y += 1;
 			game->map[y + 1][x] = 'P';
-			ft_printf("\033[34mMouvement  %d - Restant %d \r\033[0m", game->nbr_moov, game->nbr_fire);
+			ft_printf("\033[5m\033[34mMouvement  %d - Restant %d \r\033[0m", game->nbr_moov, game->nbr_fire);
 		}
 		reset_map(game, 'D');
 	}
@@ -76,7 +76,7 @@ void	move_up(t_vars *game)
 			game->map[y][x] = '0';
 			game->player_y -= 1;
 			game->map[y - 1][x] = 'P';
-			ft_printf("\033[34mMouvement  %d - Restant %d \r\033[0m", game->nbr_moov, game->nbr_fire);
+			ft_printf("\033[5m\033[34mMouvement  %d - Restant %d \r\033[0m", game->nbr_moov, game->nbr_fire);
 		}
 		reset_map(game, 'U');
 	}
@@ -107,7 +107,7 @@ void	move_right(t_vars *game)
 			game->map[y][x] = '0';
 			game->player_x += 1;
 			game->map[y][x + 1] = 'P';
-			ft_printf("\033[34mMouvement  %d - Restant %d \r\033[0m", game->nbr_moov, game->nbr_fire);
+			ft_printf("\033[5m\033[34mMouvement  %d - Restant %d \r\033[0m", game->nbr_moov, game->nbr_fire);
 		}
 		reset_map(game, 'R');
 	}
@@ -138,7 +138,7 @@ void	move_left(t_vars *game)
 			game->map[y][x] = '0';
 			game->player_x -= 1;
 			game->map[y][x - 1] = 'P';
-			ft_printf("\033[34mMouvement  %d - Restant %d \r\033[0m", game->nbr_moov, game->nbr_fire);
+			ft_printf("\033[5m\033[34mMouvement  %d - Restant %d \r\033[0m", game->nbr_moov, game->nbr_fire);
 		}
 		reset_map(game, 'L');
 	}

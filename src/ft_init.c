@@ -6,7 +6,7 @@
 /*   By: ayarmaya <ayarmaya@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/21 23:35:21 by ayarmaya          #+#    #+#             */
-/*   Updated: 2024/02/24 01:37:37 by ayarmaya         ###   ########.fr       */
+/*   Updated: 2024/02/24 04:28:02 by ayarmaya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,8 +40,6 @@ int	ft_init(t_vars *game)
 	"sprites/tree.xpm", &game->width, &game->height);
 	game->fire_ptr = mlx_xpm_file_to_image(game->mlx_ptr, \
 	"sprites/fire.xpm", &game->width, &game->height);
-	/*game->water_ptr = mlx_xpm_file_to_image(game->mlx_ptr, \
-	"sprites/water.xpm", &game->width, &game->height);*/
 	game->exit_ptr = mlx_xpm_file_to_image(game->mlx_ptr, \
 	"sprites/exit.xpm", &game->width, &game->height);
 	game->water_up = mlx_xpm_file_to_image(game->mlx_ptr, \
@@ -57,7 +55,6 @@ int	ft_init(t_vars *game)
 	set_fire(game);
 	set_water_down(game);
 	set_exit(game);
-	//set_water_up(game);
 	game->str = "Ceci est test !";
 	//mlx_string_put(game->mlx_ptr, game->win_ptr, 10, 20, 0xFFFFFF, game->str);
 	mlx_hook(game->win_ptr, KeyRelease, KeyReleaseMask, handle_input, game);
