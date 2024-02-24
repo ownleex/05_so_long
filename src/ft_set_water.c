@@ -1,39 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   set_map.c                                          :+:      :+:    :+:   */
+/*   ft_set_water.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ayarmaya <ayarmaya@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/22 02:23:20 by ayarmaya          #+#    #+#             */
-/*   Updated: 2024/02/22 20:28:19 by ayarmaya         ###   ########.fr       */
+/*   Created: 2024/02/24 00:50:37 by ayarmaya          #+#    #+#             */
+/*   Updated: 2024/02/24 01:39:05 by ayarmaya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/so_long.h"
 
-void	set_exit(t_vars *game)
-{
-	int		x;
-	int		y;
-
-	y = 0;
-	while (y < game->win_y / 100)
-	{
-		x = 0;
-		while (x < game->win_x / 100)
-		{
-			if (game->map[y][x] == 'E')
-				if (game->exit_ptr != NULL)
-					mlx_put_image_to_window(game->mlx_ptr, \
-					game->win_ptr, game->exit_ptr, x * 100, y * 100);
-			x++;
-		}
-		y++;
-	}
-}
-
-void	set_water(t_vars *game)
+void	set_water_right(t_vars *game)
 {
 	int		x;
 	int		y;
@@ -46,10 +25,10 @@ void	set_water(t_vars *game)
 		{
 			if (game->map[y][x] == 'P')
 			{
-				if (game->water_ptr != NULL)
+				if (game->water_right != NULL)
 				{
 					mlx_put_image_to_window(game->mlx_ptr, \
-					game->win_ptr, game->water_ptr, x * 100, y * 100);
+					game->win_ptr, game->water_right, x * 100, y * 100);
 					game->player_x = x;
 					game->player_y = y;
 				}
@@ -60,25 +39,25 @@ void	set_water(t_vars *game)
 	}
 }
 
-void	set_fire(t_vars *game)
+void	set_water_left(t_vars *game)
 {
 	int		x;
 	int		y;
 
-	game->nbr_fire = 0;
 	y = 0;
 	while (y < game->win_y / 100)
 	{
 		x = 0;
 		while (x < game->win_x / 100)
 		{
-			if (game->map[y][x] == 'C')
+			if (game->map[y][x] == 'P')
 			{
-				if (game->fire_ptr != NULL)
+				if (game->water_left != NULL)
 				{
 					mlx_put_image_to_window(game->mlx_ptr, \
-					game->win_ptr, game->fire_ptr, x * 100, y * 100);
-					game->nbr_fire = game->nbr_fire + 1;
+					game->win_ptr, game->water_left, x * 100, y * 100);
+					game->player_x = x;
+					game->player_y = y;
 				}
 			}
 			x++;
@@ -87,7 +66,7 @@ void	set_fire(t_vars *game)
 	}
 }
 
-void	set_walls(t_vars *game)
+void	set_water_down(t_vars *game)
 {
 	int		x;
 	int		y;
@@ -98,17 +77,23 @@ void	set_walls(t_vars *game)
 		x = 0;
 		while (x < game->win_x / 100)
 		{
-			if (game->map[y][x] == '1')
-				if (game->tree_ptr != NULL)
+			if (game->map[y][x] == 'P')
+			{
+				if (game->water_down != NULL)
+				{
 					mlx_put_image_to_window(game->mlx_ptr, \
-					game->win_ptr, game->tree_ptr, x * 100, y * 100);
+					game->win_ptr, game->water_down, x * 100, y * 100);
+					game->player_x = x;
+					game->player_y = y;
+				}
+			}
 			x++;
 		}
 		y++;
 	}
 }
 
-void	set_green(t_vars *game)
+void	set_water_up(t_vars *game)
 {
 	int		x;
 	int		y;
@@ -119,10 +104,16 @@ void	set_green(t_vars *game)
 		x = 0;
 		while (x < game->win_x / 100)
 		{
-			if (game->map[y][x] == '0')
-				if (game->green_ptr != NULL)
+			if (game->map[y][x] == 'P')
+			{
+				if (game->water_up != NULL)
+				{
 					mlx_put_image_to_window(game->mlx_ptr, \
-					game->win_ptr, game->green_ptr, x * 100, y * 100);
+					game->win_ptr, game->water_up, x * 100, y * 100);
+					game->player_x = x;
+					game->player_y = y;
+				}
+			}
 			x++;
 		}
 		y++;

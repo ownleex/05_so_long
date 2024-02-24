@@ -6,7 +6,7 @@
 /*   By: ayarmaya <ayarmaya@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/21 23:35:21 by ayarmaya          #+#    #+#             */
-/*   Updated: 2024/02/22 23:33:58 by ayarmaya         ###   ########.fr       */
+/*   Updated: 2024/02/24 01:37:37 by ayarmaya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ void	calculate_win_x_y(t_vars *game)
 
 int	ft_init(t_vars *game)
 {
-	game->nbr_moov = 0;
+	//game->nbr_moov = 0;
 	game->mlx_ptr = mlx_init();
 	calculate_win_x_y(game);
 	game->win_ptr = mlx_new_window(game->mlx_ptr, game->win_x, game->win_y, \
@@ -40,15 +40,24 @@ int	ft_init(t_vars *game)
 	"sprites/tree.xpm", &game->width, &game->height);
 	game->fire_ptr = mlx_xpm_file_to_image(game->mlx_ptr, \
 	"sprites/fire.xpm", &game->width, &game->height);
-	game->water_ptr = mlx_xpm_file_to_image(game->mlx_ptr, \
-	"sprites/water.xpm", &game->width, &game->height);
+	/*game->water_ptr = mlx_xpm_file_to_image(game->mlx_ptr, \
+	"sprites/water.xpm", &game->width, &game->height);*/
 	game->exit_ptr = mlx_xpm_file_to_image(game->mlx_ptr, \
 	"sprites/exit.xpm", &game->width, &game->height);
+	game->water_up = mlx_xpm_file_to_image(game->mlx_ptr, \
+	"sprites/water_up.xpm", &game->width, &game->height);
+	game->water_down = mlx_xpm_file_to_image(game->mlx_ptr, \
+	"sprites/water_down.xpm", &game->width, &game->height);
+	game->water_left = mlx_xpm_file_to_image(game->mlx_ptr, \
+	"sprites/water_left.xpm", &game->width, &game->height);
+	game->water_right = mlx_xpm_file_to_image(game->mlx_ptr, \
+	"sprites/water_right.xpm", &game->width, &game->height);
 	set_green(game);
 	set_walls(game);
 	set_fire(game);
-	set_water(game);
+	set_water_down(game);
 	set_exit(game);
+	//set_water_up(game);
 	game->str = "Ceci est test !";
 	//mlx_string_put(game->mlx_ptr, game->win_ptr, 10, 20, 0xFFFFFF, game->str);
 	mlx_hook(game->win_ptr, KeyRelease, KeyReleaseMask, handle_input, game);

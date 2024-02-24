@@ -6,7 +6,7 @@
 /*   By: ayarmaya <ayarmaya@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/17 16:36:17 by ayarmaya          #+#    #+#             */
-/*   Updated: 2024/02/22 20:15:10 by ayarmaya         ###   ########.fr       */
+/*   Updated: 2024/02/23 23:12:44 by ayarmaya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ void	remove_back_n(char *line)
 {
 	char	*newline;
 
-	newline = strchr(line, '\n');
+	newline = ft_strchr(line, '\n');
 	if (newline != NULL)
 		*newline = '\0';
 }
