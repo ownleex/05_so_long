@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_hook.c                                          :+:      :+:    :+:   */
+/*   bonus_ft_hook                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ayarmaya <ayarmaya@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/10 02:49:37 by ayarmaya          #+#    #+#             */
-/*   Updated: 2024/02/25 17:06:50 by ayarmaya         ###   ########.fr       */
+/*   Created: 2024/02/25 17:05:21 by ayarmaya          #+#    #+#             */
+/*   Updated: 2024/02/25 17:05:50 by ayarmaya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,32 @@ int	you_win(t_vars *game)
 	free(game->mlx_ptr);
 	exit(EXIT_SUCCESS);
 	return (0);
+}
+
+int	animation(t_vars *game)
+{
+	static int bool = 1; // Garde l'état de l'animation entre les appels
+	static struct timeval last_change = {0, 0}; // Temps du dernier changement d'état
+	struct timeval current_time;
+	long time_difference;
+
+	gettimeofday(&current_time, NULL); // Obtenir le temps actuel
+
+	// Calculer la différence de temps en microsecondes
+	time_difference = (current_time.tv_sec - last_change.tv_sec) * 1000000L + (current_time.tv_usec - last_change.tv_usec);
+
+	// Vérifier si 0,5 seconde s'est écoulée
+	if (time_difference > 500000) {
+		if (bool == 0) {
+			set_fire_right(game);
+			bool = 1;
+		} else {
+			set_fire_left(game);
+			bool = 0;
+		}
+		last_change = current_time; // Mettre à jour le temps du dernier changement
+	}
+	return (1);
 }
 
 int	handle_input(int keysym, t_vars *game)

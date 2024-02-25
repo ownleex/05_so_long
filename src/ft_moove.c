@@ -6,23 +6,16 @@
 /*   By: ayarmaya <ayarmaya@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/22 16:30:48 by ayarmaya          #+#    #+#             */
-/*   Updated: 2024/02/24 02:54:34 by ayarmaya         ###   ########.fr       */
+/*   Updated: 2024/02/25 16:47:25 by ayarmaya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/so_long.h"
 
-void	reset_map(t_vars *game, char str)
+void	reset_map(t_vars *game)
 {
+	set_water(game);
 	set_green(game);
-	if ( str == 'D')
-		set_water_down(game);
-	else if ( str == 'U')
-		set_water_up(game);
-	else if ( str == 'L')
-		set_water_left(game);
-	else if ( str == 'R')
-		set_water_right(game);
 }
 
 void	move_down(t_vars *game)
@@ -47,7 +40,7 @@ void	move_down(t_vars *game)
 			game->map[y + 1][x] = 'P';
 			ft_printf("\033[5m\033[34mMouvement  %d - Restant %d \r\033[0m", game->nbr_moov, game->nbr_fire);
 		}
-		reset_map(game, 'D');
+		reset_map(game);
 	}
 	else
 	{
@@ -78,7 +71,7 @@ void	move_up(t_vars *game)
 			game->map[y - 1][x] = 'P';
 			ft_printf("\033[5m\033[34mMouvement  %d - Restant %d \r\033[0m", game->nbr_moov, game->nbr_fire);
 		}
-		reset_map(game, 'U');
+		reset_map(game);
 	}
 	else
 	{
@@ -109,7 +102,7 @@ void	move_right(t_vars *game)
 			game->map[y][x + 1] = 'P';
 			ft_printf("\033[5m\033[34mMouvement  %d - Restant %d \r\033[0m", game->nbr_moov, game->nbr_fire);
 		}
-		reset_map(game, 'R');
+		reset_map(game);
 	}
 	else
 	{
@@ -140,7 +133,7 @@ void	move_left(t_vars *game)
 			game->map[y][x - 1] = 'P';
 			ft_printf("\033[5m\033[34mMouvement  %d - Restant %d \r\033[0m", game->nbr_moov, game->nbr_fire);
 		}
-		reset_map(game, 'L');
+		reset_map(game);
 	}
 	else
 	{

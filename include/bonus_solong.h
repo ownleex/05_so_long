@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   so_long.h                                          :+:      :+:    :+:   */
+/*   bonus_solong.h                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ayarmaya <ayarmaya@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/05 16:50:50 by ayarmaya          #+#    #+#             */
-/*   Updated: 2024/02/25 17:08:41 by ayarmaya         ###   ########.fr       */
+/*   Created: 2024/02/25 17:03:40 by ayarmaya          #+#    #+#             */
+/*   Updated: 2024/02/25 17:04:40 by ayarmaya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@
 # include "../mlx_linux/mlx.h"
 # include "../mlx_linux/mlx_int.h"
 # include <stdlib.h>
+# include <sys/time.h> 
 
 typedef struct	s_vars {
 	void	*mlx_ptr;
@@ -30,6 +31,9 @@ typedef struct	s_vars {
 	void	*water_ptr;
 	void	*water;
 	void	*tree_ptr;
+	void	*fire_right;
+	void	*fire_up;
+	void	*fire_left;
 	void	*exit_ptr;
 	char	**map;
 	int		width;
@@ -76,5 +80,9 @@ void	move_right(t_vars *game);
 void	move_up(t_vars *game);
 void	move_down(t_vars *game);
 void	reset_map(t_vars *game);
+
+void	set_fire_right(t_vars *game);
+void	set_fire_left(t_vars *game);
+void	set_fire_up(t_vars *game);
 
 #endif

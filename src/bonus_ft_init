@@ -1,17 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_init.c                                          :+:      :+:    :+:   */
+/*   bonus_ft_init                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ayarmaya <ayarmaya@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/21 23:35:21 by ayarmaya          #+#    #+#             */
-/*   Updated: 2024/02/25 17:07:45 by ayarmaya         ###   ########.fr       */
+/*   Created: 2024/02/25 17:02:41 by ayarmaya          #+#    #+#             */
+/*   Updated: 2024/02/25 17:06:08 by ayarmaya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/so_long.h"
-#include <sys/time.h> 
+#include "../include/bonus_so_long.h"
 
 void	calculate_win_x_y(t_vars *game)
 {
@@ -45,13 +44,22 @@ int	ft_init(t_vars *game)
 	"sprites/water.xpm", &game->width, &game->height);
 	game->exit_ptr = mlx_xpm_file_to_image(game->mlx_ptr, \
 	"sprites/exit.xpm", &game->width, &game->height);
+	game->fire_up = mlx_xpm_file_to_image(game->mlx_ptr, \
+	"sprites/fire_up.xpm", &game->width, &game->height);
+	game->fire_left = mlx_xpm_file_to_image(game->mlx_ptr, \
+	"sprites/fire_left.xpm", &game->width, &game->height);
+	game->fire_right = mlx_xpm_file_to_image(game->mlx_ptr, \
+	"sprites/fire_right.xpm", &game->width, &game->height);
 	set_green(game);
 	set_walls(game);
 	set_fire(game);
 	set_water(game);
 	set_exit(game);
+	//game->str = "Ceci est test !";
+	//mlx_string_put(game->mlx_ptr, game->win_ptr, 10, 20, 0xFFFFFF, game->str);
 	mlx_hook(game->win_ptr, KeyRelease, KeyReleaseMask, &handle_input, game);
 	mlx_hook(game->win_ptr, 17, 0, &mousse_close_window, game);
+	mlx_loop_hook(game->mlx_ptr, &animation, game);
 	mlx_loop(game->mlx_ptr);
 	return (EXIT_SUCCESS);
 }

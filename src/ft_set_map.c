@@ -6,7 +6,7 @@
 /*   By: ayarmaya <ayarmaya@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/22 02:23:20 by ayarmaya          #+#    #+#             */
-/*   Updated: 2024/02/24 04:29:16 by ayarmaya         ###   ########.fr       */
+/*   Updated: 2024/02/25 16:25:07 by ayarmaya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,33 @@ void	set_fire(t_vars *game)
 					mlx_put_image_to_window(game->mlx_ptr, \
 					game->win_ptr, game->fire_ptr, x * 100, y * 100);
 					game->nbr_fire++;
+				}
+			}
+			x++;
+		}
+		y++;
+	}
+}
+
+void	set_water(t_vars *game)
+{
+	int		x;
+	int		y;
+
+	y = 0;
+	while (y < game->win_y / 100)
+	{
+		x = 0;
+		while (x < game->win_x / 100)
+		{
+			if (game->map[y][x] == 'P')
+			{
+				if (game->water != NULL)
+				{
+					mlx_put_image_to_window(game->mlx_ptr, \
+					game->win_ptr, game->water, x * 100, y * 100);
+					game->player_x = x;
+					game->player_y = y;
 				}
 			}
 			x++;
