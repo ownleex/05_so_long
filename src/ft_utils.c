@@ -6,7 +6,7 @@
 /*   By: ayarmaya <ayarmaya@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/05 19:06:49 by ayarmaya          #+#    #+#             */
-/*   Updated: 2024/02/25 18:49:55 by ayarmaya         ###   ########.fr       */
+/*   Updated: 2024/02/25 19:09:59 by ayarmaya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,23 @@
 
 void	exit_with_message(t_vars *game, char *message)
 {
+	int		y;
+
 	ft_printf("%s", message);
-	free (game->map);
-	free (game);
+	if (game->map)
+	{
+		y = 0;
+		while (game->map[y])
+		{
+			free(game->map[y]);
+			y++;
+		}
+		free(game->map);
+	}
+	free(game);
 	exit(EXIT_FAILURE);
 }
+
 
 void	exit_with_perror(char *message)
 {
