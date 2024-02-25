@@ -6,7 +6,7 @@
 /*   By: ayarmaya <ayarmaya@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/17 16:36:17 by ayarmaya          #+#    #+#             */
-/*   Updated: 2024/02/23 23:12:44 by ayarmaya         ###   ########.fr       */
+/*   Updated: 2024/02/25 18:48:26 by ayarmaya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,12 +41,12 @@ void	load_map_struct(t_list *temp_map, int line_count, t_vars *game)
 	i = 0;
 	game->map = (char **)malloc(sizeof(char *) * (line_count + 1));
 	if (!game->map)
-		exit_with_message("\nError\nProblème mémoire : chargement map\n\n");
+		exit_with_message(game, "\nError\nProblème mémoire : chargement map\n\n");
 	while (temp_map)
 	{
 		game->map[i] = ft_strdup((char *)temp_map->content);
 		if (!game->map[i])
-			exit_with_message("\nError\nProblème de copie de la ligne\n\n");
+			exit_with_message(game, "\nError\nProblème de copie de la ligne\n\n");
 		temp_map = temp_map->next;
 		i++;
 	}

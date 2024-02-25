@@ -6,27 +6,27 @@
 /*   By: ayarmaya <ayarmaya@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/19 01:56:41 by ayarmaya          #+#    #+#             */
-/*   Updated: 2024/02/24 02:23:34 by ayarmaya         ###   ########.fr       */
+/*   Updated: 2024/02/25 18:45:23 by ayarmaya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/so_long.h"
 
-void	verify_char(char c)
+void	verify_char(t_vars *game, char c)
 {
 	if (c != '0' && c != '1' && c != 'C' && c != 'E' && c != 'P')
-		exit_with_message("\n\nError\nCaractère invalide dans la carte\n\n");
+		exit_with_message(game, "\n\nError\nCaractère invalide dans la carte\n\n");
 }
 
-void	increment_counters(char c, int *exit, int *items, int *start)
+void	increment_counters(t_vars *game, char c, int *exit, int *items, int *start)
 {
 	*exit += (c == 'E');
 	*items += (c == 'C');
 	*start += (c == 'P');
-	verify_char(c);
+	verify_char(game, c);
 }
 
-void	count_items_and_verify_chars(char **map, size_t width, size_t height)
+void	count_items_and_verify_chars(t_vars *game, char **map, size_t width, size_t height)
 {
 	size_t	x;
 	size_t	y;
@@ -43,16 +43,16 @@ void	count_items_and_verify_chars(char **map, size_t width, size_t height)
 		x = 0;
 		while (x < width)
 		{
-			increment_counters(map[y][x], &exit, &items, &start);
+			increment_counters(game, map[y][x], &exit, &items, &start);
 			x++;
 		}
 		y++;
 	}
 	if (exit != 1 || items < 1 || start != 1)
-		exit_with_message("\n\nError\nNombre d'items incorrect\n\n");
+		exit_with_message(game, "\n\nError\nNombre d'items incorrect\n\n");
 }
 
-void	check_walls(char **map, size_t width, size_t height)
+void	check_walls(t_vars *game, char **map, size_t width, size_t height)
 {
 	size_t	x;
 	size_t	y;
@@ -61,31 +61,31 @@ void	check_walls(char **map, size_t width, size_t height)
 	while (x--)
 	{
 		if (map[0][x] != '1' || map[height - 1][x] != '1')
-			exit_with_message("\n\nError\nMap pas entourée de murs\n\n");
+			exit_with_message(game, "\n\nError\nMap pas entourée de murs\n\n");
 	}
 	y = height;
 	while (y--)
 	{
 		if (map[y][0] != '1' || map[y][width - 1] != '1')
-			exit_with_message("\n\nError\nMap pas entourée de murs\n\n");
+			exit_with_message(game, "\n\nError\nMap pas entourée de murs\n\n");
 	}
-	count_items_and_verify_chars(map, width, height);
+	count_items_and_verify_chars(game, map, width, height);
 }
 
-void	check_rectangular(char **map)
+void	check_rectangular(t_vars *game, char **map)
 {
 	size_t	y;
 	size_t	x;
 
 	if (!map || !*map)
-		exit_with_message("\n\nError\nLa carte est vide\n\n");
+		exit_with_message(game, "\n\nError\nLa carte est vide\n\n");
 	y = 0;
 	x = ft_strlen(map[y]);
 	while (map[y])
 	{
 		if (ft_strlen(map[y]) != x)
-			exit_with_message("\n\nError\nMap pas rectangulaire\n\n");
+			exit_with_message(game, "\n\nError\nMap pas rectangulaire\n\n");
 		y++;
 	}
-	check_walls(map, x, y);
+	check_walls(game, map, x, y);
 }

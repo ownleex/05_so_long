@@ -6,7 +6,7 @@
 /*   By: ayarmaya <ayarmaya@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/05 16:50:50 by ayarmaya          #+#    #+#             */
-/*   Updated: 2024/02/25 17:08:41 by ayarmaya         ###   ########.fr       */
+/*   Updated: 2024/02/25 18:45:43 by ayarmaya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ typedef struct	s_vars {
 	char	*str;
 }				t_vars;
 
-void	exit_with_message(char *message);
+void	exit_with_message(t_vars *game, char *message);
 void	exit_with_perror(char *message);
 
 int		check_ber(char *map);
@@ -51,11 +51,11 @@ void	load_map_struct(t_list *temp_map, int line_count, t_vars *game);
 void	remove_back_n(char *line);
 void	free_temp_map(t_list *temp_map);
 
-void	check_rectangular(char **map);
-void	check_walls(char **map, size_t width, size_t height);
-void	count_items_and_verify_chars(char **map, size_t width, size_t height);
-void	increment_counters(char c, int *exit, int *items, int *start);
-void	verify_char(char c);
+void	check_rectangular(t_vars *game, char **map);
+void	check_walls(t_vars *game, char **map, size_t width, size_t height);
+void	count_items_and_verify_chars(t_vars *game, char **map, size_t width, size_t height);
+void	increment_counters(t_vars *game, char c, int *exit, int *items, int *start);
+void	verify_char(t_vars *game, char c);
 
 int	    ft_init(t_vars *game);
 void	calculate_win_x_y(t_vars *game);

@@ -6,7 +6,7 @@
 /*   By: ayarmaya <ayarmaya@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/17 14:00:38 by ayarmaya          #+#    #+#             */
-/*   Updated: 2024/02/25 17:16:32 by ayarmaya         ###   ########.fr       */
+/*   Updated: 2024/02/25 18:48:52 by ayarmaya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ int	main(int argc, char **argv)
 			return (1);
 		}
 		load_map(argv[1], game);
-		check_rectangular(game->map);
+		check_rectangular(game, game->map);
 		ft_init(game);
 	}
 	return (1);
