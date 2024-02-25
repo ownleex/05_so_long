@@ -6,7 +6,7 @@
 /*   By: ayarmaya <ayarmaya@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/22 02:23:20 by ayarmaya          #+#    #+#             */
-/*   Updated: 2024/02/25 18:27:30 by ayarmaya         ###   ########.fr       */
+/*   Updated: 2024/02/25 19:29:47 by ayarmaya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,10 +18,10 @@ void	set_exit(t_vars *game)
 	int		y;
 
 	y = 0;
-	while (y < game->win_y / 100)
+	while (y < game->win_y)
 	{
 		x = 0;
-		while (x < game->win_x / 100)
+		while (x < game->win_x)
 		{
 			if (game->map[y][x] == 'E')
 				if (game->exit_ptr != NULL)
@@ -40,10 +40,10 @@ void	set_fire(t_vars *game)
 
 	game->nbr_fire = 0;
 	y = 0;
-	while (y < game->win_y / 100)
+	while (y < game->win_y)
 	{
 		x = 0;
-		while (x < game->win_x / 100)
+		while (x < game->win_x)
 		{
 			if (game->map[y][x] == 'C')
 			{
@@ -66,10 +66,10 @@ void	set_water(t_vars *game)
 	int		y;
 
 	y = 0;
-	while (y < game->win_y / 100)
+	while (y < game->win_y)
 	{
 		x = 0;
-		while (x < game->win_x / 100)
+		while (x < game->win_x)
 		{
 			if (game->map[y][x] == 'P')
 			{
@@ -93,10 +93,10 @@ void	set_walls(t_vars *game)
 	int		y;
 
 	y = 0;
-	while (y < game->win_y / 100)
+	while (y < game->win_y)
 	{
 		x = 0;
-		while (x < game->win_x / 100)
+		while (x < game->win_x)
 		{
 			if (game->map[y][x] == '1')
 				if (game->tree_ptr != NULL)
@@ -114,10 +114,10 @@ void	set_green(t_vars *game)
 	int		y;
 
 	y = 0;
-	while (y < game->win_y / 100)
+	while (y < game->win_y)
 	{
 		x = 0;
-		while (x < game->win_x / 100)
+		while (x < game->win_x)
 		{
 			if (game->map[y][x] == '0')
 				if (game->green_ptr != NULL)

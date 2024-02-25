@@ -6,7 +6,7 @@
 /*   By: ayarmaya <ayarmaya@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/17 16:36:17 by ayarmaya          #+#    #+#             */
-/*   Updated: 2024/02/25 18:48:26 by ayarmaya         ###   ########.fr       */
+/*   Updated: 2024/02/25 21:26:20 by ayarmaya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,7 @@ void	load_map(char *map_file, t_vars *game)
 	temp_map = NULL;
 	fd = open(map_file, O_RDONLY);
 	if (fd == -1)
-		exit_with_perror("\nError\nErreur lors du chargement de la carte\n\n");
+		exit_with_perror(game, "\nError\nErreur lors du chargement de la carte\n\n");
 	line = get_next_line(fd);
 	while (line != NULL)
 	{

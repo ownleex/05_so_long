@@ -6,7 +6,7 @@
 /*   By: ayarmaya <ayarmaya@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/05 19:06:49 by ayarmaya          #+#    #+#             */
-/*   Updated: 2024/02/25 19:09:59 by ayarmaya         ###   ########.fr       */
+/*   Updated: 2024/02/25 21:27:19 by ayarmaya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,8 +32,9 @@ void	exit_with_message(t_vars *game, char *message)
 }
 
 
-void	exit_with_perror(char *message)
+void	exit_with_perror(t_vars *game, char *message)
 {
 	perror(message);
+	free(game);
 	exit(EXIT_FAILURE);
 }

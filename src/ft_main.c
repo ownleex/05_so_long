@@ -6,11 +6,26 @@
 /*   By: ayarmaya <ayarmaya@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/17 14:00:38 by ayarmaya          #+#    #+#             */
-/*   Updated: 2024/02/25 19:01:01 by ayarmaya         ###   ########.fr       */
+/*   Updated: 2024/02/25 21:00:44 by ayarmaya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/so_long.h"
+
+void	calculate_win_x_y(t_vars *game)
+{
+	int		y;
+	int		x;
+
+	y = 0;
+	while (game->map[y])
+		y++;
+	x = 0;
+	while (game->map[0][x])
+		x++;
+	game->win_y = y;
+	game->win_x = x;
+}
 
 int	check_ber(char *map)
 {
@@ -47,7 +62,8 @@ int	main(int argc, char **argv)
 			return (1);
 		}
 		load_map(argv[1], game);
-		check_rectangular(game, game->map);
+		calculate_win_x_y(game);
+		check_rectangular(game);
 		ft_init(game);
 	}
 	return (1);

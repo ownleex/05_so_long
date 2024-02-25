@@ -6,34 +6,18 @@
 /*   By: ayarmaya <ayarmaya@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/21 23:35:21 by ayarmaya          #+#    #+#             */
-/*   Updated: 2024/02/25 18:27:52 by ayarmaya         ###   ########.fr       */
+/*   Updated: 2024/02/25 21:00:18 by ayarmaya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/so_long.h"
 #include <sys/time.h> 
 
-void	calculate_win_x_y(t_vars *game)
-{
-	int		y;
-	int		x;
-
-	y = 0;
-	while (game->map[y])
-		y++;
-	x = 0;
-	while (game->map[0][x])
-		x++;
-	game->win_y = y * 100;
-	game->win_x = x * 100;
-}
-
 int	ft_init(t_vars *game)
 {
 	//game->nbr_moov = 0;
 	game->mlx_ptr = mlx_init();
-	calculate_win_x_y(game);
-	game->win_ptr = mlx_new_window(game->mlx_ptr, game->win_x, game->win_y, \
+	game->win_ptr = mlx_new_window(game->mlx_ptr, game->win_x * 100, game->win_y * 100, \
 	"---> FireWater <---");
 	game->green_ptr = mlx_xpm_file_to_image(game->mlx_ptr, \
 	"sprites/green.xpm", &game->width, &game->height);
