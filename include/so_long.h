@@ -6,7 +6,7 @@
 /*   By: ayarmaya <ayarmaya@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/05 16:50:50 by ayarmaya          #+#    #+#             */
-/*   Updated: 2024/02/26 15:27:14 by ayarmaya         ###   ########.fr       */
+/*   Updated: 2024/02/26 16:40:45 by ayarmaya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,10 +52,12 @@ int		check_ber(char *map);
 void	calculate_win_x_y(t_vars *game);
 void	load_check_init(t_vars *game, char *argv);
 
+void	init_vars(t_vars *game);
 void	load_map(char *map_file, t_vars *game);
 void	load_map_struct(t_list *temp_map, int line_count, t_vars *game);
 void	remove_back_n(char *line);
 void	free_temp_map(t_list *temp_map);
+int	main(int argc, char **argv);
 
 void	check_rectangular(t_vars *game);
 void	check_walls(t_vars *game);
@@ -69,7 +71,7 @@ void	dfs(t_vars *game, int y, int x, int **visited);
 void	verify_path(t_vars *game);
 void	find_start_position(t_vars *game, int *start_y, int *start_x);
 
-int	    ft_init(t_vars *game);
+int		ft_init(t_vars *game);
 
 int		handle_input(int keysym, t_vars *game);
 int		mousse_close_window(t_vars *game);
