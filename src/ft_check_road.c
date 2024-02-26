@@ -6,24 +6,11 @@
 /*   By: ayarmaya <ayarmaya@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/26 02:40:31 by ayarmaya          #+#    #+#             */
-/*   Updated: 2024/02/26 14:56:30 by ayarmaya         ###   ########.fr       */
+/*   Updated: 2024/02/26 15:07:30 by ayarmaya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/so_long.h"
-
-void	free_game_visited(t_vars *game)
-{
-	int		y;
-
-	y = 0;
-	while (y < game->win_y)
-	{
-		free(game->visited[y]);
-		y++;
-	}
-	free(game->visited);
-}
 
 void	compare_count_items(t_vars *game)
 {
@@ -93,6 +80,12 @@ void	verify_path(t_vars *game)
 	dfs(game, start_y, start_x, game->visited);
 	if (!game->path_found)
 		exit_with_message(game, "\n\nError\nAucun chemin valide trouvé\n\n");
-	free_game_visited(game);
+	y = 0;
+	while (y < game->win_y)
+	{
+		free(game->visited[y]);
+		y++;
+	}
+	free(game->visited);
 	compare_count_items(game);
 }
