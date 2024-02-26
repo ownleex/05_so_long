@@ -6,7 +6,7 @@
 /*   By: ayarmaya <ayarmaya@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/17 14:00:38 by ayarmaya          #+#    #+#             */
-/*   Updated: 2024/02/26 17:26:56 by ayarmaya         ###   ########.fr       */
+/*   Updated: 2024/02/26 17:35:40 by ayarmaya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,7 @@ void	load_check_init(t_vars *game, char *argv)
 
 void	init_vars(t_vars *game)
 {
+	game->map = NULL;
 	game->cnt_items = 0;
 	game->visited_items = 0;
 	game->path_found = 0;
@@ -71,7 +72,6 @@ int	main(int argc, char **argv)
 	}
 	else
 	{
-		game = NULL;
 		game = malloc(sizeof(t_vars));
 		if (!game)
 		{
