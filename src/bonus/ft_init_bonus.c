@@ -6,11 +6,22 @@
 /*   By: ayarmaya <ayarmaya@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/21 23:35:21 by ayarmaya          #+#    #+#             */
-/*   Updated: 2024/02/26 23:59:24 by ayarmaya         ###   ########.fr       */
+/*   Updated: 2024/02/27 00:23:48 by ayarmaya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/so_long_bonus.h"
+
+void	string_screen(t_vars *game)
+{
+	char	*str;
+
+	str = ft_itoa(game->cnt_moov);
+	set_walls(game);
+	mlx_string_put(game->mlx_ptr, game->win_ptr, 100, 200, 0xF33FFFF, "test");
+	mlx_string_put(game->mlx_ptr, game->win_ptr, 10, 20, 0x33FFFF, str);
+	free(str);
+}
 
 int	animation(t_vars *game)
 {
@@ -23,7 +34,7 @@ int	animation(t_vars *game)
 
 	// Calculer la différence de temps en microsecondes
 	time_difference = (current_time.tv_sec - last_change.tv_sec) * 1000000L + (current_time.tv_usec - last_change.tv_usec);
-
+	string_screen(game);
 	// Vérifier si 0,5 seconde s'est écoulée
 	if (time_difference > 500000) {
 		if (bool == 0) {
@@ -45,8 +56,6 @@ int	ft_init(t_vars *game)
 	"sprites/green.xpm", &game->wi, &game->he);
 	game->tree_ptr = mlx_xpm_file_to_image(game->mlx_ptr, \
 	"sprites/tree.xpm", &game->wi, &game->he);
-	/*game->fire_ptr = mlx_xpm_file_to_image(game->mlx_ptr, \
-	"sprites/fire.xpm", &game->wi, &game->he);*/
 	game->fire_1_ptr = mlx_xpm_file_to_image(game->mlx_ptr, \
 	"sprites/fire_1.xpm", &game->wi, &game->he);
 	game->fire_2_ptr = mlx_xpm_file_to_image(game->mlx_ptr, \
@@ -62,7 +71,6 @@ int	ft_init(t_vars *game)
 	set_fire_1(game);
 	set_water(game);
 	set_exit(game);
-	mlx_string_put(game->mlx_ptr, game->win_ptr, 10, 20, 0xFFFFFF, "test");
 	mlx_hook(game->win_ptr, KeyRelease, KeyReleaseMask, &handle_input, game);
 	mlx_hook(game->win_ptr, 17, 0, &mousse_close_window, game);
 	mlx_loop_hook(game->mlx_ptr, &animation, game);
@@ -77,4 +85,5 @@ set_water -->				ft_set_map.c
 set_exit -->				ft_set_map.c
 handle_input -->			ft_hook.c
 mousse_close_windows -->	ft_hook.c
+animation -->				-->here<--
 */
