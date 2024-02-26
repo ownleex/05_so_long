@@ -6,7 +6,7 @@
 /*   By: ayarmaya <ayarmaya@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/17 14:00:38 by ayarmaya          #+#    #+#             */
-/*   Updated: 2024/02/26 17:35:40 by ayarmaya         ###   ########.fr       */
+/*   Updated: 2024/02/26 18:42:04 by ayarmaya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,12 @@ void	load_check_init(t_vars *game, char *argv)
 	check_rectangular(game);
 	ft_init(game);
 }
+/*
+load_map -->			ft_load_map.c
+calculate_win_x_y -->		--here--
+check_rectangular -->		ft_check_map.c
+ft_init -->			ft_init.c
+*/
 
 void	init_vars(t_vars *game)
 {
@@ -42,6 +48,7 @@ void	init_vars(t_vars *game)
 	game->visited_items = 0;
 	game->path_found = 0;
 	game->visited = NULL;
+	game->cnt_moov = 0;
 }
 
 int	check_ber(char *map)
@@ -83,3 +90,8 @@ int	main(int argc, char **argv)
 	}
 	return (1);
 }
+/*
+check_ber -->			--here--
+init_vars -->			--here--
+load_check_init -->		--here--
+*/

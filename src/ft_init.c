@@ -6,7 +6,7 @@
 /*   By: ayarmaya <ayarmaya@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/21 23:35:21 by ayarmaya          #+#    #+#             */
-/*   Updated: 2024/02/26 03:41:43 by ayarmaya         ###   ########.fr       */
+/*   Updated: 2024/02/26 18:41:52 by ayarmaya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 
 int	ft_init(t_vars *game)
 {
-	game->cnt_moov = 0;
 	game->mlx_ptr = mlx_init();
 	game->green_ptr = mlx_xpm_file_to_image(game->mlx_ptr, \
 	"sprites/green.xpm", &game->wi, &game->he);
