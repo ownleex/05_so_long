@@ -6,12 +6,12 @@
 /*   By: ayarmaya <ayarmaya@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/26 02:40:31 by ayarmaya          #+#    #+#             */
-/*   Updated: 2024/02/26 15:07:30 by ayarmaya         ###   ########.fr       */
+/*   Updated: 2024/02/26 15:10:58 by ayarmaya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/so_long.h"
-
+/*
 void	compare_count_items(t_vars *game)
 {
 	if (game->cnt_items != game->visited_items)
@@ -89,3 +89,4 @@ void	verify_path(t_vars *game)
 	free(game->visited);
 	compare_count_items(game);
 }
+*/
