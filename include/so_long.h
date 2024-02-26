@@ -6,7 +6,7 @@
 /*   By: ayarmaya <ayarmaya@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/05 16:50:50 by ayarmaya          #+#    #+#             */
-/*   Updated: 2024/02/26 01:02:20 by ayarmaya         ###   ########.fr       */
+/*   Updated: 2024/02/26 03:17:56 by ayarmaya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,8 @@ typedef struct	s_vars {
 	int		he;
 	int		player_x;
 	int		player_y;
+	int		path_found;
+	int		**visited;
 }				t_vars;
 
 void	exit_with_message(t_vars *game, char *message);
@@ -59,6 +61,10 @@ void	check_walls(t_vars *game);
 void	count_items_and_verify_chars(t_vars *game);
 void	increment_counters(t_vars *game, char c);
 void	verify_char(t_vars *game, char c);
+
+void	dfs(t_vars *game, int y, int x, int **visited);
+void	verify_path(t_vars *game);
+void	find_start_position(t_vars *game, int *start_y, int *start_x);
 
 int	    ft_init(t_vars *game);
 

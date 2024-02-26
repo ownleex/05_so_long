@@ -6,7 +6,7 @@
 /*   By: ayarmaya <ayarmaya@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/19 01:56:41 by ayarmaya          #+#    #+#             */
-/*   Updated: 2024/02/25 23:42:05 by ayarmaya         ###   ########.fr       */
+/*   Updated: 2024/02/26 02:42:35 by ayarmaya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,7 @@ void	count_items_and_verify_chars(t_vars *game)
 	}
 	if (game->cnt_exit != 1 || game->cnt_items < 1 || game->cnt_start != 1)
 		exit_with_message(game, "\n\nError\nNombre d'items incorrect\n\n");
+	verify_path(game);
 }
 
 void	check_walls(t_vars *game)
