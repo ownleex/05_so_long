@@ -6,7 +6,7 @@
 /*   By: ayarmaya <ayarmaya@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/17 14:00:38 by ayarmaya          #+#    #+#             */
-/*   Updated: 2024/02/26 16:00:53 by ayarmaya         ###   ########.fr       */
+/*   Updated: 2024/02/26 16:12:10 by ayarmaya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,14 @@ void	load_check_init(t_vars *game, char *argv)
 	calculate_win_x_y(game);
 	check_rectangular(game);
 	ft_init(game);
+}
+
+void	init_vars(t_vars *game)
+{
+	game->cnt_items = 0;
+	game->visited_items = 0;
+	game->path_found = 0;
+	game->visited = NULL;
 }
 
 int	check_ber(char *map)
@@ -69,26 +77,7 @@ int	main(int argc, char **argv)
 			ft_printf("\nError\nProblème d'allocation mémoire pour game.\n");
 			return (1);
 		}
-		game->cnt_items = 0;
-		game->visited_items = 0;
-		game->path_found = 0;
-		game->visited = NULL;
 		load_check_init(game, argv[1]);
 	}
 	return (1);
 }
-
-/*
-game = malloc(sizeof(t_vars));
-if (!game)
-{
-    ft_printf("\nError\nProblème d'allocation mémoire pour game.\n");
-    return (1);
-}
-// Initialisation des variables de game ici
-game->cnt_items = 0;
-game->visited_items = 0;
-game->path_found = 0;
-game->visited = NULL;
-// Continuez avec les autres initialisations nécessaires
-*/
