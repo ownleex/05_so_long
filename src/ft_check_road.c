@@ -6,11 +6,30 @@
 /*   By: ayarmaya <ayarmaya@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/26 02:40:31 by ayarmaya          #+#    #+#             */
-/*   Updated: 2024/02/26 03:19:04 by ayarmaya         ###   ########.fr       */
+/*   Updated: 2024/02/26 14:56:30 by ayarmaya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/so_long.h"
+
+void	free_game_visited(t_vars *game)
+{
+	int		y;
+
+	y = 0;
+	while (y < game->win_y)
+	{
+		free(game->visited[y]);
+		y++;
+	}
+	free(game->visited);
+}
+
+void	compare_count_items(t_vars *game)
+{
+	if (game->cnt_items != game->visited_items)
+		exit_with_message(game, "\n\nError\nItems non récupréables\n\n");
+}
 
 void	dfs(t_vars *game, int y, int x, int **visited)
 {
@@ -23,6 +42,8 @@ void	dfs(t_vars *game, int y, int x, int **visited)
 		game->path_found = 1;
 		return ;
 	}
+	else if (game->map[y][x] == 'C')
+		game->visited_items = game->visited_items + 1;
 	dfs(game, y + 1, x, visited);
 	dfs(game, y - 1, x, visited);
 	dfs(game, y, x + 1, visited);
@@ -72,11 +93,6 @@ void	verify_path(t_vars *game)
 	dfs(game, start_y, start_x, game->visited);
 	if (!game->path_found)
 		exit_with_message(game, "\n\nError\nAucun chemin valide trouvé\n\n");
-	y = 0;
-	while (y < game->win_y)
-	{
-		free(game->visited[y]);
-		y++;
-	}
-	free(game->visited);
+	free_game_visited(game);
+	compare_count_items(game);
 }
