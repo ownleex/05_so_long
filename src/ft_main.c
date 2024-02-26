@@ -6,7 +6,7 @@
 /*   By: ayarmaya <ayarmaya@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/17 14:00:38 by ayarmaya          #+#    #+#             */
-/*   Updated: 2024/02/26 16:12:10 by ayarmaya         ###   ########.fr       */
+/*   Updated: 2024/02/26 16:14:46 by ayarmaya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,6 +77,7 @@ int	main(int argc, char **argv)
 			ft_printf("\nError\nProblème d'allocation mémoire pour game.\n");
 			return (1);
 		}
+		init_vars(game);
 		load_check_init(game, argv[1]);
 	}
 	return (1);
