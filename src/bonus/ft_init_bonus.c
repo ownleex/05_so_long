@@ -6,7 +6,7 @@
 /*   By: ayarmaya <ayarmaya@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/21 23:35:21 by ayarmaya          #+#    #+#             */
-/*   Updated: 2024/02/26 23:54:25 by ayarmaya         ###   ########.fr       */
+/*   Updated: 2024/02/26 23:59:24 by ayarmaya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,6 +62,7 @@ int	ft_init(t_vars *game)
 	set_fire_1(game);
 	set_water(game);
 	set_exit(game);
+	mlx_string_put(game->mlx_ptr, game->win_ptr, 10, 20, 0xFFFFFF, "test");
 	mlx_hook(game->win_ptr, KeyRelease, KeyReleaseMask, &handle_input, game);
 	mlx_hook(game->win_ptr, 17, 0, &mousse_close_window, game);
 	mlx_loop_hook(game->mlx_ptr, &animation, game);
