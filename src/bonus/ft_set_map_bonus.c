@@ -6,7 +6,7 @@
 /*   By: ayarmaya <ayarmaya@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/22 02:23:20 by ayarmaya          #+#    #+#             */
-/*   Updated: 2024/02/26 21:26:08 by ayarmaya         ###   ########.fr       */
+/*   Updated: 2024/02/26 23:43:39 by ayarmaya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ void	set_exit(t_vars *game)
 		y++;
 	}
 }
-
+/*
 void	set_fire(t_vars *game)
 {
 	int		x;
@@ -50,7 +50,7 @@ void	set_fire(t_vars *game)
 				if (game->fire_ptr != NULL)
 				{
 					mlx_put_image_to_window(game->mlx_ptr, \
-					game->win_ptr, game->fire_1_ptr, x * game->wi, y * game->he);
+					game->win_ptr, game->fire_ptr, x * game->wi, y * game->he);
 					game->cnt_items++;
 				}
 			}
@@ -58,7 +58,7 @@ void	set_fire(t_vars *game)
 		}
 		y++;
 	}
-}
+}*/
 
 void	set_water(t_vars *game)
 {

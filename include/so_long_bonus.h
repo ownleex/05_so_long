@@ -6,7 +6,7 @@
 /*   By: ayarmaya <ayarmaya@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/05 16:50:50 by ayarmaya          #+#    #+#             */
-/*   Updated: 2024/02/26 22:51:33 by ayarmaya         ###   ########.fr       */
+/*   Updated: 2024/02/26 23:54:52 by ayarmaya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,7 +86,7 @@ void	impossible_move(t_vars *game);
 void	set_green(t_vars *game);
 void	set_walls(t_vars *game);
 void	set_water(t_vars *game);
-void	set_fire(t_vars *game);
+//void	set_fire(t_vars *game);
 void	set_exit(t_vars *game);
 
 void	set_fire_1(t_vars *game);

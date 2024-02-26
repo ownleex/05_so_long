@@ -6,7 +6,7 @@
 /*   By: ayarmaya <ayarmaya@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/21 23:35:21 by ayarmaya          #+#    #+#             */
-/*   Updated: 2024/02/26 23:00:16 by ayarmaya         ###   ########.fr       */
+/*   Updated: 2024/02/26 23:54:25 by ayarmaya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,19 +45,21 @@ int	ft_init(t_vars *game)
 	"sprites/green.xpm", &game->wi, &game->he);
 	game->tree_ptr = mlx_xpm_file_to_image(game->mlx_ptr, \
 	"sprites/tree.xpm", &game->wi, &game->he);
-	game->water_ptr = mlx_xpm_file_to_image(game->mlx_ptr, \
-	"sprites/water.xpm", &game->wi, &game->he);
-	game->exit_ptr = mlx_xpm_file_to_image(game->mlx_ptr, \
-	"sprites/exit.xpm", &game->wi, &game->he);
+	/*game->fire_ptr = mlx_xpm_file_to_image(game->mlx_ptr, \
+	"sprites/fire.xpm", &game->wi, &game->he);*/
 	game->fire_1_ptr = mlx_xpm_file_to_image(game->mlx_ptr, \
 	"sprites/fire_1.xpm", &game->wi, &game->he);
 	game->fire_2_ptr = mlx_xpm_file_to_image(game->mlx_ptr, \
 	"sprites/fire_2.xpm", &game->wi, &game->he);
+	game->water_ptr = mlx_xpm_file_to_image(game->mlx_ptr, \
+	"sprites/water.xpm", &game->wi, &game->he);
+	game->exit_ptr = mlx_xpm_file_to_image(game->mlx_ptr, \
+	"sprites/exit.xpm", &game->wi, &game->he);
 	game->win_ptr = mlx_new_window(game->mlx_ptr, \
 	game->win_x * game->wi, game->win_y * game->he, "---> FireWater <---");
 	set_green(game);
 	set_walls(game);
-	set_fire(game);
+	set_fire_1(game);
 	set_water(game);
 	set_exit(game);
 	mlx_hook(game->win_ptr, KeyRelease, KeyReleaseMask, &handle_input, game);
@@ -74,5 +76,4 @@ set_water -->				ft_set_map.c
 set_exit -->				ft_set_map.c
 handle_input -->			ft_hook.c
 mousse_close_windows -->	ft_hook.c
-animation -->				-->here<--
 */
