@@ -6,7 +6,7 @@
 /*   By: ayarmaya <ayarmaya@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/17 14:00:38 by ayarmaya          #+#    #+#             */
-/*   Updated: 2024/02/26 16:14:46 by ayarmaya         ###   ########.fr       */
+/*   Updated: 2024/02/26 17:09:07 by ayarmaya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,7 @@ void	load_check_init(t_vars *game, char *argv)
 
 void	init_vars(t_vars *game)
 {
+	game->mlx_ptr = NULL;
 	game->cnt_items = 0;
 	game->visited_items = 0;
 	game->path_found = 0;
