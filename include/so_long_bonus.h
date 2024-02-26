@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   bonus_solong.h                                     :+:      :+:    :+:   */
+/*   so_long.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ayarmaya <ayarmaya@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/25 17:03:40 by ayarmaya          #+#    #+#             */
-/*   Updated: 2024/02/26 00:03:56 by ayarmaya         ###   ########.fr       */
+/*   Created: 2024/02/05 16:50:50 by ayarmaya          #+#    #+#             */
+/*   Updated: 2024/02/26 19:08:13 by ayarmaya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,6 @@
 # include "../mlx_linux/mlx.h"
 # include "../mlx_linux/mlx_int.h"
 # include <stdlib.h>
-# include <sys/time.h> 
 
 typedef struct	s_vars {
 	void	*mlx_ptr;
@@ -29,45 +28,56 @@ typedef struct	s_vars {
 	void	*green_ptr;
 	void	*fire_ptr;
 	void	*water_ptr;
-	void	*water_ptr;
 	void	*tree_ptr;
-	void	*fire_right;
-	void	*fire_up;
-	void	*fire_left;
 	void	*exit_ptr;
 	char	**map;
-	int		w;
-	int		height;
+	int		cnt_exit;
+	int		cnt_items;
+	int		cnt_start;
+	int		cnt_moov;
+	int		wi;
+	int		he;
 	int		player_x;
 	int		player_y;
-	int		nbr_fire;
-	int		cnt_moov;
-	char	*str;
+	int		path_found;
+	int		visited_items;
+	int		**visited;
 }				t_vars;
 
-void	exit_with_message(char *message);
-void	exit_with_perror(char *message);
+void	exit_with_message(t_vars *game, char *message);
+void	exit_with_perror(t_vars *game, char *message);
+void	free_all_exit(t_vars *game);
 
 int		check_ber(char *map);
+void	calculate_win_x_y(t_vars *game);
+void	load_check_init(t_vars *game, char *argv);
 
+void	init_vars(t_vars *game);
 void	load_map(char *map_file, t_vars *game);
 void	load_map_struct(t_list *temp_map, int line_count, t_vars *game);
 void	remove_back_n(char *line);
 void	free_temp_map(t_list *temp_map);
+int	main(int argc, char **argv);
 
-void	check_rectangular(char **map);
-void	check_walls(char **map, size_t width, size_t height);
-void	count_items_and_verify_chars(char **map, size_t width, size_t height);
-void	increment_counters(char c, int *exit, int *items, int *start);
-void	verify_char(char c);
+void	check_rectangular(t_vars *game);
+void	check_walls(t_vars *game);
+void	count_items_and_verify_chars(t_vars *game);
+void	increment_counters(t_vars *game, char c);
+void	verify_char(t_vars *game, char c);
 
-int	    ft_init(t_vars *game);
-void	calculate_win_x_y(t_vars *game);
+void	free_game_visited(t_vars *game);
+void	compare_count_items(t_vars *game);
+void	dfs(t_vars *game, int y, int x, int **visited);
+void	verify_path(t_vars *game);
+void	find_start_position(t_vars *game, int *start_y, int *start_x);
 
-int		animation(t_vars *game);
+int		ft_init(t_vars *game);
+
 int		handle_input(int keysym, t_vars *game);
-int		mousse_close_window(t_vars *vars);
-int		you_win(t_vars *game);
+int		mousse_close_window(t_vars *game);
+void	you_win(t_vars *game);
+void	exit_destroy_game(t_vars *game);
+void	impossible_move(t_vars *game);
 
 void	set_green(t_vars *game);
 void	set_walls(t_vars *game);
@@ -80,9 +90,5 @@ void	move_right(t_vars *game);
 void	move_up(t_vars *game);
 void	move_down(t_vars *game);
 void	reset_map(t_vars *game);
-
-void	set_fire_right(t_vars *game);
-void	set_fire_left(t_vars *game);
-void	set_fire_up(t_vars *game);
 
 #endif
