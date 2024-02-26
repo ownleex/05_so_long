@@ -6,7 +6,7 @@
 #    By: ayarmaya <ayarmaya@student.42nice.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/18 17:27:18 by ayarmaya          #+#    #+#              #
-#    Updated: 2024/02/25 22:49:02 by ayarmaya         ###   ########.fr        #
+#    Updated: 2024/02/26 15:38:26 by ayarmaya         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,7 @@ CFLAGS	:= -Wall -Wextra -Werror
 HEADERS	:= -I/usr/include -Imlx_linux -I./include -Ilibft/include
 LIBS	:= libft/libft.a -Lmlx_linux -lmlx_Linux -L/usr/lib -Imlx_linux -lXext -lX11 -lm -lz
 
-CC	:= gcc
+CC	:= gcc -g
 RM	:= rm -f
 
 SRCS	:= $(shell find ./src -iname "*.c")

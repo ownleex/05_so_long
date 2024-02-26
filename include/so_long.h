@@ -6,7 +6,7 @@
 /*   By: ayarmaya <ayarmaya@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/05 16:50:50 by ayarmaya          #+#    #+#             */
-/*   Updated: 2024/02/26 15:11:10 by ayarmaya         ###   ########.fr       */
+/*   Updated: 2024/02/26 15:27:14 by ayarmaya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,10 +63,11 @@ void	count_items_and_verify_chars(t_vars *game);
 void	increment_counters(t_vars *game, char c);
 void	verify_char(t_vars *game, char c);
 
-//void	compare_count_items(t_vars *game);
-//void	dfs(t_vars *game, int y, int x, int **visited);
-//void	verify_path(t_vars *game);
-//void	find_start_position(t_vars *game, int *start_y, int *start_x);
+void	free_game_visited(t_vars *game);
+void	compare_count_items(t_vars *game);
+void	dfs(t_vars *game, int y, int x, int **visited);
+void	verify_path(t_vars *game);
+void	find_start_position(t_vars *game, int *start_y, int *start_x);
 
 int	    ft_init(t_vars *game);
 
