@@ -6,7 +6,7 @@
 /*   By: ayarmaya <ayarmaya@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/05 16:50:50 by ayarmaya          #+#    #+#             */
-/*   Updated: 2024/02/25 21:22:30 by ayarmaya         ###   ########.fr       */
+/*   Updated: 2024/02/26 01:02:20 by ayarmaya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,27 +28,26 @@ typedef struct	s_vars {
 	void	*green_ptr;
 	void	*fire_ptr;
 	void	*water_ptr;
-	void	*water;
 	void	*tree_ptr;
 	void	*exit_ptr;
 	char	**map;
-	int		count_exit;
-	int		count_items;
-	int		count_start;
-	int		width;
-	int		height;
+	int		cnt_exit;
+	int		cnt_items;
+	int		cnt_start;
+	int		cnt_moov;
+	int		wi;
+	int		he;
 	int		player_x;
 	int		player_y;
-	int		nbr_fire;
-	int		nbr_moov;
-	char	*str;
 }				t_vars;
 
 void	exit_with_message(t_vars *game, char *message);
 void	exit_with_perror(t_vars *game, char *message);
+void	free_all_exit(t_vars *game);
 
 int		check_ber(char *map);
 void	calculate_win_x_y(t_vars *game);
+void	load_check_init(t_vars *game, char *argv);
 
 void	load_map(char *map_file, t_vars *game);
 void	load_map_struct(t_list *temp_map, int line_count, t_vars *game);
@@ -63,10 +62,11 @@ void	verify_char(t_vars *game, char c);
 
 int	    ft_init(t_vars *game);
 
-int		animation(t_vars *game);
 int		handle_input(int keysym, t_vars *game);
 int		mousse_close_window(t_vars *game);
-int		you_win(t_vars *game);
+void	you_win(t_vars *game);
+void	exit_destroy_game(t_vars *game);
+void	impossible_move(t_vars *game);
 
 void	set_green(t_vars *game);
 void	set_walls(t_vars *game);

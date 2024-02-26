@@ -6,7 +6,7 @@
 /*   By: ayarmaya <ayarmaya@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/22 16:30:48 by ayarmaya          #+#    #+#             */
-/*   Updated: 2024/02/25 16:47:25 by ayarmaya         ###   ########.fr       */
+/*   Updated: 2024/02/25 23:41:58 by ayarmaya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,25 +28,21 @@ void	move_down(t_vars *game)
 	if (game->map[y + 1][x] != '1')
 	{
 		if (game->map[y + 1][x] == 'C')
-			game->nbr_fire--;
-		else if (game->map[y + 1][x] == 'E' && game->nbr_fire == 0)
-		{
+			game->cnt_items--;
+		else if (game->map[y + 1][x] == 'E' && game->cnt_items == 0)
 			you_win(game);
-		}
 		if (game->map[y + 1][x] == '0' || game->map[y + 1][x] == 'C')
 		{
 			game->map[y][x] = '0';
 			game->player_y += 1;
 			game->map[y + 1][x] = 'P';
-			ft_printf("\033[5m\033[34mMouvement  %d - Restant %d \r\033[0m", game->nbr_moov, game->nbr_fire);
+			ft_printf("\033[5m\033[34mMouvement  %d - Restant %d \r\033[0m", \
+			game->cnt_moov, game->cnt_items);
 		}
 		reset_map(game);
 	}
 	else
-	{
-		game->nbr_moov--;
-		ft_printf("\033[31mImpossible %d - Restant %d \033[0m\r", game->nbr_moov, game->nbr_fire);
-	}
+		impossible_move(game);
 }
 
 void	move_up(t_vars *game)
@@ -59,25 +55,21 @@ void	move_up(t_vars *game)
 	if (game->map[y - 1][x] != '1')
 	{
 		if (game->map[y - 1][x] == 'C')
-			game->nbr_fire--;
-		else if (game->map[y - 1][x] == 'E' && game->nbr_fire == 0)
-		{
+			game->cnt_items--;
+		else if (game->map[y - 1][x] == 'E' && game->cnt_items == 0)
 			you_win(game);
-		}
 		if (game->map[y - 1][x] == '0' || game->map[y - 1][x] == 'C')
 		{
 			game->map[y][x] = '0';
 			game->player_y -= 1;
 			game->map[y - 1][x] = 'P';
-			ft_printf("\033[5m\033[34mMouvement  %d - Restant %d \r\033[0m", game->nbr_moov, game->nbr_fire);
+			ft_printf("\033[5m\033[34mMouvement  %d - Restant %d \r\033[0m", \
+			game->cnt_moov, game->cnt_items);
 		}
 		reset_map(game);
 	}
 	else
-	{
-		game->nbr_moov--;
-		ft_printf("\033[31mImpossible %d - Restant %d \033[0m\r", game->nbr_moov, game->nbr_fire);
-	}
+		impossible_move(game);
 }
 
 void	move_right(t_vars *game)
@@ -90,25 +82,21 @@ void	move_right(t_vars *game)
 	if (game->map[y][x + 1] != '1')
 	{
 		if (game->map[y][x + 1] == 'C')
-			game->nbr_fire--;
-		else if (game->map[y][x + 1] == 'E' && game->nbr_fire == 0)
-		{
+			game->cnt_items--;
+		else if (game->map[y][x + 1] == 'E' && game->cnt_items == 0)
 			you_win(game);
-		}
 		if (game->map[y][x + 1] == '0' || game->map[y][x + 1] == 'C')
 		{
 			game->map[y][x] = '0';
 			game->player_x += 1;
 			game->map[y][x + 1] = 'P';
-			ft_printf("\033[5m\033[34mMouvement  %d - Restant %d \r\033[0m", game->nbr_moov, game->nbr_fire);
+			ft_printf("\033[5m\033[34mMouvement  %d - Restant %d \r\033[0m", \
+			game->cnt_moov, game->cnt_items);
 		}
 		reset_map(game);
 	}
 	else
-	{
-		game->nbr_moov--;
-		ft_printf("\033[31mImpossible %d - Restant %d \033[0m\r", game->nbr_moov, game->nbr_fire);
-	}
+		impossible_move(game);
 }
 
 void	move_left(t_vars *game)
@@ -121,23 +109,19 @@ void	move_left(t_vars *game)
 	if (game->map[y][x - 1] != '1')
 	{
 		if (game->map[y][x - 1] == 'C')
-			game->nbr_fire--;
-		else if (game->map[y][x - 1] == 'E' && game->nbr_fire == 0)
-		{
+			game->cnt_items--;
+		else if (game->map[y][x - 1] == 'E' && game->cnt_items == 0)
 			you_win(game);
-		}
 		if (game->map[y][x - 1] == '0' || game->map[y][x - 1] == 'C')
 		{
 			game->map[y][x] = '0';
 			game->player_x -= 1;
 			game->map[y][x - 1] = 'P';
-			ft_printf("\033[5m\033[34mMouvement  %d - Restant %d \r\033[0m", game->nbr_moov, game->nbr_fire);
+			ft_printf("\033[5m\033[34mMouvement  %d - Restant %d \r\033[0m", \
+			game->cnt_moov, game->cnt_items);
 		}
 		reset_map(game);
 	}
 	else
-	{
-		game->nbr_moov--;
-		ft_printf("\033[31mImpossible %d - Restant %d \033[0m\r", game->nbr_moov, game->nbr_fire);
-	}
+		impossible_move(game);
 }

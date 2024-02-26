@@ -6,7 +6,7 @@
 /*   By: ayarmaya <ayarmaya@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/17 14:00:38 by ayarmaya          #+#    #+#             */
-/*   Updated: 2024/02/25 21:00:44 by ayarmaya         ###   ########.fr       */
+/*   Updated: 2024/02/26 01:32:27 by ayarmaya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,14 @@ void	calculate_win_x_y(t_vars *game)
 		x++;
 	game->win_y = y;
 	game->win_x = x;
+}
+
+void	load_check_init(t_vars *game, char *argv)
+{
+	load_map(argv, game);
+	calculate_win_x_y(game);
+	check_rectangular(game);
+	ft_init(game);
 }
 
 int	check_ber(char *map)
@@ -61,10 +69,7 @@ int	main(int argc, char **argv)
 			ft_printf("\nError\nProblème d'allocation mémoire pour game.\n");
 			return (1);
 		}
-		load_map(argv[1], game);
-		calculate_win_x_y(game);
-		check_rectangular(game);
-		ft_init(game);
+		load_check_init(game, argv[1]);
 	}
 	return (1);
 }

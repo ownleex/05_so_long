@@ -6,11 +6,11 @@
 #    By: ayarmaya <ayarmaya@student.42nice.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/18 17:27:18 by ayarmaya          #+#    #+#              #
-#    Updated: 2024/02/10 04:01:34 by ayarmaya         ###   ########.fr        #
+#    Updated: 2024/02/25 22:49:02 by ayarmaya         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME	:= FireWater
+NAME	:= so_long
 CFLAGS	:= -Wall -Wextra -Werror
 
 HEADERS	:= -I/usr/include -Imlx_linux -I./include -Ilibft/include

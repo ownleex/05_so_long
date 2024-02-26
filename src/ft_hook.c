@@ -6,44 +6,41 @@
 /*   By: ayarmaya <ayarmaya@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/10 02:49:37 by ayarmaya          #+#    #+#             */
-/*   Updated: 2024/02/25 17:06:50 by ayarmaya         ###   ########.fr       */
+/*   Updated: 2024/02/26 01:07:07 by ayarmaya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/so_long.h"
 
-int	exit_destroy_game(t_vars *game)
+void	impossible_move(t_vars *game)
+{
+	game->cnt_moov--;
+	ft_printf("\033[31mImpossible %d - Restant %d \033[0m\r", \
+	game->cnt_moov, game->cnt_items);
+}
+
+void	exit_destroy_game(t_vars *game)
 {
 	ft_printf("\033[5m\033[31m\n\n[ESC] : Partie quittée !\n\n\033[0m");
-	mlx_destroy_window(game->mlx_ptr, game->win_ptr);
-	mlx_destroy_display(game->mlx_ptr);
-	free(game->mlx_ptr);
-	exit(EXIT_SUCCESS);
+	free_all_exit(game);
 }
 
 int	mousse_close_window(t_vars *game)
 {
 	ft_printf("\033[5m\033[31m\n\n[X Close] : Partie quittée !\n\n\033[0m");
-	mlx_destroy_window(game->mlx_ptr, game->win_ptr);
-	mlx_destroy_display(game->mlx_ptr);
-	free(game->mlx_ptr);
+	free_all_exit(game);
 	exit(EXIT_SUCCESS);
-	return (0);
 }
 
-int	you_win(t_vars *game)
+void	you_win(t_vars *game)
 {
-	ft_printf("\033[5m\033[32m\n\n[EXIT] : Vous avez gagné !\n\n\033[0m");
-	mlx_destroy_window(game->mlx_ptr, game->win_ptr);
-	mlx_destroy_display(game->mlx_ptr);
-	free(game->mlx_ptr);
-	exit(EXIT_SUCCESS);
-	return (0);
+	ft_printf("\033[5m\033[31m\n\n[EXIT] : Vous avez gagné !\n\n\033[0m");
+	free_all_exit(game);
 }
 
 int	handle_input(int keysym, t_vars *game)
 {
-	game->nbr_moov++;
+	game->cnt_moov++;
 	if (keysym == 65307)
 		exit_destroy_game(game);
 	else if (keysym == 65361 || keysym == 97)
@@ -57,7 +54,7 @@ int	handle_input(int keysym, t_vars *game)
 	else
 	{
 		ft_printf("\033[31mTouche invalide !              \r\033[0m");
-		game->nbr_moov--;
+		game->cnt_moov--;
 	}
 	return (0);
 }

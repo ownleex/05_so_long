@@ -6,7 +6,7 @@
 /*   By: ayarmaya <ayarmaya@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/22 02:23:20 by ayarmaya          #+#    #+#             */
-/*   Updated: 2024/02/25 19:29:47 by ayarmaya         ###   ########.fr       */
+/*   Updated: 2024/02/26 00:12:38 by ayarmaya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ void	set_exit(t_vars *game)
 			if (game->map[y][x] == 'E')
 				if (game->exit_ptr != NULL)
 					mlx_put_image_to_window(game->mlx_ptr, \
-					game->win_ptr, game->exit_ptr, x * 100, y * 100);
+					game->win_ptr, game->exit_ptr, x * game->wi, y * game->he);
 			x++;
 		}
 		y++;
@@ -38,7 +38,7 @@ void	set_fire(t_vars *game)
 	int		x;
 	int		y;
 
-	game->nbr_fire = 0;
+	game->cnt_items = 0;
 	y = 0;
 	while (y < game->win_y)
 	{
@@ -50,8 +50,8 @@ void	set_fire(t_vars *game)
 				if (game->fire_ptr != NULL)
 				{
 					mlx_put_image_to_window(game->mlx_ptr, \
-					game->win_ptr, game->fire_ptr, x * 100, y * 100);
-					game->nbr_fire++;
+					game->win_ptr, game->fire_ptr, x * game->wi, y * game->he);
+					game->cnt_items++;
 				}
 			}
 			x++;
@@ -73,10 +73,10 @@ void	set_water(t_vars *game)
 		{
 			if (game->map[y][x] == 'P')
 			{
-				if (game->water != NULL)
+				if (game->water_ptr != NULL)
 				{
 					mlx_put_image_to_window(game->mlx_ptr, \
-					game->win_ptr, game->water, x * 100, y * 100);
+					game->win_ptr, game->water_ptr, x * game->wi, y * game->he);
 					game->player_x = x;
 					game->player_y = y;
 				}
@@ -101,7 +101,7 @@ void	set_walls(t_vars *game)
 			if (game->map[y][x] == '1')
 				if (game->tree_ptr != NULL)
 					mlx_put_image_to_window(game->mlx_ptr, \
-					game->win_ptr, game->tree_ptr, x * 100, y * 100);
+					game->win_ptr, game->tree_ptr, x * game->wi, y * game->he);
 			x++;
 		}
 		y++;
@@ -122,7 +122,7 @@ void	set_green(t_vars *game)
 			if (game->map[y][x] == '0')
 				if (game->green_ptr != NULL)
 					mlx_put_image_to_window(game->mlx_ptr, \
-					game->win_ptr, game->green_ptr, x * 100, y * 100);
+					game->win_ptr, game->green_ptr, x * game->wi, y * game->he);
 			x++;
 		}
 		y++;

@@ -6,7 +6,7 @@
 /*   By: ayarmaya <ayarmaya@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/19 01:56:41 by ayarmaya          #+#    #+#             */
-/*   Updated: 2024/02/25 21:31:45 by ayarmaya         ###   ########.fr       */
+/*   Updated: 2024/02/25 23:42:05 by ayarmaya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,17 +15,18 @@
 void	verify_char(t_vars *game, char c)
 {
 	if (c != '0' && c != '1' && c != 'C' && c != 'E' && c != 'P')
-		exit_with_message(game, "\n\nError\nCaractère invalide dans la carte\n\n");
+		exit_with_message(game, \
+		"\n\nError\nCaractère invalide dans la carte\n\n");
 }
 
 void	increment_counters(t_vars *game, char c)
 {
 	if (c == 'E')
-		game->count_exit++;
+		game->cnt_exit++;
 	else if (c == 'C')
-		game->count_items++;
+		game->cnt_items++;
 	else if (c == 'P')
-		game->count_start++;
+		game->cnt_start++;
 	verify_char(game, c);
 }
 
@@ -34,9 +35,9 @@ void	count_items_and_verify_chars(t_vars *game)
 	int		x;
 	int		y;
 
-	game->count_exit = 0;
-	game->count_items = 0;
-	game->count_start = 0;
+	game->cnt_exit = 0;
+	game->cnt_items = 0;
+	game->cnt_start = 0;
 	y = 0;
 	while (y < game->win_y)
 	{
@@ -48,7 +49,7 @@ void	count_items_and_verify_chars(t_vars *game)
 		}
 		y++;
 	}
-	if (game->count_exit != 1 || game->count_items < 1 || game->count_start != 1)
+	if (game->cnt_exit != 1 || game->cnt_items < 1 || game->cnt_start != 1)
 		exit_with_message(game, "\n\nError\nNombre d'items incorrect\n\n");
 }
 

@@ -6,7 +6,7 @@
 /*   By: ayarmaya <ayarmaya@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/17 16:36:17 by ayarmaya          #+#    #+#             */
-/*   Updated: 2024/02/25 21:26:20 by ayarmaya         ###   ########.fr       */
+/*   Updated: 2024/02/26 01:30:33 by ayarmaya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,12 +41,14 @@ void	load_map_struct(t_list *temp_map, int line_count, t_vars *game)
 	i = 0;
 	game->map = (char **)malloc(sizeof(char *) * (line_count + 1));
 	if (!game->map)
-		exit_with_message(game, "\nError\nProblème mémoire : chargement map\n\n");
+		exit_with_message(game, \
+		"\nError\nProblème mémoire : chargement map\n\n");
 	while (temp_map)
 	{
 		game->map[i] = ft_strdup((char *)temp_map->content);
 		if (!game->map[i])
-			exit_with_message(game, "\nError\nProblème de copie de la ligne\n\n");
+			exit_with_message(game, \
+			"\nError\nProblème de copie de la ligne\n\n");
 		temp_map = temp_map->next;
 		i++;
 	}
@@ -64,7 +66,8 @@ void	load_map(char *map_file, t_vars *game)
 	temp_map = NULL;
 	fd = open(map_file, O_RDONLY);
 	if (fd == -1)
-		exit_with_perror(game, "\nError\nErreur lors du chargement de la carte\n\n");
+		exit_with_perror(game, \
+		"\nError\nErreur lors du chargement de la carte\n\n");
 	line = get_next_line(fd);
 	while (line != NULL)
 	{
