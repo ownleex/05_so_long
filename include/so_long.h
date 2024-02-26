@@ -6,7 +6,7 @@
 /*   By: ayarmaya <ayarmaya@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/05 16:50:50 by ayarmaya          #+#    #+#             */
-/*   Updated: 2024/02/26 22:04:45 by ayarmaya         ###   ########.fr       */
+/*   Updated: 2024/02/26 22:57:23 by ayarmaya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@
 # include "../mlx_linux/mlx.h"
 # include "../mlx_linux/mlx_int.h"
 # include <stdlib.h>
+# include <sys/time.h> 
 
 typedef struct	s_vars {
 	void	*mlx_ptr;
@@ -57,7 +58,7 @@ void	load_map(char *map_file, t_vars *game);
 void	load_map_struct(t_list *temp_map, int line_count, t_vars *game);
 void	remove_back_n(char *line);
 void	free_temp_map(t_list *temp_map);
-int	main(int argc, char **argv);
+int		main(int argc, char **argv);
 
 void	check_rectangular(t_vars *game);
 void	check_walls(t_vars *game);
@@ -72,6 +73,7 @@ void	verify_path(t_vars *game);
 void	find_start_position(t_vars *game, int *start_y, int *start_x);
 
 int		ft_init(t_vars *game);
+int		animation(t_vars *game);
 
 int		handle_input(int keysym, t_vars *game);
 int		mousse_close_window(t_vars *game);
@@ -84,6 +86,9 @@ void	set_walls(t_vars *game);
 void	set_water(t_vars *game);
 void	set_fire(t_vars *game);
 void	set_exit(t_vars *game);
+
+void	set_fire_1(t_vars *game);
+void	set_fire_2(t_vars *game);
 
 void	move_left(t_vars *game);
 void	move_right(t_vars *game);

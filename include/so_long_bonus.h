@@ -6,7 +6,7 @@
 /*   By: ayarmaya <ayarmaya@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/05 16:50:50 by ayarmaya          #+#    #+#             */
-/*   Updated: 2024/02/26 22:27:09 by ayarmaya         ###   ########.fr       */
+/*   Updated: 2024/02/26 22:51:33 by ayarmaya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,7 @@ void	load_map(char *map_file, t_vars *game);
 void	load_map_struct(t_list *temp_map, int line_count, t_vars *game);
 void	remove_back_n(char *line);
 void	free_temp_map(t_list *temp_map);
-int	main(int argc, char **argv);
+int		main(int argc, char **argv);
 
 void	check_rectangular(t_vars *game);
 void	check_walls(t_vars *game);
