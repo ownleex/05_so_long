@@ -6,7 +6,7 @@
 /*   By: ayarmaya <ayarmaya@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/26 21:34:40 by ayarmaya          #+#    #+#             */
-/*   Updated: 2024/02/26 23:53:23 by ayarmaya         ###   ########.fr       */
+/*   Updated: 2024/02/27 00:55:00 by ayarmaya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,8 +28,8 @@ void	set_fire_1(t_vars *game)
 			{
 				if (game->fire_1_ptr != NULL)
 				{
-					mlx_put_image_to_window(game->mlx_ptr, \
-					game->win_ptr, game->fire_1_ptr, x * game->wi, y * game->he);
+					mlx_put_image_to_window(game->mlx_ptr, game->win_ptr, \
+					game->fire_1_ptr, x * game->wi, y * game->he);
 					game->cnt_items++;
 				}
 			}
@@ -55,8 +55,8 @@ void	set_fire_2(t_vars *game)
 			{
 				if (game->fire_2_ptr != NULL)
 				{
-					mlx_put_image_to_window(game->mlx_ptr, \
-					game->win_ptr, game->fire_2_ptr, x * game->wi, y * game->he);
+					mlx_put_image_to_window(game->mlx_ptr, game->win_ptr, \
+					game->fire_2_ptr, x * game->wi, y * game->he);
 					game->cnt_items++;
 				}
 			}

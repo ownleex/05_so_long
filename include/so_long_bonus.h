@@ -6,7 +6,7 @@
 /*   By: ayarmaya <ayarmaya@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/05 16:50:50 by ayarmaya          #+#    #+#             */
-/*   Updated: 2024/02/26 23:54:52 by ayarmaya         ###   ########.fr       */
+/*   Updated: 2024/02/27 00:38:36 by ayarmaya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,6 +76,7 @@ void	find_start_position(t_vars *game, int *start_y, int *start_x);
 
 int		ft_init(t_vars *game);
 int		animation(t_vars *game);
+void	string_screen(t_vars *game);
 
 int		handle_input(int keysym, t_vars *game);
 int		mousse_close_window(t_vars *game);
@@ -86,7 +87,7 @@ void	impossible_move(t_vars *game);
 void	set_green(t_vars *game);
 void	set_walls(t_vars *game);
 void	set_water(t_vars *game);
-//void	set_fire(t_vars *game);
+void	set_fire(t_vars *game);
 void	set_exit(t_vars *game);
 
 void	set_fire_1(t_vars *game);
