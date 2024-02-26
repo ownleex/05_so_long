@@ -6,7 +6,7 @@
 /*   By: ayarmaya <ayarmaya@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/26 02:40:31 by ayarmaya          #+#    #+#             */
-/*   Updated: 2024/02/26 15:33:52 by ayarmaya         ###   ########.fr       */
+/*   Updated: 2024/02/26 16:05:38 by ayarmaya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,7 +92,10 @@ void	verify_path(t_vars *game)
 	find_start_position(game, &start_y, &start_x);
 	dfs(game, start_y, start_x, game->visited);
 	if (!game->path_found)
+	{
+		free_game_visited(game);
 		exit_with_message(game, "\n\nError\nAucun chemin valide trouvé\n\n");
+	}
 	free_game_visited(game);
 	compare_count_items(game);
 }
