@@ -6,7 +6,7 @@
 /*   By: ayarmaya <ayarmaya@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/21 23:35:21 by ayarmaya          #+#    #+#             */
-/*   Updated: 2024/02/26 18:41:52 by ayarmaya         ###   ########.fr       */
+/*   Updated: 2024/02/26 18:44:39 by ayarmaya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,6 @@ int	ft_init(t_vars *game)
 	"sprites/water.xpm", &game->wi, &game->he);
 	game->exit_ptr = mlx_xpm_file_to_image(game->mlx_ptr, \
 	"sprites/exit.xpm", &game->wi, &game->he);
-	game->win_ptr = NULL;
 	game->win_ptr = mlx_new_window(game->mlx_ptr, \
 	game->win_x * game->wi, game->win_y * game->he, "---> FireWater <---");
 	set_green(game);

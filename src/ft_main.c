@@ -6,7 +6,7 @@
 /*   By: ayarmaya <ayarmaya@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/17 14:00:38 by ayarmaya          #+#    #+#             */
-/*   Updated: 2024/02/26 18:42:04 by ayarmaya         ###   ########.fr       */
+/*   Updated: 2024/02/26 18:44:47 by ayarmaya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,7 @@ void	init_vars(t_vars *game)
 	game->path_found = 0;
 	game->visited = NULL;
 	game->cnt_moov = 0;
+	game->win_ptr = NULL;
 }
 
 int	check_ber(char *map)
