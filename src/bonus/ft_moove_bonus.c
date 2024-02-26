@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_moove.c                                         :+:      :+:    :+:   */
+/*   ft_moove_bonus.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ayarmaya <ayarmaya@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/22 16:30:48 by ayarmaya          #+#    #+#             */
-/*   Updated: 2024/02/26 19:11:09 by ayarmaya         ###   ########.fr       */
+/*   Updated: 2024/02/26 20:30:22 by ayarmaya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/so_long.h"
+#include "../include/so_long_bonus.h"
 
 void	reset_map(t_vars *game)
 {

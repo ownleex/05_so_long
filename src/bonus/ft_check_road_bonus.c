@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_check_road.c                                    :+:      :+:    :+:   */
+/*   ft_check_road_bonus.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ayarmaya <ayarmaya@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/26 02:40:31 by ayarmaya          #+#    #+#             */
-/*   Updated: 2024/02/26 19:10:17 by ayarmaya         ###   ########.fr       */
+/*   Updated: 2024/02/26 20:29:33 by ayarmaya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/so_long.h"
+#include "../include/so_long_bonus.h"
 
 void	free_game_visited(t_vars *game)
 {

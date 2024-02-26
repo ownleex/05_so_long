@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_set_map.c                                       :+:      :+:    :+:   */
+/*   ft_set_map_bonus.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ayarmaya <ayarmaya@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/22 02:23:20 by ayarmaya          #+#    #+#             */
-/*   Updated: 2024/02/26 19:08:28 by ayarmaya         ###   ########.fr       */
+/*   Updated: 2024/02/26 21:26:08 by ayarmaya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/so_long.h"
+#include "../include/so_long_bonus.h"
 
 void	set_exit(t_vars *game)
 {
@@ -50,7 +50,7 @@ void	set_fire(t_vars *game)
 				if (game->fire_ptr != NULL)
 				{
 					mlx_put_image_to_window(game->mlx_ptr, \
-					game->win_ptr, game->fire_ptr, x * game->wi, y * game->he);
+					game->win_ptr, game->fire_1_ptr, x * game->wi, y * game->he);
 					game->cnt_items++;
 				}
 			}

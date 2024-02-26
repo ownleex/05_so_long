@@ -6,57 +6,74 @@
 #    By: ayarmaya <ayarmaya@student.42nice.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/18 17:27:18 by ayarmaya          #+#    #+#              #
-#    Updated: 2024/02/26 20:23:23 by ayarmaya         ###   ########.fr        #
+#    Updated: 2024/02/26 22:08:49 by ayarmaya         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME	:= so_long
-NAME_B	:= so_long_bonus
+NAME := so_long
+NAME_B := so_long_bonus
 
-CFLAGS	:= -Wall -Wextra -Werror
+CC := gcc
+CFLAGS := -Wall -Wextra -Werror
+RM := rm -f
 
-HEADERS	:= -I/usr/include -Imlx_linux -I./include -Ilibft/include
-LIBS	:= libft/libft.a -Lmlx_linux -lmlx_Linux -L/usr/lib -Imlx_linux -lXext -lX11 -lm -lz
+LIBFT := libft/libft.a
+MLX := mlx_linux/libmlx_Linux.a
+MLX_FLAGS := -Lmlx_linux -lmlx_Linux -L/usr/lib -lXext -lX11 -lm -lz
 
-CC	:= gcc
-RM	:= rm -f
+HEADERS := -I./include -Ilibft/include -Imlx_linux
+LIBS := $(LIBFT) $(MLX) $(MLX_FLAGS)
 
-SRCS	:= $(shell find ./src -iname "*.c")
-SRCS_B	:= $(shell find ./src -iname "*_bonus.c")
+SRCS := 	src/ft_check_map.c \
+			src/ft_check_road.c \
+			src/ft_hook.c \
+			src/ft_init.c \
+			src/ft_load_map.c \
+			src/ft_main.c \
+			src/ft_moove.c \
+			src/ft_set_map.c \
+			src/ft_utils.c
 
-OBJS	:= ${SRCS:.c=.o}
-OBJS_B	:= ${SRCS_B:.c=.o}
+SRCS_B := 	src/bonus/ft_check_map_bonus.c \
+			src/bonus/ft_check_road_bonus.c \
+			src/bonus/ft_hook_bonus.c \
+			src/bonus/ft_init_bonus.c \
+			src/bonus/ft_load_map_bonus.c \
+			src/bonus/ft_main_bonus.c \
+			src/bonus/ft_moove_bonus.c \
+			src/bonus/ft_set_map_bonus.c \
+			src/bonus/ft_set_map_2_bonus.c \
+			src/bonus/ft_utils_bonus.c
 
-all: libftmlx $(NAME)
+OBJS := $(SRCS:.c=.o)
+OBJS_B := $(SRCS_B:.c=.o)
 
-bonus: libftmlx $(NAME_B)
+all: $(NAME)
 
-libftmlx:
-	cd mlx_linux;./configure
-	cd libft;make
-
-%.o: %.c
-	$(CC) $(CFLAGS) $(HEADERS) -O3 -c $< -o $@
+bonus: $(NAME_B)
 
 $(NAME): $(OBJS)
+	make -C libft
+	make -C mlx_linux
 	$(CC) $(OBJS) $(LIBS) -o $(NAME)
 
 $(NAME_B): $(OBJS_B)
-	$(CC) $(OBJS_B) $(LIBS) -o $(NAME)
+	make -C libft
+	make -C mlx_linux
+	$(CC) $(OBJS_B) $(LIBS) -o $(NAME_B)
+
+%.o: %.c
+	$(CC) $(CFLAGS) $(HEADERS) -c $< -o $@
 
 clean:
-	${RM} $(OBJS)
-	${RM} $(OBJS_B)
-	cd libft;make clean
-	cd mlx_linux;make clean
+	$(RM) $(OBJS) $(OBJS_B)
+	make -C libft clean
+	make -C mlx_linux clean
 
 fclean: clean
-	${RM} $(NAME)
-	${RM} $(NAME_B)
-	cd libft;make fclean
-	cd mlx_linux;./configure clean
-	cd mlx_linux;${RM} Makefile.gen
+	$(RM) $(NAME) $(NAME_B)
+	make -C libft fclean
 
 re: fclean all
 
-.PHONY: all, bonus, clean, fclean, re, libftmlx
+.PHONY: all bonus clean fclean re

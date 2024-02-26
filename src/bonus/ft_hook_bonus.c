@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_hook.c                                          :+:      :+:    :+:   */
+/*   ft_hook_bonus.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ayarmaya <ayarmaya@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/10 02:49:37 by ayarmaya          #+#    #+#             */
-/*   Updated: 2024/02/26 19:09:32 by ayarmaya         ###   ########.fr       */
+/*   Updated: 2024/02/26 20:29:39 by ayarmaya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/so_long.h"
+#include "../include/so_long_bonus.h"
 
 void	impossible_move(t_vars *game)
 {

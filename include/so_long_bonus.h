@@ -1,17 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   so_long.h                                          :+:      :+:    :+:   */
+/*   so_long_bonus.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ayarmaya <ayarmaya@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/05 16:50:50 by ayarmaya          #+#    #+#             */
-/*   Updated: 2024/02/26 19:08:13 by ayarmaya         ###   ########.fr       */
+/*   Updated: 2024/02/26 22:27:09 by ayarmaya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SO_LONG_H
-# define SO_LONG_H
+#ifndef SO_LONG_BONUS_H
+# define SO_LONG_BONUS_H
 
 # include "../libft/include/ft_printf.h"
 # include "../libft/include/get_next_line.h"
@@ -19,6 +19,7 @@
 # include "../mlx_linux/mlx.h"
 # include "../mlx_linux/mlx_int.h"
 # include <stdlib.h>
+# include <sys/time.h> 
 
 typedef struct	s_vars {
 	void	*mlx_ptr;
@@ -27,6 +28,8 @@ typedef struct	s_vars {
 	int		win_y;
 	void	*green_ptr;
 	void	*fire_ptr;
+	void	*fire_1_ptr;
+	void	*fire_2_ptr;
 	void	*water_ptr;
 	void	*tree_ptr;
 	void	*exit_ptr;
@@ -72,6 +75,7 @@ void	verify_path(t_vars *game);
 void	find_start_position(t_vars *game, int *start_y, int *start_x);
 
 int		ft_init(t_vars *game);
+int		animation(t_vars *game);
 
 int		handle_input(int keysym, t_vars *game);
 int		mousse_close_window(t_vars *game);
@@ -84,6 +88,9 @@ void	set_walls(t_vars *game);
 void	set_water(t_vars *game);
 void	set_fire(t_vars *game);
 void	set_exit(t_vars *game);
+
+void	set_fire_1(t_vars *game);
+void	set_fire_2(t_vars *game);
 
 void	move_left(t_vars *game);
 void	move_right(t_vars *game);

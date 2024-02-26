@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_load_map.c                                      :+:      :+:    :+:   */
+/*   ft_load_map_bonus.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ayarmaya <ayarmaya@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/17 16:36:17 by ayarmaya          #+#    #+#             */
-/*   Updated: 2024/02/26 19:04:11 by ayarmaya         ###   ########.fr       */
+/*   Updated: 2024/02/26 20:30:03 by ayarmaya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/so_long.h"
+#include "../include/so_long_bonus.h"
 
 void	free_temp_map(t_list *temp_map)
 {
