@@ -6,7 +6,7 @@
 /*   By: ayarmaya <ayarmaya@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/17 14:00:38 by ayarmaya          #+#    #+#             */
-/*   Updated: 2024/02/26 17:25:11 by ayarmaya         ###   ########.fr       */
+/*   Updated: 2024/02/26 17:26:56 by ayarmaya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,6 +71,7 @@ int	main(int argc, char **argv)
 	}
 	else
 	{
+		game = NULL;
 		game = malloc(sizeof(t_vars));
 		if (!game)
 		{
