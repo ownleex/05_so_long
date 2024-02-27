@@ -6,7 +6,7 @@
 /*   By: ayarmaya <ayarmaya@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/22 02:23:20 by ayarmaya          #+#    #+#             */
-/*   Updated: 2024/02/27 03:17:58 by ayarmaya         ###   ########.fr       */
+/*   Updated: 2024/02/27 04:01:09 by ayarmaya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,33 +27,6 @@ void	set_exit(t_vars *game)
 				if (game->exit_ptr != NULL)
 					mlx_put_image_to_window(game->mlx_ptr, \
 					game->win_ptr, game->exit_ptr, x * game->wi, y * game->he);
-			x++;
-		}
-		y++;
-	}
-}
-
-void	set_water(t_vars *game)
-{
-	int		x;
-	int		y;
-
-	y = 0;
-	while (y < game->win_y)
-	{
-		x = 0;
-		while (x < game->win_x)
-		{
-			if (game->map[y][x] == 'P')
-			{
-				if (game->water_ptr != NULL)
-				{
-					mlx_put_image_to_window(game->mlx_ptr, \
-					game->win_ptr, game->water_ptr, x * game->wi, y * game->he);
-					game->player_x = x;
-					game->player_y = y;
-				}
-			}
 			x++;
 		}
 		y++;

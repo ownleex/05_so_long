@@ -6,7 +6,7 @@
 /*   By: ayarmaya <ayarmaya@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/05 16:50:50 by ayarmaya          #+#    #+#             */
-/*   Updated: 2024/02/27 03:43:48 by ayarmaya         ###   ########.fr       */
+/*   Updated: 2024/02/27 04:01:26 by ayarmaya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,6 @@ typedef struct	s_vars {
 	void	*fire_ptr;
 	void	*fire_1_ptr;
 	void	*fire_2_ptr;
-	void	*water_ptr;
 	void	*water_up;
 	void	*water_down;
 	void	*water_left;
@@ -92,7 +91,6 @@ void	impossible_move(t_vars *game);
 
 void	set_green(t_vars *game);
 void	set_walls(t_vars *game);
-void	set_water(t_vars *game);
 void	set_fire(t_vars *game);
 void	set_exit(t_vars *game);
 

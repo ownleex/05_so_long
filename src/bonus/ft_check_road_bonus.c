@@ -6,7 +6,7 @@
 /*   By: ayarmaya <ayarmaya@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/26 02:40:31 by ayarmaya          #+#    #+#             */
-/*   Updated: 2024/02/26 23:31:42 by ayarmaya         ###   ########.fr       */
+/*   Updated: 2024/02/27 03:55:38 by ayarmaya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ exit_with_message -->		ft_utils.c
 void	dfs(t_vars *game, int y, int x, int **visited)
 {
 	if (y < 0 || x < 0 || y >= game->win_y || x >= game->win_x \
-	||game->map[y][x] == '1' || visited[y][x])
+	||game->map[y][x] == '1' || visited[y][x] || game->map[y][x] == 'L')
 		return ;
 	visited[y][x] = 1;
 	if (game->map[y][x] == 'E')

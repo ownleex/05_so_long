@@ -6,21 +6,11 @@
 /*   By: ayarmaya <ayarmaya@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/22 16:30:48 by ayarmaya          #+#    #+#             */
-/*   Updated: 2024/02/27 03:42:58 by ayarmaya         ###   ########.fr       */
+/*   Updated: 2024/02/27 04:05:19 by ayarmaya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/so_long_bonus.h"
-
-void	reset_map(t_vars *game)
-{
-	set_water(game);
-	set_green(game);
-}
-/*
-set_water -->				ft_set_map.c
-set_green -->				ft_set_map.c
-*/
 
 void	move_down(t_vars *game)
 {
@@ -43,7 +33,7 @@ void	move_down(t_vars *game)
 			ft_printf("\033[5m\033[34mMouvement  %d - Restant %d \r\033[0m", \
 			game->cnt_moov, game->cnt_items);
 		}
-		reset_map(game);
+		set_green(game);
 		set_water_down(game);
 		you_loose(game->map[y + 1][x], game);
 	}
@@ -78,7 +68,7 @@ void	move_up(t_vars *game)
 			ft_printf("\033[5m\033[34mMouvement  %d - Restant %d \r\033[0m", \
 			game->cnt_moov, game->cnt_items);
 		}
-		reset_map(game);
+		set_green(game);
 		set_water_up(game);
 		you_loose(game->map[y - 1][x], game);
 	}
@@ -112,7 +102,7 @@ void	move_right(t_vars *game)
 			ft_printf("\033[5m\033[34mMouvement  %d - Restant %d \r\033[0m", \
 			game->cnt_moov, game->cnt_items);
 		}
-		reset_map(game);
+		set_green(game);
 		set_water_right(game);
 		you_loose(game->map[y][x + 1], game);
 	}
@@ -146,7 +136,7 @@ void	move_left(t_vars *game)
 			ft_printf("\033[5m\033[34mMouvement  %d - Restant %d \r\033[0m", \
 			game->cnt_moov, game->cnt_items);
 		}
-		reset_map(game);
+		set_green(game);
 		set_water_left(game);
 		you_loose(game->map[y][x - 1], game);
 	}

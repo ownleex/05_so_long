@@ -6,7 +6,7 @@
 /*   By: ayarmaya <ayarmaya@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/05 19:06:49 by ayarmaya          #+#    #+#             */
-/*   Updated: 2024/02/27 03:46:10 by ayarmaya         ###   ########.fr       */
+/*   Updated: 2024/02/27 04:02:46 by ayarmaya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,6 @@ void	free_all_exit(t_vars *game)
 	mlx_destroy_image(game->mlx_ptr, game->green_ptr);
 	mlx_destroy_image(game->mlx_ptr, game->fire_1_ptr);
 	mlx_destroy_image(game->mlx_ptr, game->fire_2_ptr);
-	mlx_destroy_image(game->mlx_ptr, game->water_ptr);
 	mlx_destroy_image(game->mlx_ptr, game->water_up);
 	mlx_destroy_image(game->mlx_ptr, game->water_down);
 	mlx_destroy_image(game->mlx_ptr, game->water_left);

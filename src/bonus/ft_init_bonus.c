@@ -6,7 +6,7 @@
 /*   By: ayarmaya <ayarmaya@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/21 23:35:21 by ayarmaya          #+#    #+#             */
-/*   Updated: 2024/02/27 03:51:18 by ayarmaya         ###   ########.fr       */
+/*   Updated: 2024/02/27 04:00:44 by ayarmaya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,10 +52,10 @@ int	animation(t_vars *game)
 		{
 			set_fire_2(game);
 			bool = 0;
-			string_screen(game);
 		}
 		last_change = current_time;
 	}
+	string_screen(game);
 	return (1);
 }
 /*
@@ -73,8 +73,6 @@ int	ft_init(t_vars *game)
 	"sprites/fire_1.xpm", &game->wi, &game->he);
 	game->fire_2_ptr = mlx_xpm_file_to_image(game->mlx_ptr, \
 	"sprites/fire_2.xpm", &game->wi, &game->he);
-	game->water_ptr = mlx_xpm_file_to_image(game->mlx_ptr, \
-	"sprites/water.xpm", &game->wi, &game->he);
 	game->water_up = mlx_xpm_file_to_image(game->mlx_ptr, \
 	"sprites/water_up.xpm", &game->wi, &game->he);
 	game->water_down = mlx_xpm_file_to_image(game->mlx_ptr, \
@@ -92,7 +90,7 @@ int	ft_init(t_vars *game)
 	set_green(game);
 	set_walls(game);
 	set_fire_1(game);
-	set_water(game);
+	set_water_down(game);
 	set_exit(game);
 	set_egout(game);
 	mlx_hook(game->win_ptr, KeyRelease, KeyReleaseMask, &handle_input, game);
