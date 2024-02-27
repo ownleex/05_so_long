@@ -51,6 +51,8 @@ Module.symvers
 Mkfile.old
 dkms.conf
 
+so_long
+so_long_bonus
 .DS_Store
 .vscode
 settings.json
