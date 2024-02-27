@@ -6,7 +6,7 @@
 /*   By: ayarmaya <ayarmaya@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/21 23:35:21 by ayarmaya          #+#    #+#             */
-/*   Updated: 2024/02/27 01:17:41 by ayarmaya         ###   ########.fr       */
+/*   Updated: 2024/02/27 02:08:15 by ayarmaya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,6 +73,8 @@ int	ft_init(t_vars *game)
 	"sprites/water.xpm", &game->wi, &game->he);
 	game->exit_ptr = mlx_xpm_file_to_image(game->mlx_ptr, \
 	"sprites/exit.xpm", &game->wi, &game->he);
+	game->egout = mlx_xpm_file_to_image(game->mlx_ptr, \
+	"sprites/egout.xpm", &game->wi, &game->he);
 	game->win_ptr = mlx_new_window(game->mlx_ptr, \
 	game->win_x * game->wi, game->win_y * game->he, "---> FireWater <---");
 	set_green(game);
@@ -80,6 +82,7 @@ int	ft_init(t_vars *game)
 	set_fire_1(game);
 	set_water(game);
 	set_exit(game);
+	set_egout(game);
 	mlx_hook(game->win_ptr, KeyRelease, KeyReleaseMask, &handle_input, game);
 	mlx_hook(game->win_ptr, 17, 0, &mousse_close_window, game);
 	mlx_loop_hook(game->mlx_ptr, &animation, game);

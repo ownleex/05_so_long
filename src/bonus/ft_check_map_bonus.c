@@ -6,7 +6,7 @@
 /*   By: ayarmaya <ayarmaya@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/19 01:56:41 by ayarmaya          #+#    #+#             */
-/*   Updated: 2024/02/26 23:31:16 by ayarmaya         ###   ########.fr       */
+/*   Updated: 2024/02/27 02:09:14 by ayarmaya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	verify_char(t_vars *game, char c)
 {
-	if (c != '0' && c != '1' && c != 'C' && c != 'E' && c != 'P')
+	if (c != '0' && c != '1' && c != 'C' && c != 'E' && c != 'P' && c != 'L')
 		exit_with_message(game, \
 		"\n\nError\nCaractère invalide dans la carte\n\n");
 }

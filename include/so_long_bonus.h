@@ -6,7 +6,7 @@
 /*   By: ayarmaya <ayarmaya@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/05 16:50:50 by ayarmaya          #+#    #+#             */
-/*   Updated: 2024/02/27 00:38:36 by ayarmaya         ###   ########.fr       */
+/*   Updated: 2024/02/27 02:25:22 by ayarmaya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,7 @@ typedef struct	s_vars {
 	void	*water_ptr;
 	void	*tree_ptr;
 	void	*exit_ptr;
+	void	*egout;
 	char	**map;
 	int		cnt_exit;
 	int		cnt_items;
@@ -50,6 +51,7 @@ typedef struct	s_vars {
 void	exit_with_message(t_vars *game, char *message);
 void	exit_with_perror(t_vars *game, char *message);
 void	free_all_exit(t_vars *game);
+void	you_loose(char item, t_vars *game);
 
 int		check_ber(char *map);
 void	calculate_win_x_y(t_vars *game);
@@ -92,6 +94,7 @@ void	set_exit(t_vars *game);
 
 void	set_fire_1(t_vars *game);
 void	set_fire_2(t_vars *game);
+void	set_egout(t_vars *game);
 
 void	move_left(t_vars *game);
 void	move_right(t_vars *game);
