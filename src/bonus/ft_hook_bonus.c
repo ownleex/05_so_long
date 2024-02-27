@@ -6,7 +6,7 @@
 /*   By: ayarmaya <ayarmaya@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/10 02:49:37 by ayarmaya          #+#    #+#             */
-/*   Updated: 2024/02/27 00:11:52 by ayarmaya         ###   ########.fr       */
+/*   Updated: 2024/02/27 03:27:35 by ayarmaya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ free_all_exit -->			ft_utils.c
 
 void	you_win(t_vars *game)
 {
-	ft_printf("\033[5m\033[31m\n\n[EXIT] : Vous avez gagné !\n\n\033[0m");
+	ft_printf("\033[5m\033[31m\n\nVous avez gagné !\n\n\033[0m");
 	free_all_exit(game);
 }
 /*

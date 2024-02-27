@@ -6,7 +6,7 @@
 #    By: ayarmaya <ayarmaya@student.42nice.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/18 17:27:18 by ayarmaya          #+#    #+#              #
-#    Updated: 2024/02/26 22:44:12 by ayarmaya         ###   ########.fr        #
+#    Updated: 2024/02/27 03:36:51 by ayarmaya         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -43,6 +43,7 @@ SRCS_B := 	src/bonus/ft_check_map_bonus.c \
 			src/bonus/ft_moove_bonus.c \
 			src/bonus/ft_set_map_bonus.c \
 			src/bonus/ft_set_map_2_bonus.c \
+			src/bonus/ft_set_water_bonus.c \
 			src/bonus/ft_utils_bonus.c
 
 OBJS := $(SRCS:.c=.o)

@@ -6,7 +6,7 @@
 /*   By: ayarmaya <ayarmaya@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/21 23:35:21 by ayarmaya          #+#    #+#             */
-/*   Updated: 2024/02/27 02:08:15 by ayarmaya         ###   ########.fr       */
+/*   Updated: 2024/02/27 03:45:22 by ayarmaya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@ void	string_screen(t_vars *game)
 
 	str = ft_itoa(game->cnt_moov);
 	set_walls(game);
+	set_green(game);
 	mlx_string_put(game->mlx_ptr, game->win_ptr, \
 	170, game->win_y * game->he - 150, 0xF33FFFF, "MOUVEMENT(S)");
 	mlx_string_put(game->mlx_ptr, game->win_ptr, \
@@ -26,18 +27,20 @@ void	string_screen(t_vars *game)
 	150, game->win_y * game->he - 140, 0xF33FFFF, "_______________");
 	free(str);
 }
+/*
+set_walls -->					ft_set_map.c
+*/
 
 int	animation(t_vars *game)
 {
-	static int bool = 1; // Garde l'état de l'animation entre les appels
-	static struct timeval last_change = {0, 0}; // Temps du dernier changement d'état
+	static int bool = 1;
+	static struct timeval last_change = {0, 0};
 	struct timeval current_time;
 	long time_difference;
 
 	gettimeofday(&current_time, NULL);
 	time_difference = (current_time.tv_sec - last_change.tv_sec) * \
 	1000000L + (current_time.tv_usec - last_change.tv_usec);
-	string_screen(game);
 	if (time_difference > 300000)
 	{
 		if (bool == 0)
@@ -52,6 +55,7 @@ int	animation(t_vars *game)
 		}
 		last_change = current_time;
 	}
+	string_screen(game);
 	return (1);
 }
 /*
@@ -71,6 +75,14 @@ int	ft_init(t_vars *game)
 	"sprites/fire_2.xpm", &game->wi, &game->he);
 	game->water_ptr = mlx_xpm_file_to_image(game->mlx_ptr, \
 	"sprites/water.xpm", &game->wi, &game->he);
+	game->water_up = mlx_xpm_file_to_image(game->mlx_ptr, \
+	"sprites/water_up.xpm", &game->wi, &game->he);
+	game->water_down = mlx_xpm_file_to_image(game->mlx_ptr, \
+	"sprites/water_down.xpm", &game->wi, &game->he);
+	game->water_left = mlx_xpm_file_to_image(game->mlx_ptr, \
+	"sprites/water_left.xpm", &game->wi, &game->he);
+	game->water_right = mlx_xpm_file_to_image(game->mlx_ptr, \
+	"sprites/water_right.xpm", &game->wi, &game->he);
 	game->exit_ptr = mlx_xpm_file_to_image(game->mlx_ptr, \
 	"sprites/exit.xpm", &game->wi, &game->he);
 	game->egout = mlx_xpm_file_to_image(game->mlx_ptr, \
@@ -78,7 +90,7 @@ int	ft_init(t_vars *game)
 	game->win_ptr = mlx_new_window(game->mlx_ptr, \
 	game->win_x * game->wi, game->win_y * game->he, "---> FireWater <---");
 	set_green(game);
-	//set_walls(game);
+	set_walls(game);
 	set_fire_1(game);
 	set_water(game);
 	set_exit(game);

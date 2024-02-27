@@ -6,7 +6,7 @@
 /*   By: ayarmaya <ayarmaya@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/22 16:30:48 by ayarmaya          #+#    #+#             */
-/*   Updated: 2024/02/27 02:43:05 by ayarmaya         ###   ########.fr       */
+/*   Updated: 2024/02/27 03:42:58 by ayarmaya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,7 @@ void	move_down(t_vars *game)
 			game->cnt_moov, game->cnt_items);
 		}
 		reset_map(game);
+		set_water_down(game);
 		you_loose(game->map[y + 1][x], game);
 	}
 	else
@@ -78,6 +79,7 @@ void	move_up(t_vars *game)
 			game->cnt_moov, game->cnt_items);
 		}
 		reset_map(game);
+		set_water_up(game);
 		you_loose(game->map[y - 1][x], game);
 	}
 	else
@@ -111,6 +113,7 @@ void	move_right(t_vars *game)
 			game->cnt_moov, game->cnt_items);
 		}
 		reset_map(game);
+		set_water_right(game);
 		you_loose(game->map[y][x + 1], game);
 	}
 	else
@@ -144,6 +147,7 @@ void	move_left(t_vars *game)
 			game->cnt_moov, game->cnt_items);
 		}
 		reset_map(game);
+		set_water_left(game);
 		you_loose(game->map[y][x - 1], game);
 	}
 	else
