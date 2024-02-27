@@ -6,7 +6,7 @@
 /*   By: ayarmaya <ayarmaya@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/21 23:35:21 by ayarmaya          #+#    #+#             */
-/*   Updated: 2024/02/27 05:15:04 by ayarmaya         ###   ########.fr       */
+/*   Updated: 2024/02/27 14:28:54 by ayarmaya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,7 @@ void	string_screen(t_vars *game)
 }
 /*
 set_walls -->					ft_set_map.c
+set_green -->					ft_set_map.c
 */
 
 int	animation(t_vars *game)

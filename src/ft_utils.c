@@ -6,7 +6,7 @@
 /*   By: ayarmaya <ayarmaya@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/05 19:06:49 by ayarmaya          #+#    #+#             */
-/*   Updated: 2024/02/26 22:46:04 by ayarmaya         ###   ########.fr       */
+/*   Updated: 2024/02/27 14:32:22 by ayarmaya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,9 @@ void	exit_with_message(t_vars *game, char *message)
 	free(game);
 	exit(EXIT_FAILURE);
 }
+/*
+[3]
+*/
 
 void	exit_with_perror(t_vars *game, char *message)
 {
@@ -37,6 +40,9 @@ void	exit_with_perror(t_vars *game, char *message)
 	free(game);
 	exit(EXIT_FAILURE);
 }
+/*
+[2]
+*/
 
 void	free_all_exit(t_vars *game)
 {
@@ -63,3 +69,6 @@ void	free_all_exit(t_vars *game)
 	free(game);
 	exit(EXIT_SUCCESS);
 }
+/*
+[1]
+*/
