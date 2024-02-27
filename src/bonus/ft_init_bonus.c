@@ -6,7 +6,7 @@
 /*   By: ayarmaya <ayarmaya@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/21 23:35:21 by ayarmaya          #+#    #+#             */
-/*   Updated: 2024/02/27 03:45:22 by ayarmaya         ###   ########.fr       */
+/*   Updated: 2024/02/27 03:51:18 by ayarmaya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,10 +52,10 @@ int	animation(t_vars *game)
 		{
 			set_fire_2(game);
 			bool = 0;
+			string_screen(game);
 		}
 		last_change = current_time;
 	}
-	string_screen(game);
 	return (1);
 }
 /*
