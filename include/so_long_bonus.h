@@ -6,7 +6,7 @@
 /*   By: ayarmaya <ayarmaya@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/05 16:50:50 by ayarmaya          #+#    #+#             */
-/*   Updated: 2024/02/27 18:51:35 by ayarmaya         ###   ########.fr       */
+/*   Updated: 2024/02/27 21:06:14 by ayarmaya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,8 +37,6 @@ typedef struct	s_vars {
 	void	*tree_ptr;
 	void	*exit_ptr;
 	void	*egout;
-	void	*win;
-	void	*loose;
 	int		w_mess;
 	int		h_mess;
 	char	**map;

@@ -6,7 +6,7 @@
 /*   By: ayarmaya <ayarmaya@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/22 16:30:48 by ayarmaya          #+#    #+#             */
-/*   Updated: 2024/02/27 17:37:51 by ayarmaya         ###   ########.fr       */
+/*   Updated: 2024/02/27 20:50:33 by ayarmaya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ you_win -->						[2] ft_hook_bonus.c
 set_green -->					[1] ft_set_map_bonus.c
 set_water_down -->				[3] ft_set_water_bonus.c
 you_loose -->					[4] ft_utils_bonus.c
-impossible_move -->				ft_hook.c
+impossible_move -->				[5] ft_hook.c
 */
 
 void	move_up(t_vars *game)
@@ -83,7 +83,7 @@ you_win -->						[2] ft_hook_bonus.c
 set_green -->					[1] ft_set_map_bonus.c
 set_water_up -->				[4] ft_set_water_bonus.c
 you_loose -->					[4] ft_utils_bonus.c
-impossible_move -->				ft_hook.c
+impossible_move -->				[5] ft_hook.c
 */
 
 void	move_right(t_vars *game)
@@ -120,7 +120,7 @@ you_win -->						[2] ft_hook_bonus.c
 set_green -->					[1] ft_set_map_bonus.c
 set_water_right -->				[1] ft_set_water_bonus.c
 you_loose -->					[4] ft_utils_bonus.c
-impossible_move -->				ft_hook.c
+impossible_move -->				[5] ft_hook.c
 */
 
 void	move_left(t_vars *game)
@@ -157,5 +157,5 @@ you_win -->						[2] ft_hook_bonus.c
 set_green -->					[1] ft_set_map_bonus.c
 set_water_left -->				[2] ft_set_water_bonus.c
 you_loose -->					[4] ft_utils_bonus.c
-impossible_move -->				ft_hook.c
+impossible_move -->				[5] ft_hook.c
 */

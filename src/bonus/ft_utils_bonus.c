@@ -6,7 +6,7 @@
 /*   By: ayarmaya <ayarmaya@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/05 19:06:49 by ayarmaya          #+#    #+#             */
-/*   Updated: 2024/02/27 19:20:22 by ayarmaya         ###   ########.fr       */
+/*   Updated: 2024/02/27 21:04:40 by ayarmaya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,6 @@ void	destroy_image(t_vars *game)
 	mlx_destroy_image(game->mlx_ptr, game->tree_ptr);
 	mlx_destroy_image(game->mlx_ptr, game->exit_ptr);
 	mlx_destroy_image(game->mlx_ptr, game->egout);
-	mlx_destroy_image(game->mlx_ptr, game->win);
-	mlx_destroy_image(game->mlx_ptr, game->loose);
 }
 /*
 [5]
