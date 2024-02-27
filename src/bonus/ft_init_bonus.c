@@ -6,11 +6,35 @@
 /*   By: ayarmaya <ayarmaya@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/21 23:35:21 by ayarmaya          #+#    #+#             */
-/*   Updated: 2024/02/27 04:43:43 by ayarmaya         ###   ########.fr       */
+/*   Updated: 2024/02/27 05:15:04 by ayarmaya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/so_long_bonus.h"
+
+void	xpm_to_image(t_vars *game)
+{
+	game->green_ptr = mlx_xpm_file_to_image(game->mlx_ptr, \
+	"sprites/green.xpm", &game->wi, &game->he);
+	game->tree_ptr = mlx_xpm_file_to_image(game->mlx_ptr, \
+	"sprites/tree.xpm", &game->wi, &game->he);
+	game->fire_1_ptr = mlx_xpm_file_to_image(game->mlx_ptr, \
+	"sprites/fire_1.xpm", &game->wi, &game->he);
+	game->fire_2_ptr = mlx_xpm_file_to_image(game->mlx_ptr, \
+	"sprites/fire_2.xpm", &game->wi, &game->he);
+	game->water_up = mlx_xpm_file_to_image(game->mlx_ptr, \
+	"sprites/water_up.xpm", &game->wi, &game->he);
+	game->water_down = mlx_xpm_file_to_image(game->mlx_ptr, \
+	"sprites/water_down.xpm", &game->wi, &game->he);
+	game->water_left = mlx_xpm_file_to_image(game->mlx_ptr, \
+	"sprites/water_left.xpm", &game->wi, &game->he);
+	game->water_right = mlx_xpm_file_to_image(game->mlx_ptr, \
+	"sprites/water_right.xpm", &game->wi, &game->he);
+	game->exit_ptr = mlx_xpm_file_to_image(game->mlx_ptr, \
+	"sprites/exit.xpm", &game->wi, &game->he);
+	game->egout = mlx_xpm_file_to_image(game->mlx_ptr, \
+	"sprites/egout.xpm", &game->wi, &game->he);
+}
 
 void	string_screen(t_vars *game)
 {
@@ -65,26 +89,7 @@ string_screen -->				-->here<--
 int	ft_init(t_vars *game)
 {
 	game->mlx_ptr = mlx_init();
-	game->green_ptr = mlx_xpm_file_to_image(game->mlx_ptr, \
-	"sprites/green.xpm", &game->wi, &game->he);
-	game->tree_ptr = mlx_xpm_file_to_image(game->mlx_ptr, \
-	"sprites/tree.xpm", &game->wi, &game->he);
-	game->fire_1_ptr = mlx_xpm_file_to_image(game->mlx_ptr, \
-	"sprites/fire_1.xpm", &game->wi, &game->he);
-	game->fire_2_ptr = mlx_xpm_file_to_image(game->mlx_ptr, \
-	"sprites/fire_2.xpm", &game->wi, &game->he);
-	game->water_up = mlx_xpm_file_to_image(game->mlx_ptr, \
-	"sprites/water_up.xpm", &game->wi, &game->he);
-	game->water_down = mlx_xpm_file_to_image(game->mlx_ptr, \
-	"sprites/water_down.xpm", &game->wi, &game->he);
-	game->water_left = mlx_xpm_file_to_image(game->mlx_ptr, \
-	"sprites/water_left.xpm", &game->wi, &game->he);
-	game->water_right = mlx_xpm_file_to_image(game->mlx_ptr, \
-	"sprites/water_right.xpm", &game->wi, &game->he);
-	game->exit_ptr = mlx_xpm_file_to_image(game->mlx_ptr, \
-	"sprites/exit.xpm", &game->wi, &game->he);
-	game->egout = mlx_xpm_file_to_image(game->mlx_ptr, \
-	"sprites/egout.xpm", &game->wi, &game->he);
+	xpm_to_image(game);
 	game->win_ptr = mlx_new_window(game->mlx_ptr, \
 	game->win_x * game->wi, game->win_y * game->he, "---> FireWater <---");
 	set_green(game);

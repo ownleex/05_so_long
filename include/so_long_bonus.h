@@ -6,7 +6,7 @@
 /*   By: ayarmaya <ayarmaya@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/05 16:50:50 by ayarmaya          #+#    #+#             */
-/*   Updated: 2024/02/27 04:01:26 by ayarmaya         ###   ########.fr       */
+/*   Updated: 2024/02/27 05:05:10 by ayarmaya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,6 +55,7 @@ void	exit_with_message(t_vars *game, char *message);
 void	exit_with_perror(t_vars *game, char *message);
 void	free_all_exit(t_vars *game);
 void	you_loose(char item, t_vars *game);
+void	destroy_image(t_vars *game);
 
 int		check_ber(char *map);
 void	calculate_win_x_y(t_vars *game);
@@ -82,6 +83,7 @@ void	find_start_position(t_vars *game, int *start_y, int *start_x);
 int		ft_init(t_vars *game);
 int		animation(t_vars *game);
 void	string_screen(t_vars *game);
+void	xpm_to_image(t_vars *game);
 
 int		handle_input(int keysym, t_vars *game);
 int		mousse_close_window(t_vars *game);
