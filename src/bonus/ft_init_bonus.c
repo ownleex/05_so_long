@@ -6,7 +6,7 @@
 /*   By: ayarmaya <ayarmaya@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/21 23:35:21 by ayarmaya          #+#    #+#             */
-/*   Updated: 2024/02/27 21:04:58 by ayarmaya         ###   ########.fr       */
+/*   Updated: 2024/02/27 22:48:06 by ayarmaya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,30 +60,31 @@ set_walls -->					[2] ft_set_map_bonus.c
 set_green -->					[1] ft_set_map_bonus.c
 */
 
-int	animation(t_vars *game)
+void	update_animation(t_vars *game, int *bool, struct timeval *last_change)
 {
-	static int bool = 1;
-	static struct timeval last_change = {0, 0};
-	struct timeval current_time;
-	long time_difference;
+	struct timeval	current_time;
+	long			time_difference;
 
 	gettimeofday(&current_time, NULL);
-	time_difference = (current_time.tv_sec - last_change.tv_sec) * \
-	1000000L + (current_time.tv_usec - last_change.tv_usec);
+	time_difference = (current_time.tv_sec - last_change->tv_sec) * \
+	1000000L + (current_time.tv_usec - last_change->tv_usec);
 	if (time_difference > 300000)
 	{
-		if (bool == 0)
-		{
-			set_fire_1(game);
-			bool = 1;
-		}
-		else
-		{
+		if (*bool)
 			set_fire_2(game);
-			bool = 0;
-		}
-		last_change = current_time;
+		else
+			set_fire_1(game);
+		*bool = !(*bool);
+		*last_change = current_time;
 	}
+}
+
+int	animation(t_vars *game)
+{
+	static int				bool = 1;
+	static struct timeval	last_change = {0, 0};
+
+	update_animation(game, &bool, &last_change);
 	string_screen(game);
 	return (1);
 }

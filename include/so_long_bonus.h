@@ -6,7 +6,7 @@
 /*   By: ayarmaya <ayarmaya@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/05 16:50:50 by ayarmaya          #+#    #+#             */
-/*   Updated: 2024/02/27 21:06:14 by ayarmaya         ###   ########.fr       */
+/*   Updated: 2024/02/27 22:04:14 by ayarmaya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,6 +86,7 @@ int		ft_init(t_vars *game);
 int		animation(t_vars *game);
 void	string_screen(t_vars *game);
 void	xpm_to_image(t_vars *game);
+void	update_animation(t_vars *game, int *bool, struct timeval *last_change);
 
 int		handle_input(int keysym, t_vars *game);
 int		mousse_close_window(t_vars *game);
