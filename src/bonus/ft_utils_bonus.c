@@ -6,7 +6,7 @@
 /*   By: ayarmaya <ayarmaya@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/05 19:06:49 by ayarmaya          #+#    #+#             */
-/*   Updated: 2024/02/27 02:26:23 by ayarmaya         ###   ########.fr       */
+/*   Updated: 2024/02/27 02:49:30 by ayarmaya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void	you_loose(char c, t_vars *game)
 {
 	if (c == 'L')
 	{
-		ft_printf("\033[5m\033[31m\n\n[EXIT] : Vous avez perdu !\n\n\033[0m");
+		ft_printf("\033[5m\033[31m\n\nVous avez perdu !\n\n\033[0m");
 		free_all_exit(game);
 	}
 }

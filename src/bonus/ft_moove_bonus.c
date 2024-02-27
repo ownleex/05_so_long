@@ -6,7 +6,7 @@
 /*   By: ayarmaya <ayarmaya@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/22 16:30:48 by ayarmaya          #+#    #+#             */
-/*   Updated: 2024/02/27 02:25:46 by ayarmaya         ###   ########.fr       */
+/*   Updated: 2024/02/27 02:43:05 by ayarmaya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,7 @@ void	move_down(t_vars *game)
 you_win -->					ft_hook.c
 reset_map -->				-->here<--
 impossible_move -->			ft_hook.c
+you_loose -->				ft_utils.c
 */
 
 void	move_up(t_vars *game)
@@ -77,6 +78,7 @@ void	move_up(t_vars *game)
 			game->cnt_moov, game->cnt_items);
 		}
 		reset_map(game);
+		you_loose(game->map[y - 1][x], game);
 	}
 	else
 		impossible_move(game);
@@ -109,6 +111,7 @@ void	move_right(t_vars *game)
 			game->cnt_moov, game->cnt_items);
 		}
 		reset_map(game);
+		you_loose(game->map[y][x + 1], game);
 	}
 	else
 		impossible_move(game);
@@ -141,6 +144,7 @@ void	move_left(t_vars *game)
 			game->cnt_moov, game->cnt_items);
 		}
 		reset_map(game);
+		you_loose(game->map[y][x - 1], game);
 	}
 	else
 		impossible_move(game);
