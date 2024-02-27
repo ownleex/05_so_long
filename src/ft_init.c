@@ -6,7 +6,7 @@
 /*   By: ayarmaya <ayarmaya@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/21 23:35:21 by ayarmaya          #+#    #+#             */
-/*   Updated: 2024/02/26 19:11:22 by ayarmaya         ###   ########.fr       */
+/*   Updated: 2024/02/27 16:38:12 by ayarmaya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,11 +38,12 @@ int	ft_init(t_vars *game)
 	return (EXIT_SUCCESS);
 }
 /*
-set_green -->				ft_set_map.c
-set_walls -->				ft_set_map.c
-set_fire -->				ft_set_map.c
-set_water -->				ft_set_map.c
-set_exit -->				ft_set_map.c
-handle_input -->			ft_hook.c
-mousse_close_windows -->	ft_hook.c
+[1]
+set_green -->					[1] ft_set_map.c
+set_walls -->					[2] ft_set_map.c
+set_fire -->					[4] ft_set_map.c
+set_water -->					[3] ft_set_map.c
+set_exit -->					[5] ft_set_map.c
+handle_input -->				[1] ft_hook.c
+mousse_close_windows -->		[3] ft_hook.c
 */

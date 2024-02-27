@@ -6,7 +6,7 @@
 /*   By: ayarmaya <ayarmaya@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/17 14:00:38 by ayarmaya          #+#    #+#             */
-/*   Updated: 2024/02/26 19:09:57 by ayarmaya         ###   ########.fr       */
+/*   Updated: 2024/02/27 16:43:59 by ayarmaya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,9 @@ void	calculate_win_x_y(t_vars *game)
 	game->win_y = y;
 	game->win_x = x;
 }
+/*
+[5]
+*/
 
 void	load_check_init(t_vars *game, char *argv)
 {
@@ -35,10 +38,11 @@ void	load_check_init(t_vars *game, char *argv)
 	ft_init(game);
 }
 /*
-load_map -->				ft_load_map.c
-calculate_win_x_y -->		--here--
-check_rectangular -->		ft_check_map.c
-ft_init -->					ft_init.c
+[4]
+load_map -->					[1] ft_load_map.c
+calculate_win_x_y -->			[5] --here--
+check_rectangular -->			[1] ft_check_map.c
+ft_init -->						[1] ft_init.c
 */
 
 void	init_vars(t_vars *game)
@@ -51,6 +55,9 @@ void	init_vars(t_vars *game)
 	game->cnt_moov = 0;
 	game->win_ptr = NULL;
 }
+/*
+[3]
+*/
 
 int	check_ber(char *map)
 {
@@ -63,6 +70,9 @@ int	check_ber(char *map)
 		return (0);
 	return (1);
 }
+/*
+[2]
+*/
 
 int	main(int argc, char **argv)
 {
@@ -92,7 +102,8 @@ int	main(int argc, char **argv)
 	return (1);
 }
 /*
-check_ber -->				--here--
-init_vars -->				--here--
-load_check_init -->			--here--
+[1]
+check_ber -->					[2] --here--
+init_vars -->					[3] --here--
+load_check_init -->				[4] --here--
 */

@@ -6,7 +6,7 @@
 /*   By: ayarmaya <ayarmaya@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/21 23:35:21 by ayarmaya          #+#    #+#             */
-/*   Updated: 2024/02/27 14:28:54 by ayarmaya         ###   ########.fr       */
+/*   Updated: 2024/02/27 17:20:03 by ayarmaya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,9 @@ void	xpm_to_image(t_vars *game)
 	game->egout = mlx_xpm_file_to_image(game->mlx_ptr, \
 	"sprites/egout.xpm", &game->wi, &game->he);
 }
+/*
+[4]
+*/
 
 void	string_screen(t_vars *game)
 {
@@ -52,8 +55,9 @@ void	string_screen(t_vars *game)
 	free(str);
 }
 /*
-set_walls -->					ft_set_map.c
-set_green -->					ft_set_map.c
+[3]
+set_walls -->					[2] ft_set_map_bonus.c
+set_green -->					[1] ft_set_map_bonus.c
 */
 
 int	animation(t_vars *game)
@@ -84,7 +88,8 @@ int	animation(t_vars *game)
 	return (1);
 }
 /*
-string_screen -->				-->here<--
+[2]
+string_screen -->				[3] -->here<--
 */
 
 int	ft_init(t_vars *game)
@@ -106,12 +111,14 @@ int	ft_init(t_vars *game)
 	return (EXIT_SUCCESS);
 }
 /*
-set_green -->					ft_set_map.c
-set_walls -->					ft_set_map.c
-set_fire -->					ft_set_map.c
-set_water -->					ft_set_map.c
-set_exit -->					ft_set_map.c
-handle_input -->				ft_hook.c
-mousse_close_windows -->		ft_hook.c
-animation -->					-->here<--
+[1]
+set_green -->						[1] ft_set_map_bonus.c
+set_walls -->						[2] ft_set_map_bonus.c
+set_fire_1 -->						[2] ft_set_map_2_bonus.c
+set_water_down -->					[3]	ft_set_water_bonus.c
+set_exit -->						[3] ft_set_map_bonus.c
+set_egout -->						[3] ft_set_map_2_bonus.c
+handle_input -->					[1] ft_hook_bonus.c
+mousse_close_windows -->			[3] ft_hook_bonus.c
+animation -->						[2] -->here<--
 */

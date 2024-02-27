@@ -6,7 +6,7 @@
 /*   By: ayarmaya <ayarmaya@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/22 16:30:48 by ayarmaya          #+#    #+#             */
-/*   Updated: 2024/02/27 14:40:07 by ayarmaya         ###   ########.fr       */
+/*   Updated: 2024/02/27 16:46:18 by ayarmaya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,8 @@ void	reset_map(t_vars *game)
 }
 /*
 [5]
-set_water -->				ft_set_map.c
-set_green -->				ft_set_map.c
+set_water -->					[3] ft_set_map.c
+set_green -->					[1] ft_set_map.c
 */
 
 void	move_down(t_vars *game)
@@ -51,9 +51,9 @@ void	move_down(t_vars *game)
 }
 /*
 [4]
-you_win -->					ft_hook.c
-reset_map -->				-->here<--
-impossible_move -->			ft_hook.c
+you_win -->						[2] ft_hook.c
+reset_map -->					[5] -->here<--
+impossible_move -->				[5] ft_hook.c
 */
 
 void	move_up(t_vars *game)
@@ -84,9 +84,9 @@ void	move_up(t_vars *game)
 }
 /*
 [3]
-you_win -->					ft_hook.c
-reset_map -->				-->here<--
-impossible_move -->			ft_hook.c
+you_win -->						[2] ft_hook.c
+reset_map -->					[5] -->here<--
+impossible_move -->				[5] ft_hook.c
 */
 
 void	move_right(t_vars *game)
@@ -117,9 +117,9 @@ void	move_right(t_vars *game)
 }
 /*
 [2]
-you_win -->					ft_hook.c
-reset_map -->				-->here<--
-impossible_move -->			ft_hook.c
+you_win -->						[2] ft_hook.c
+reset_map -->					[5] -->here<--
+impossible_move -->				[5] ft_hook.c
 */
 
 void	move_left(t_vars *game)
@@ -150,7 +150,7 @@ void	move_left(t_vars *game)
 }
 /*
 [1]
-you_win -->					ft_hook.c
-reset_map -->				-->here<--
-impossible_move -->			ft_hook.c
+you_win -->						[2] ft_hook.c
+reset_map -->					[5] -->here<--
+impossible_move -->				[5] ft_hook.c
 */

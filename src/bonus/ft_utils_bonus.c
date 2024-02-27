@@ -6,7 +6,7 @@
 /*   By: ayarmaya <ayarmaya@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/05 19:06:49 by ayarmaya          #+#    #+#             */
-/*   Updated: 2024/02/27 05:02:01 by ayarmaya         ###   ########.fr       */
+/*   Updated: 2024/02/27 17:41:00 by ayarmaya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,9 @@ void	destroy_image(t_vars *game)
 	mlx_destroy_image(game->mlx_ptr, game->exit_ptr);
 	mlx_destroy_image(game->mlx_ptr, game->egout);
 }
+/*
+[5]
+*/
 
 void	you_loose(char c, t_vars *game)
 {
@@ -34,6 +37,10 @@ void	you_loose(char c, t_vars *game)
 		free_all_exit(game);
 	}
 }
+/*
+[4]
+free_all_exit -->				[1] -->here<--
+*/
 
 void	exit_with_message(t_vars *game, char *message)
 {
@@ -53,6 +60,9 @@ void	exit_with_message(t_vars *game, char *message)
 	free(game);
 	exit(EXIT_FAILURE);
 }
+/*
+[3]
+*/
 
 void	exit_with_perror(t_vars *game, char *message)
 {
@@ -60,6 +70,9 @@ void	exit_with_perror(t_vars *game, char *message)
 	free(game);
 	exit(EXIT_FAILURE);
 }
+/*
+[2]
+*/
 
 void	free_all_exit(t_vars *game)
 {
@@ -82,3 +95,7 @@ void	free_all_exit(t_vars *game)
 	free(game);
 	exit(EXIT_SUCCESS);
 }
+/*
+[1]
+destroy_image -->				[5] -->here<--
+*/

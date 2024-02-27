@@ -6,7 +6,7 @@
 /*   By: ayarmaya <ayarmaya@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/19 01:56:41 by ayarmaya          #+#    #+#             */
-/*   Updated: 2024/02/27 02:09:14 by ayarmaya         ###   ########.fr       */
+/*   Updated: 2024/02/27 17:07:33 by ayarmaya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,8 @@ void	verify_char(t_vars *game, char c)
 		"\n\nError\nCaractère invalide dans la carte\n\n");
 }
 /*
-exit_with_message -->		ft_utils.c
+[5]
+exit_with_message -->			[3] ft_utils_bonus.c
 */
 
 void	increment_counters(t_vars *game, char c)
@@ -33,7 +34,8 @@ void	increment_counters(t_vars *game, char c)
 	verify_char(game, c);
 }
 /*
-verify_char -->				-->here<--
+[4]
+verify_char -->					[5] -->here<--
 */
 
 void	count_items_and_verify_chars(t_vars *game)
@@ -60,9 +62,10 @@ void	count_items_and_verify_chars(t_vars *game)
 	verify_path(game);
 }
 /*
-increment_counters -->		-->here<--
-exit_with_message -->		ft_utils.c
-verify_path -->				ft_check_road.c
+[3]
+increment_counters -->			[4] -->here<--
+exit_with_message -->			[3] ft_utils_bonus.c
+verify_path -->					[1] ft_check_road_bonus.c
 */
 
 void	check_walls(t_vars *game)
@@ -85,8 +88,9 @@ void	check_walls(t_vars *game)
 	count_items_and_verify_chars(game);
 }
 /*
-exit_with_message -->		ft_utils.c
-count_and_verify_chars -->	-->here<--
+[2]
+exit_with_message -->			[3] ft_utils_bonus.c
+count_and_verify_chars -->		[3] -->here<--
 */
 
 void	check_rectangular(t_vars *game)
@@ -107,6 +111,7 @@ void	check_rectangular(t_vars *game)
 	check_walls(game);
 }
 /*
-exit_with_message -->		ft_utils.c
-check_walls -->			-->here<--
+[1]
+exit_with_message -->			[3] ft_utils_bonus.c
+check_walls -->					[2] -->here<--
 */

@@ -6,7 +6,7 @@
 /*   By: ayarmaya <ayarmaya@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/10 02:49:37 by ayarmaya          #+#    #+#             */
-/*   Updated: 2024/02/27 14:40:51 by ayarmaya         ###   ########.fr       */
+/*   Updated: 2024/02/27 16:34:23 by ayarmaya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,8 +76,8 @@ int	handle_input(int keysym, t_vars *game)
 /*
 [1]
 exit_destroy_game -->			[4] -->here<--
-move_left -->				ft_move.c
-move_up -->					ft_move.c
-move_right -->				ft_move.c
-move_down -->				ft_move.c
+move_left -->					[1] ft_move.c
+move_up -->						[3] ft_move.c
+move_right -->					[2] ft_move.c
+move_down -->					[4] ft_move.c
 */

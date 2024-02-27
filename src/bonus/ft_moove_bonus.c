@@ -6,7 +6,7 @@
 /*   By: ayarmaya <ayarmaya@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/22 16:30:48 by ayarmaya          #+#    #+#             */
-/*   Updated: 2024/02/27 04:05:19 by ayarmaya         ###   ########.fr       */
+/*   Updated: 2024/02/27 17:37:51 by ayarmaya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,10 +41,12 @@ void	move_down(t_vars *game)
 		impossible_move(game);
 }
 /*
-you_win -->					ft_hook.c
-reset_map -->				-->here<--
-impossible_move -->			ft_hook.c
-you_loose -->				ft_utils.c
+[4]
+you_win -->						[2] ft_hook_bonus.c
+set_green -->					[1] ft_set_map_bonus.c
+set_water_down -->				[3] ft_set_water_bonus.c
+you_loose -->					[4] ft_utils_bonus.c
+impossible_move -->				ft_hook.c
 */
 
 void	move_up(t_vars *game)
@@ -76,9 +78,12 @@ void	move_up(t_vars *game)
 		impossible_move(game);
 }
 /*
-you_win -->					ft_hook.c
-reset_map -->				-->here<--
-impossible_move -->			ft_hook.c
+[3]
+you_win -->						[2] ft_hook_bonus.c
+set_green -->					[1] ft_set_map_bonus.c
+set_water_up -->				[4] ft_set_water_bonus.c
+you_loose -->					[4] ft_utils_bonus.c
+impossible_move -->				ft_hook.c
 */
 
 void	move_right(t_vars *game)
@@ -110,9 +115,12 @@ void	move_right(t_vars *game)
 		impossible_move(game);
 }
 /*
-you_win -->					ft_hook.c
-reset_map -->				-->here<--
-impossible_move -->			ft_hook.c
+[2]
+you_win -->						[2] ft_hook_bonus.c
+set_green -->					[1] ft_set_map_bonus.c
+set_water_right -->				[1] ft_set_water_bonus.c
+you_loose -->					[4] ft_utils_bonus.c
+impossible_move -->				ft_hook.c
 */
 
 void	move_left(t_vars *game)
@@ -144,7 +152,10 @@ void	move_left(t_vars *game)
 		impossible_move(game);
 }
 /*
-you_win -->					ft_hook.c
-reset_map -->				-->here<--
-impossible_move -->			ft_hook.c
+[1]
+you_win -->						[2] ft_hook_bonus.c
+set_green -->					[1] ft_set_map_bonus.c
+set_water_left -->				[2] ft_set_water_bonus.c
+you_loose -->					[4] ft_utils_bonus.c
+impossible_move -->				ft_hook.c
 */

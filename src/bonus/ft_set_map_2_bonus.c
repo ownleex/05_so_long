@@ -6,7 +6,7 @@
 /*   By: ayarmaya <ayarmaya@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/26 21:34:40 by ayarmaya          #+#    #+#             */
-/*   Updated: 2024/02/27 03:15:38 by ayarmaya         ###   ########.fr       */
+/*   Updated: 2024/02/27 17:19:33 by ayarmaya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,9 @@ void	set_egout(t_vars *game)
 		y++;
 	}
 }
+/*
+[3]
+*/
 
 void	set_fire_1(t_vars *game)
 {
@@ -65,6 +68,9 @@ void	set_fire_1(t_vars *game)
 		y++;
 	}
 }
+/*
+[2]
+*/
 
 void	set_fire_2(t_vars *game)
 {
@@ -92,3 +98,6 @@ void	set_fire_2(t_vars *game)
 		y++;
 	}
 }
+/*
+[1]
+*/

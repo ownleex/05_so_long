@@ -6,7 +6,7 @@
 /*   By: ayarmaya <ayarmaya@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/05 16:50:50 by ayarmaya          #+#    #+#             */
-/*   Updated: 2024/02/27 05:05:10 by ayarmaya         ###   ########.fr       */
+/*   Updated: 2024/02/27 17:30:29 by ayarmaya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -109,6 +109,5 @@ void	move_left(t_vars *game);
 void	move_right(t_vars *game);
 void	move_up(t_vars *game);
 void	move_down(t_vars *game);
-void	reset_map(t_vars *game);
 
 #endif

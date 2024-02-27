@@ -6,7 +6,7 @@
 /*   By: ayarmaya <ayarmaya@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/10 02:49:37 by ayarmaya          #+#    #+#             */
-/*   Updated: 2024/02/27 03:27:35 by ayarmaya         ###   ########.fr       */
+/*   Updated: 2024/02/27 17:08:22 by ayarmaya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,9 @@ void	impossible_move(t_vars *game)
 	ft_printf("\033[31mImpossible %d - Restant %d \033[0m\r", \
 	game->cnt_moov, game->cnt_items);
 }
+/*
+[5]
+*/
 
 void	exit_destroy_game(t_vars *game)
 {
@@ -25,7 +28,8 @@ void	exit_destroy_game(t_vars *game)
 	free_all_exit(game);
 }
 /*
-free_all_exit -->			ft_utils.c
+[4]
+free_all_exit -->				[1] ft_utils_bonus.c
 */
 
 int	mousse_close_window(t_vars *game)
@@ -35,7 +39,8 @@ int	mousse_close_window(t_vars *game)
 	exit(EXIT_SUCCESS);
 }
 /*
-free_all_exit -->			ft_utils.c
+[3]
+free_all_exit -->				[1] ft_utils_bonus.c
 */
 
 void	you_win(t_vars *game)
@@ -44,7 +49,8 @@ void	you_win(t_vars *game)
 	free_all_exit(game);
 }
 /*
-free_all_exit -->			ft_utils.c
+[2]
+free_all_exit -->				[1] ft_utils_bonus.c
 */
 
 int	handle_input(int keysym, t_vars *game)
@@ -68,9 +74,10 @@ int	handle_input(int keysym, t_vars *game)
 	return (0);
 }
 /*
-exit_destroy_game -->		-->here<--
-move_left -->				ft_move.c
-move_up -->					ft_move.c
-move_right -->				ft_move.c
-move_down -->				ft_move.c
+[1]
+exit_destroy_game -->			[4] -->here<--
+move_left -->					[1] ft_move_bonus.c
+move_up -->						[3] ft_move_bonus.c
+move_right -->					[2] ft_move_bonus.c
+move_down -->					[4] ft_move_bonus.c
 */

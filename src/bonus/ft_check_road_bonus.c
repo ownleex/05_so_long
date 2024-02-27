@@ -6,7 +6,7 @@
 /*   By: ayarmaya <ayarmaya@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/26 02:40:31 by ayarmaya          #+#    #+#             */
-/*   Updated: 2024/02/27 03:55:38 by ayarmaya         ###   ########.fr       */
+/*   Updated: 2024/02/27 17:07:45 by ayarmaya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,9 @@ void	free_game_visited(t_vars *game)
 	}
 	free(game->visited);
 }
+/*
+[5]
+*/
 
 void	compare_count_items(t_vars *game)
 {
@@ -31,7 +34,8 @@ void	compare_count_items(t_vars *game)
 		exit_with_message(game, "\n\nError\nItems non récupréables\n\n");
 }
 /*
-exit_with_message -->		ft_utils.c
+[4]
+exit_with_message -->			[3] ft_utils_bonus.c
 */
 
 void	dfs(t_vars *game, int y, int x, int **visited)
@@ -52,6 +56,9 @@ void	dfs(t_vars *game, int y, int x, int **visited)
 	dfs(game, y, x + 1, visited);
 	dfs(game, y, x - 1, visited);
 }
+/*
+[3]
+*/
 
 void	find_start_position(t_vars *game, int *start_y, int *start_x)
 {
@@ -75,6 +82,9 @@ void	find_start_position(t_vars *game, int *start_y, int *start_x)
 		y++;
 	}
 }
+/*
+[2]
+*/
 
 void	verify_path(t_vars *game)
 {
@@ -103,8 +113,9 @@ void	verify_path(t_vars *game)
 	compare_count_items(game);
 }
 /*
-find_start_position -->		-->here<--
-dfs -->						-->here<--
-free_game_visited -->		-->here<--
-compare_count_items -->		-->here<--
+[1]
+find_start_position -->			[2] -->here<--
+dfs -->							[3] -->here<--
+free_game_visited -->			[5] -->here<--
+compare_count_items -->			[4] -->here<--
 */

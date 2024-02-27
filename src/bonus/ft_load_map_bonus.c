@@ -6,7 +6,7 @@
 /*   By: ayarmaya <ayarmaya@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/17 16:36:17 by ayarmaya          #+#    #+#             */
-/*   Updated: 2024/02/26 23:33:08 by ayarmaya         ###   ########.fr       */
+/*   Updated: 2024/02/27 17:33:40 by ayarmaya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,9 @@ void	free_temp_map(t_list *temp_map)
 		free(current);
 	}
 }
+/*
+[4]
+*/
 
 void	remove_back_n(char *line)
 {
@@ -33,6 +36,9 @@ void	remove_back_n(char *line)
 	if (newline != NULL)
 		*newline = '\0';
 }
+/*
+[3]
+*/
 
 void	load_map_struct(t_list *temp_map, int line_count, t_vars *game)
 {
@@ -56,7 +62,8 @@ void	load_map_struct(t_list *temp_map, int line_count, t_vars *game)
 	ft_printf("\n\n");
 }
 /*
-exit_with_message -->		ft_utils.c
+[2]
+exit_with_message -->			[3] ft_utils_bonus.c
 */
 
 void	load_map(char *map_file, t_vars *game)
@@ -88,8 +95,9 @@ void	load_map(char *map_file, t_vars *game)
 	free_temp_map(temp_map);
 }
 /*
-exit_with_perror -->			ft_utils.c
-remove_back_n -->				-->here<--
-load_map_struct -->				-->here<--
-free_temp_map -->				-->here<--
+[1]
+exit_with_perror -->			[2] ft_utils_bonus.c
+remove_back_n -->				[3] -->here<--
+load_map_struct -->				[2] -->here<--
+free_temp_map -->				[4] -->here<--
 */
