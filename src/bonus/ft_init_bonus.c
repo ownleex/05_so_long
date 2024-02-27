@@ -6,7 +6,7 @@
 /*   By: ayarmaya <ayarmaya@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/21 23:35:21 by ayarmaya          #+#    #+#             */
-/*   Updated: 2024/02/27 17:20:03 by ayarmaya         ###   ########.fr       */
+/*   Updated: 2024/02/27 19:22:49 by ayarmaya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,10 @@ void	xpm_to_image(t_vars *game)
 	"sprites/exit.xpm", &game->wi, &game->he);
 	game->egout = mlx_xpm_file_to_image(game->mlx_ptr, \
 	"sprites/egout.xpm", &game->wi, &game->he);
+	game->win = mlx_xpm_file_to_image(game->mlx_ptr, \
+	"sprites/win.xpm", &game->w_mess, &game->h_mess);
+	game->loose = mlx_xpm_file_to_image(game->mlx_ptr, \
+	"sprites/loose.xpm", &game->w_mess, &game->h_mess);
 }
 /*
 [4]
@@ -47,11 +51,14 @@ void	string_screen(t_vars *game)
 	set_walls(game);
 	set_green(game);
 	mlx_string_put(game->mlx_ptr, game->win_ptr, \
-	170, game->win_y * game->he - 150, 0xF33FFFF, "MOUVEMENT(S)");
+	120, game->win_y * game->he - 100, 0xF33FFFF, "MOUVEMENT(S)");
 	mlx_string_put(game->mlx_ptr, game->win_ptr, \
-	150, game->win_y * game->he - 150, 0x33FFFF, str);
+	100, game->win_y * game->he - 100, 0x33FFFF, str);
 	mlx_string_put(game->mlx_ptr, game->win_ptr, \
-	150, game->win_y * game->he - 140, 0xF33FFFF, "_______________");
+	100, game->win_y * game->he - 90, 0xF33FFFF, "_______________");
+
+		mlx_put_image_to_window(game->mlx_ptr, \
+		game->win_ptr, game->loose, 100, 100);
 	free(str);
 }
 /*
