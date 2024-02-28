@@ -6,7 +6,7 @@
 /*   By: ayarmaya <ayarmaya@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/21 23:35:21 by ayarmaya          #+#    #+#             */
-/*   Updated: 2024/02/27 22:48:06 by ayarmaya         ###   ########.fr       */
+/*   Updated: 2024/02/28 15:30:25 by ayarmaya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,11 +47,11 @@ void	string_screen(t_vars *game)
 	set_walls(game);
 	set_green(game);
 	mlx_string_put(game->mlx_ptr, game->win_ptr, \
-	120, game->win_y * game->he - 100, 0xF33FFFF, "MOUVEMENT(S)");
+	75, game->win_y * game->he - 75, 0xF33FFFF, "MOUVEMENT(S)");
 	mlx_string_put(game->mlx_ptr, game->win_ptr, \
-	100, game->win_y * game->he - 100, 0x33FFFF, str);
+	55, game->win_y * game->he - 75, 0x33FFFF, str);
 	mlx_string_put(game->mlx_ptr, game->win_ptr, \
-	100, game->win_y * game->he - 90, 0xF33FFFF, "_______________");
+	55, game->win_y * game->he - 65, 0xF33FFFF, "_______________");
 	free(str);
 }
 /*
