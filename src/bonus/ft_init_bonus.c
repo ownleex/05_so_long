@@ -6,7 +6,7 @@
 /*   By: ayarmaya <ayarmaya@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/21 23:35:21 by ayarmaya          #+#    #+#             */
-/*   Updated: 2024/02/28 15:30:25 by ayarmaya         ###   ########.fr       */
+/*   Updated: 2024/02/28 19:17:06 by ayarmaya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,8 +66,7 @@ void	update_animation(t_vars *game, int *bool, struct timeval *last_change)
 	long			time_difference;
 
 	gettimeofday(&current_time, NULL);
-	time_difference = (current_time.tv_sec - last_change->tv_sec) * \
-	1000000L + (current_time.tv_usec - last_change->tv_usec);
+	time_difference = (current_time.tv_sec - last_change->tv_sec) * 1000000L + (current_time.tv_usec - last_change->tv_usec);
 	if (time_difference > 300000)
 	{
 		if (*bool)
