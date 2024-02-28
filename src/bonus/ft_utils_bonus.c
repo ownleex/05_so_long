@@ -6,7 +6,7 @@
 /*   By: ayarmaya <ayarmaya@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/05 19:06:49 by ayarmaya          #+#    #+#             */
-/*   Updated: 2024/02/28 01:22:42 by ayarmaya         ###   ########.fr       */
+/*   Updated: 2024/02/28 01:38:52 by ayarmaya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,11 +62,6 @@ void	exit_with_message(t_vars *game, char *message)
 }
 /*
 [3]
------
-[2] check_walls -->				ft_check_map_bonus.c
-[1] check_rectangular -->		ft_check_map_bonus.c
-[3] count_items_and_ver...		ft_check_map_bonus.c
-[5] verfiy_char -->				ft_check_map_bonus.c
 */
 
 void	exit_with_perror(t_vars *game, char *message)
@@ -77,9 +72,6 @@ void	exit_with_perror(t_vars *game, char *message)
 }
 /*
 [2]
------
-[5] verify_char -->				ft_check_map_bonus.c
-[3] count_items_and_veri...		ft_check_map_bonus.c
 */
 
 void	free_all_exit(t_vars *game)
