@@ -6,7 +6,7 @@
 /*   By: ayarmaya <ayarmaya@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/26 02:40:31 by ayarmaya          #+#    #+#             */
-/*   Updated: 2024/02/27 22:46:56 by ayarmaya         ###   ########.fr       */
+/*   Updated: 2024/02/28 01:17:12 by ayarmaya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -118,4 +118,6 @@ find_start_position -->			[2] -->here<--
 dfs -->							[3] -->here<--
 free_game_visited -->			[5] -->here<--
 compare_count_items -->			[4] -->here<--
+-----
+[3] count_item_and_ver...		ft_check_map_bonus.c
 */

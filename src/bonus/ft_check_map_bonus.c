@@ -6,7 +6,7 @@
 /*   By: ayarmaya <ayarmaya@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/19 01:56:41 by ayarmaya          #+#    #+#             */
-/*   Updated: 2024/02/27 17:07:33 by ayarmaya         ###   ########.fr       */
+/*   Updated: 2024/02/28 01:20:05 by ayarmaya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,8 @@ void	verify_char(t_vars *game, char c)
 /*
 [5]
 exit_with_message -->			[3] ft_utils_bonus.c
+-----
+[4] increment_counter -->		-->here<--
 */
 
 void	increment_counters(t_vars *game, char c)
@@ -36,6 +38,8 @@ void	increment_counters(t_vars *game, char c)
 /*
 [4]
 verify_char -->					[5] -->here<--
+-----
+[3] count_items_and_ver...		-->here<--
 */
 
 void	count_items_and_verify_chars(t_vars *game)
@@ -66,6 +70,8 @@ void	count_items_and_verify_chars(t_vars *game)
 increment_counters -->			[4] -->here<--
 exit_with_message -->			[3] ft_utils_bonus.c
 verify_path -->					[1] ft_check_road_bonus.c
+-----
+[2] check_walss -->				-->here<---
 */
 
 void	check_walls(t_vars *game)
@@ -114,4 +120,6 @@ void	check_rectangular(t_vars *game)
 [1]
 exit_with_message -->			[3] ft_utils_bonus.c
 check_walls -->					[2] -->here<--
+-----
+[2] check_rectangular -->		-->here<--
 */
